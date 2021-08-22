@@ -1,6 +1,7 @@
 //
 // Created by sato on 2021/8/21.
 //
+#pragma once
 #include "../wrapper.hpp"
 #include "../conn.hpp"
 
@@ -8,7 +9,7 @@ auto index() {
     return "Hello world!";
 }
 
-auto getPerson(){
+auto getPerson() {
     return "person list!";
 //    return person::PersonList(conn::Conn());
 }
