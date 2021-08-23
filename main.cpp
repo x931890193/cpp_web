@@ -1,10 +1,11 @@
 //
 // Created by sato on 2021/8/21.
 //
+#define CROW_MAIN  //
 #include "ext/resp.hpp"
 #include "ext/json.hpp"
 
-#include "ext/crow_all.hpp"
+#include "ext/crow_all_new.hpp"
 #include "include/handler/index.hpp"
 #include "include/conn.hpp"
 #include "include/method.hpp"
@@ -16,6 +17,8 @@ int main() {
     bool use_ssl = false;
     conn::Conn();
     crow::SimpleApp app;
+    CROW_LOG_INFO << "message";
+
     // get domian url based on the request
     auto get_domain = [&use_ssl](crow::request const &req) {
         return (use_ssl ? "https://" : "http://")
@@ -91,7 +94,7 @@ int main() {
                 data["p1"] = p1;
                 data["p2"] = p2;
                 base::jsonresponse r{base::BaseResp(0, "", data)};
-
+                r.set_header("Set-Cookie", "key=1111;");
                 return r;
             });
     CROW_ROUTE(app, "/about")
@@ -103,6 +106,15 @@ int main() {
                 std::string text = "User-agent: *\n"
                                    "Disallow: ";
                 return text;
+            });
+    CROW_ROUTE(app, "/set_cookies")
+            ([&](crow::response& res) {
+                std::string text = "set_cookie\n";
+
+                res.set_header("Set-Cookie", "11111");
+                res.write(text);
+                res.end();
+//                return text;
             });
     app.port(9090).multithreaded().run();
     return 0;

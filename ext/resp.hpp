@@ -5,7 +5,7 @@
 #ifndef CPP_WEB_RESP_HPP
 #define CPP_WEB_RESP_HPP
 
-#include "crow_all.hpp"
+#include "crow_all_new.hpp"
 #include "../ext/json.hpp"
 
 namespace base {
@@ -19,9 +19,11 @@ namespace base {
     struct jsonresponse : public crow::response {
         jsonresponse(const nlohmann::json &_body)
                 : crow::response{_body.dump()} {
+            add_header("Access-Control-Allow-Credentials", "true");
             add_header("Access-Control-Allow-Origin", "*");
             add_header("Access-Control-Allow-Headers", "*");
             add_header("Content-Type", "application/json");
+
         }
     };
 

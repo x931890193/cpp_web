@@ -6,7 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -std=c++17")
 
 add_definitions(-DORMPP_ENABLE_MYSQL)
 
-add_executable(cpp_web ext/crow_all.hpp main.cpp include/conn.hpp include/include.hpp include/wrapper.hpp include/handler/index.hpp include/method.hpp include/method.cpp ext/resp.hpp)
+add_executable(cpp_web ext/crow_all_new.hpp main.cpp include/conn.hpp include/include.hpp include/wrapper.hpp include/handler/index.hpp include/method.hpp include/method.cpp ext/resp.hpp)
 # 设置boost库的根路径
 set(BOOST_ROOT "/usr/local/include/boost")
 # 查找boost的功能模块
