@@ -18,7 +18,7 @@ int main() {
     conn::Conn();
     crow::SimpleApp app;
     CROW_LOG_INFO << "message";
-
+    compare();
     // get domian url based on the request
     auto get_domain = [&use_ssl](crow::request const &req) {
         return (use_ssl ? "https://" : "http://")
