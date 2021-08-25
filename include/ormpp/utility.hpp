@@ -83,6 +83,10 @@ namespace ormpp{
 #ifdef ORMPP_ENABLE_MYSQL
                 case DBType::mysql : s = ormpp_mysql::type_to_name(identity<U>{});
                     break;
+                case DBType::sqlite:
+                    break;
+                case DBType::postgresql:
+                    break;
 #endif
 #ifdef ORMPP_ENABLE_SQLITE3
 				case DBType::sqlite : s = ormpp_sqlite::type_to_name(identity<U>{});
@@ -92,6 +96,7 @@ namespace ormpp{
                 case DBType::postgresql : s = ormpp_postgresql::type_to_name(identity<U>{});
                     break;
 #endif
+
             }
 
             arr[Idx] = s;
@@ -111,7 +116,7 @@ namespace ormpp{
         std::string quota_name = "'" + std::string(iguana::get_name<T>()) + "'";
 #else
         std::string quota_name = "`" + std::string(iguana::get_name<T>()) + "`";
-#endif 
+#endif
 
         return quota_name;
     }
@@ -183,7 +188,7 @@ namespace ormpp{
 		if constexpr (sizeof...(Args) > 0) {
 			if (!is_empty(std::forward<Args>(where_conditon)...))//fix for vs2017
 				append(sql, " where ", std::forward<Args>(where_conditon)...);
-		}        
+		}
 
         return sql;
     }

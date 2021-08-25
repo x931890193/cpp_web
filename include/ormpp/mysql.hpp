@@ -18,7 +18,6 @@ namespace ormpp {
 	public:
 	    // 析构函数
 		~mysql() {
-	        std::cout << "\nbye";
 			disconnect();
 		}
 
