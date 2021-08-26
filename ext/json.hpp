@@ -27,12 +27,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE  OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef NLOHMANN_JSON_HPP
-#define NLOHMANN_JSON_HPP
+#ifndef JSON_HPP
+#define JSON_HPP
 
-#define NLOHMANN_JSON_VERSION_MAJOR 3
-#define NLOHMANN_JSON_VERSION_MINOR 1
-#define NLOHMANN_JSON_VERSION_PATCH 2
+#define JSON_VERSION_MAJOR 3
+#define JSON_VERSION_MINOR 1
+#define JSON_VERSION_PATCH 2
 
 #include <algorithm> // all_of, find, for_each
 #include <cassert> // assert
@@ -47,8 +47,8 @@ SOFTWARE.
 #include <utility> // declval, forward, move, pair, swap
 
 // #include <nlohmann/json_fwd.hpp>
-#ifndef NLOHMANN_JSON_FWD_HPP
-#define NLOHMANN_JSON_FWD_HPP
+#ifndef JSON_FWD_HPP
+#define JSON_FWD_HPP
 
 #include <cstdint> // int64_t, uint64_t
 #include <map> // map
@@ -195,7 +195,7 @@ using json = basic_json<>;
 // Ugly macros to avoid uglier copy-paste when specializing basic_json. They
 // may be removed in the future once the class is split.
 
-#define NLOHMANN_BASIC_JSON_TPL_DECLARATION                                \
+#define BASIC_JSON_TPL_DECLARATION                                \
     template<template<typename, typename, typename...> class ObjectType,   \
              template<typename, typename...> class ArrayType,              \
              class StringType, class BooleanType, class NumberIntegerType, \
@@ -203,7 +203,7 @@ using json = basic_json<>;
              template<typename> class AllocatorType,                       \
              template<typename, typename = void> class JSONSerializer>
 
-#define NLOHMANN_BASIC_JSON_TPL                                            \
+#define BASIC_JSON_TPL                                            \
     basic_json<ObjectType, ArrayType, StringType, BooleanType,             \
     NumberIntegerType, NumberUnsignedType, NumberFloatType,                \
     AllocatorType, JSONSerializer>
@@ -218,7 +218,7 @@ contains a `mapped_type`, whereas `std::vector` fails the test.
 @sa http://stackoverflow.com/a/7728728/266378
 @since version 1.0.0, overworked in version 2.0.6
 */
-#define NLOHMANN_JSON_HAS_HELPER(type)                                        \
+#define JSON_HAS_HELPER(type)                                        \
     template<typename T> struct has_##type {                                  \
     private:                                                                  \
         template<typename U, typename = typename U::type>                     \
@@ -261,8 +261,8 @@ namespace detail
 
 template<typename> struct is_basic_json : std::false_type {};
 
-NLOHMANN_BASIC_JSON_TPL_DECLARATION
-struct is_basic_json<NLOHMANN_BASIC_JSON_TPL> : std::true_type {};
+BASIC_JSON_TPL_DECLARATION
+struct is_basic_json<BASIC_JSON_TPL> : std::true_type {};
 
 // alias templates to reduce boilerplate
 template<bool B, typename T = void>
@@ -338,10 +338,10 @@ struct is_complete_type : std::false_type {};
 template <typename T>
 struct is_complete_type<T, decltype(void(sizeof(T)))> : std::true_type {};
 
-NLOHMANN_JSON_HAS_HELPER(mapped_type);
-NLOHMANN_JSON_HAS_HELPER(key_type);
-NLOHMANN_JSON_HAS_HELPER(value_type);
-NLOHMANN_JSON_HAS_HELPER(iterator);
+JSON_HAS_HELPER(mapped_type);
+JSON_HAS_HELPER(key_type);
+JSON_HAS_HELPER(value_type);
+JSON_HAS_HELPER(iterator);
 
 template<bool B, class RealType, class CompatibleObjectType>
 struct is_compatible_object_type_impl : std::false_type {};
@@ -10083,7 +10083,7 @@ template<typename BasicJsonType>
 class json_pointer
 {
 // allow basic_json to access private members
-NLOHMANN_BASIC_JSON_TPL_DECLARATION
+BASIC_JSON_TPL_DECLARATION
 friend class basic_json;
 
 public:
@@ -10902,7 +10902,7 @@ Format](http://rfc7159.net/rfc7159)
 
 @nosubgrouping
 */
-NLOHMANN_BASIC_JSON_TPL_DECLARATION
+BASIC_JSON_TPL_DECLARATION
 class basic_json
 {
 private:
@@ -10922,7 +10922,7 @@ template<typename BasicJsonType>
 friend class ::nlohmann::detail::json_sax_dom_callback_parser;
 
 /// workaround type for MSVC
-using basic_json_t = NLOHMANN_BASIC_JSON_TPL;
+using basic_json_t = BASIC_JSON_TPL;
 
 // convenience aliases for types residing in namespace detail;
 using lexer = ::nlohmann::detail::lexer<basic_json>;
@@ -11064,12 +11064,12 @@ result["copyright"] = "(C) 2013-2017 Niels Lohmann";
 result["name"] = "JSON for Modern C++";
 result["url"] = "https://github.com/nlohmann/json";
 result["version"]["string"] =
-std::to_string(NLOHMANN_JSON_VERSION_MAJOR) + "." +
-std::to_string(NLOHMANN_JSON_VERSION_MINOR) + "." +
-std::to_string(NLOHMANN_JSON_VERSION_PATCH);
-result["version"]["major"] = NLOHMANN_JSON_VERSION_MAJOR;
-result["version"]["minor"] = NLOHMANN_JSON_VERSION_MINOR;
-result["version"]["patch"] = NLOHMANN_JSON_VERSION_PATCH;
+std::to_string(JSON_VERSION_MAJOR) + "." +
+std::to_string(JSON_VERSION_MINOR) + "." +
+std::to_string(JSON_VERSION_PATCH);
+result["version"]["major"] = JSON_VERSION_MAJOR;
+result["version"]["minor"] = JSON_VERSION_MINOR;
+result["version"]["patch"] = JSON_VERSION_PATCH;
 
 #ifdef _WIN32
 result["platform"] = "win32";
@@ -18482,9 +18482,9 @@ return nlohmann::json::json_pointer(std::string(s, n));
 #undef JSON_DEPRECATED
 #undef JSON_HAS_CPP_14
 #undef JSON_HAS_CPP_17
-#undef NLOHMANN_BASIC_JSON_TPL_DECLARATION
-#undef NLOHMANN_BASIC_JSON_TPL
-#undef NLOHMANN_JSON_HAS_HELPER
+#undef BASIC_JSON_TPL_DECLARATION
+#undef BASIC_JSON_TPL
+#undef JSON_HAS_HELPER
 
 
 #endif
