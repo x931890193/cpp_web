@@ -27,57 +27,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE  OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef
-NLOHMANN_JSON_HPP
-#define
-NLOHMANN_JSON_HPP
+#ifndef NLOHMANN_JSON_HPP
+#define NLOHMANN_JSON_HPP
 
-#define
-NLOHMANN_JSON_VERSION_MAJOR 3
-#define
-NLOHMANN_JSON_VERSION_MINOR 1
-#define
-NLOHMANN_JSON_VERSION_PATCH 2
+#define NLOHMANN_JSON_VERSION_MAJOR 3
+#define NLOHMANN_JSON_VERSION_MINOR 1
+#define NLOHMANN_JSON_VERSION_PATCH 2
 
-#include
-<algorithm> // all_of, find, for_each
-#include
-<cassert> // assert
-#include
-<ciso646> // and, not, or
-#include
-<cstddef> // nullptr_t, ptrdiff_t, size_t
-#include
-<functional> // hash, less
-#include
-<initializer_list> // initializer_list
-#include
-<iosfwd> // istream, ostream
-#include
-<iterator> // iterator_traits, random_access_iterator_tag
-#include
-<numeric> // accumulate
-#include
-<string> // string, stoi, to_string
-#include
-<utility> // declval, forward, move, pair, swap
+#include <algorithm> // all_of, find, for_each
+#include <cassert> // assert
+#include <ciso646> // and, not, or
+#include <cstddef> // nullptr_t, ptrdiff_t, size_t
+#include <functional> // hash, less
+#include <initializer_list> // initializer_list
+#include <iosfwd> // istream, ostream
+#include <iterator> // iterator_traits, random_access_iterator_tag
+#include <numeric> // accumulate
+#include <string> // string, stoi, to_string
+#include <utility> // declval, forward, move, pair, swap
 
 // #include <nlohmann/json_fwd.hpp>
-#ifndef
-NLOHMANN_JSON_FWD_HPP
-#define
-NLOHMANN_JSON_FWD_HPP
+#ifndef NLOHMANN_JSON_FWD_HPP
+#define NLOHMANN_JSON_FWD_HPP
 
-#include
-<cstdint> // int64_t, uint64_t
-#include
-<map> // map
-#include
-<memory> // allocator
-#include
-<string> // string
-#include
-<vector> // vector
+#include <cstdint> // int64_t, uint64_t
+#include <map> // map
+#include <memory> // allocator
+#include <string> // string
+#include <vector> // vector
 
 /*!
 @brief namespace for Niels Lohmann
@@ -96,8 +73,7 @@ for serialization.
 template<typename T = void, typename SFINAE = void>
 struct adl_serializer;
 
-template<
-template<typename U, typename V, typename... Args> class ObjectType =
+template<template<typename U, typename V, typename... Args> class ObjectType =
 std::map,
 template<typename U, typename... Args> class ArrayType = std::vector,
 class StringType = std::string, class BooleanType = bool,
@@ -143,140 +119,93 @@ using json = basic_json<>;
 // You MUST include macro_unscope.hpp at the end of json.hpp to undef all of them
 
 // exclude unsupported compilers
-#if
-defined(__clang__)
-#if
-(__clang_major__ * 10000 + __clang_minor__ * 100 + __clang_patchlevel__) < 30400
-#error
-"unsupported Clang version - see https://github.com/nlohmann/json#supported-compilers"
+#if defined(__clang__)
+#if (__clang_major__ * 10000 + __clang_minor__ * 100 + __clang_patchlevel__) < 30400
+#error "unsupported Clang version - see https://github.com/nlohmann/json#supported-compilers"
 #endif
-#elif
-defined(__GNUC__) && !(defined(__ICC) || defined(__INTEL_COMPILER))
-#if
-(__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__) < 40900
-#error
-"unsupported GCC version - see https://github.com/nlohmann/json#supported-compilers"
+#elif defined(__GNUC__) && !(defined(__ICC) || defined(__INTEL_COMPILER))
+#if (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__) < 40900
+#error "unsupported GCC version - see https://github.com/nlohmann/json#supported-compilers"
 #endif
 #endif
 
 // disable float-equal warnings on GCC/clang
-#if
-defined(__clang__) || defined(__GNUC__) || defined(__GNUG__)
-#pragma
-GCC diagnostic push
-#pragma
-GCC diagnostic ignored "-Wfloat-equal"
+#if defined(__clang__) || defined(__GNUC__) || defined(__GNUG__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wfloat-equal"
 #endif
 
 // disable documentation warnings on clang
-#if
-defined(__clang__)
-#pragma
-GCC diagnostic push
-#pragma
-GCC diagnostic ignored "-Wdocumentation"
+#if defined(__clang__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdocumentation"
 #endif
 
 // allow for portable deprecation warnings
-#if
-defined(__clang__) || defined(__GNUC__) || defined(__GNUG__)
-#define
-JSON_DEPRECATED __attribute__((deprecated))
-#elif
-defined(_MSC_VER)
-#define
-JSON_DEPRECATED __declspec(deprecated)
+#if defined(__clang__) || defined(__GNUC__) || defined(__GNUG__)
+#define JSON_DEPRECATED __attribute__((deprecated))
+#elif defined(_MSC_VER)
+#define JSON_DEPRECATED __declspec(deprecated)
 #else
-#define
-JSON_DEPRECATED
+#define JSON_DEPRECATED
 #endif
 
 // allow to disable exceptions
-#if
-(defined(__cpp_exceptions) || defined(__EXCEPTIONS) || defined(_CPPUNWIND)) && !defined(JSON_NOEXCEPTION)
-#define
-JSON_THROW(exception) throw exception
-#define
-JSON_TRY try
-#define
-JSON_CATCH(exception) catch(exception)
+#if (defined(__cpp_exceptions) || defined(__EXCEPTIONS) || defined(_CPPUNWIND)) && !defined(JSON_NOEXCEPTION)
+#define JSON_THROW(exception) throw exception
+#define JSON_TRY try
+#define JSON_CATCH(exception) catch(exception)
 #else
-#define
-JSON_THROW(exception) std::abort()
-#define
-JSON_TRY if (true)
-#define
-JSON_CATCH(exception) if (false)
+#define JSON_THROW(exception) std::abort()
+#define JSON_TRY if(true)
+#define JSON_CATCH(exception) if(false)
 #endif
 
 // override exception macros
-#if
-defined(JSON_THROW_USER)
-#undef
-JSON_THROW
-#define
-JSON_THROW JSON_THROW_USER
+#if defined(JSON_THROW_USER)
+#undef JSON_THROW
+#define JSON_THROW JSON_THROW_USER
 #endif
-#if
-defined(JSON_TRY_USER)
-#undef
-JSON_TRY
-#define
-JSON_TRY JSON_TRY_USER
+#if defined(JSON_TRY_USER)
+#undef JSON_TRY
+#define JSON_TRY JSON_TRY_USER
 #endif
-#if
-defined(JSON_CATCH_USER)
-#undef
-JSON_CATCH
-#define
-JSON_CATCH JSON_CATCH_USER
+#if defined(JSON_CATCH_USER)
+#undef JSON_CATCH
+#define JSON_CATCH JSON_CATCH_USER
 #endif
 
 // manual branch prediction
-#if
-defined(__clang__) || defined(__GNUC__) || defined(__GNUG__)
-#define
-JSON_LIKELY(x)      __builtin_expect(!!(x), 1)
-#define
-JSON_UNLIKELY(x)    __builtin_expect(!!(x), 0)
+#if defined(__clang__) || defined(__GNUC__) || defined(__GNUG__)
+#define JSON_LIKELY(x)      __builtin_expect(!!(x), 1)
+#define JSON_UNLIKELY(x)    __builtin_expect(!!(x), 0)
 #else
-#define
-JSON_LIKELY(x)      x
-#define
-JSON_UNLIKELY(x)    x
+#define JSON_LIKELY(x)      x
+#define JSON_UNLIKELY(x)    x
 #endif
 
 // C++ language standard detection
 #if (defined(__cplusplus) && __cplusplus >= 201703L) || (defined(_HAS_CXX17) && _HAS_CXX17 == 1) // fix for issue #464
-#define
-JSON_HAS_CPP_17
-#define
-JSON_HAS_CPP_14
-#elif
-(defined(__cplusplus) && __cplusplus >= 201402L) || (defined(_HAS_CXX14) && _HAS_CXX14 == 1)
-#define
-JSON_HAS_CPP_14
+#define JSON_HAS_CPP_17
+#define JSON_HAS_CPP_14
+#elif (defined(__cplusplus) && __cplusplus >= 201402L) || (defined(_HAS_CXX14) && _HAS_CXX14 == 1)
+#define JSON_HAS_CPP_14
 #endif
 
 // Ugly macros to avoid uglier copy-paste when specializing basic_json. They
 // may be removed in the future once the class is split.
 
-#define
-NLOHMANN_BASIC_JSON_TPL_DECLARATION                                \
-    template<
-template<typename, typename, typename...> class ObjectType, \
-
-template<typename, typename...> class ArrayType, \
+#define NLOHMANN_BASIC_JSON_TPL_DECLARATION                                \
+    template<template<typename, typename, typename...> class ObjectType,   \
+             template<typename, typename...> class ArrayType,              \
              class StringType, class BooleanType, class NumberIntegerType, \
-             class NumberUnsignedType, class NumberFloatType, \
-
-template<typename> class AllocatorType, \
+             class NumberUnsignedType, class NumberFloatType,              \
+             template<typename> class AllocatorType,                       \
              template<typename, typename = void> class JSONSerializer>
 
-#define
-NLOHMANN_BASIC_JSON_TPL                                            \
-    basic_json<ObjectType, ArrayType, StringType, BooleanType, \
-    NumberIntegerType, NumberUnsignedType, NumberFloatType, \
+#define NLOHMANN_BASIC_JSON_TPL                                            \
+    basic_json<ObjectType, ArrayType, StringType, BooleanType,             \
+    NumberIntegerType, NumberUnsignedType, NumberFloatType,                \
     AllocatorType, JSONSerializer>
 
 /*!
@@ -289,38 +218,25 @@ contains a `mapped_type`, whereas `std::vector` fails the test.
 @sa http://stackoverflow.com/a/7728728/266378
 @since version 1.0.0, overworked in version 2.0.6
 */
-#define
-NLOHMANN_JSON_HAS_HELPER(type)                                        \
-
-template<typename T> struct has_##type {
-\
-
-private:
-\
+#define NLOHMANN_JSON_HAS_HELPER(type)                                        \
+    template<typename T> struct has_##type {                                  \
+    private:                                                                  \
         template<typename U, typename = typename U::type>                     \
         static int detect(U &&);                                              \
         static void detect(...);                                              \
-
-public:
-\
+    public:                                                                   \
         static constexpr bool value =                                         \
                 std::is_integral<decltype(detect(std::declval<T>()))>::value; \
-
-}
+    }
 
 // #include <nlohmann/detail/meta.hpp>
 
 
-#include
-<ciso646> // not
-#include
-<cstddef> // size_t
-#include
-<limits> // numeric_limits
-#include
-<type_traits> // conditional, enable_if, false_type, integral_constant, is_constructible, is_integral, is_same, remove_cv, remove_reference, true_type
-#include
-<utility> // declval
+#include <ciso646> // not
+#include <cstddef> // size_t
+#include <limits> // numeric_limits
+#include <type_traits> // conditional, enable_if, false_type, integral_constant, is_constructible, is_integral, is_same, remove_cv, remove_reference, true_type
+#include <utility> // declval
 
 // #include <nlohmann/json_fwd.hpp>
 
@@ -343,12 +259,10 @@ namespace detail
 // helpers //
 /////////////
 
-template<typename> struct is_basic_json : std::false_type {
-};
+template<typename> struct is_basic_json : std::false_type {};
 
 NLOHMANN_BASIC_JSON_TPL_DECLARATION
-struct is_basic_json<NLOHMANN_BASIC_JSON_TPL> : std::true_type {
-};
+struct is_basic_json<NLOHMANN_BASIC_JSON_TPL> : std::true_type {};
 
 // alias templates to reduce boilerplate
 template<bool B, typename T = void>
@@ -375,14 +289,12 @@ struct merge_and_renumber;
 
 template<std::size_t... I1, std::size_t... I2>
 struct merge_and_renumber<index_sequence<I1...>, index_sequence<I2...>>
-: index_sequence < I1..., (sizeof...(I1) + I2)... > {
-};
+: index_sequence < I1..., (sizeof...(I1) + I2)... > {};
 
 template<std::size_t N>
 struct make_index_sequence
 : merge_and_renumber < typename make_index_sequence < N / 2 >::type,
-typename make_index_sequence < N - N / 2 >::type > {
-};
+typename make_index_sequence < N - N / 2 >::type > {};
 
 template<> struct make_index_sequence<0> : index_sequence<> {};
 template<> struct make_index_sequence<1> : index_sequence<0> {};
@@ -406,8 +318,7 @@ internal compiler errors). Only use it when you have to (see example ahead).
 template<class...> struct conjunction : std::true_type {};
 template<class B1> struct conjunction<B1> : B1 {};
 template<class B1, class... Bn>
-struct conjunction<B1, Bn...> : std::conditional<bool(B1::value), conjunction<Bn...>, B1>::type {
-};
+struct conjunction<B1, Bn...> : std::conditional<bool(B1::value), conjunction<Bn...>, B1>::type {};
 
 template<class B> struct negation : std::integral_constant<bool, not B::value> {};
 
@@ -422,12 +333,10 @@ template<> struct priority_tag<0> {};
 // source: https://stackoverflow.com/a/37193089/4116453
 
 template <typename T, typename = void>
-struct is_complete_type : std::false_type {
-};
+struct is_complete_type : std::false_type {};
 
 template <typename T>
-struct is_complete_type<T, decltype(void(sizeof(T)))> : std::true_type {
-};
+struct is_complete_type<T, decltype(void(sizeof(T)))> : std::true_type {};
 
 NLOHMANN_JSON_HAS_HELPER(mapped_type);
 NLOHMANN_JSON_HAS_HELPER(key_type);
@@ -435,8 +344,7 @@ NLOHMANN_JSON_HAS_HELPER(value_type);
 NLOHMANN_JSON_HAS_HELPER(iterator);
 
 template<bool B, class RealType, class CompatibleObjectType>
-struct is_compatible_object_type_impl : std::false_type {
-};
+struct is_compatible_object_type_impl : std::false_type {};
 
 template<class RealType, class CompatibleObjectType>
 struct is_compatible_object_type_impl<true, RealType, CompatibleObjectType>
@@ -480,8 +388,7 @@ has_iterator<CompatibleArrayType>>::value;
 };
 
 template<bool, typename, typename>
-struct is_compatible_integer_type_impl : std::false_type {
-};
+struct is_compatible_integer_type_impl : std::false_type {};
 
 template<typename RealIntegerType, typename CompatibleNumberIntegerType>
 struct is_compatible_integer_type_impl<true, RealIntegerType, CompatibleNumberIntegerType>
@@ -503,7 +410,7 @@ static constexpr auto value =
 is_compatible_integer_type_impl <
 std::is_integral<CompatibleNumberIntegerType>::value and
 not std::is_same<bool, CompatibleNumberIntegerType>::value,
-RealIntegerType, CompatibleNumberIntegerType >::value;
+RealIntegerType, CompatibleNumberIntegerType > ::value;
 };
 
 // trait checking if JSONSerializer<T>::from_json(json const&, udt&) exists
@@ -576,8 +483,7 @@ is_compatible_complete_type<BasicJsonType, CompatibleType>>
 template<typename T>
 struct static_const
 {
-static constexpr T value{
-};
+static constexpr T value{};
 };
 
 template<typename T>
@@ -588,12 +494,9 @@ constexpr T static_const<T>::value;
 // #include <nlohmann/detail/exceptions.hpp>
 
 
-#include
-<exception> // exception
-#include
-<stdexcept> // runtime_error
-#include
-<string> // to_string
+#include <exception> // exception
+#include <stdexcept> // runtime_error
+#include <string> // to_string
 
 namespace nlohmann
 {
@@ -631,8 +534,7 @@ caught.,exception}
 
 @since version 3.0.0
 */
-class exception :
-public std::exception
+class exception : public std::exception
 {
 public:
 /// returns the explanatory string
@@ -645,8 +547,7 @@ return m.what();
 const int id;
 
 protected:
-exception(int id_, const char* what_arg) : id(id_), m(what_arg) {
-}
+exception(int id_, const char* what_arg) : id(id_), m(what_arg) {}
 
 static std::string name(const std::string& ename, int id_)
 {
@@ -701,8 +602,7 @@ caught.,parse_error}
 
 @since version 3.0.0
 */
-class parse_error :
-public exception
+class parse_error : public exception
 {
 public:
 /*!
@@ -734,8 +634,7 @@ const std::size_t byte;
 
 private:
 parse_error(int id_, std::size_t byte_, const char* what_arg)
-: exception(id_, what_arg), byte(byte_) {
-}
+: exception(id_, what_arg), byte(byte_) {}
 };
 
 /*!
@@ -775,8 +674,7 @@ caught.,invalid_iterator}
 
 @since version 3.0.0
 */
-class invalid_iterator :
-public exception
+class invalid_iterator : public exception
 {
 public:
 static invalid_iterator create(int id_, const std::string& what_arg)
@@ -787,8 +685,7 @@ return invalid_iterator(id_, w.c_str());
 
 private:
 invalid_iterator(int id_, const char* what_arg)
-: exception(id_, what_arg) {
-}
+: exception(id_, what_arg) {}
 };
 
 /*!
@@ -829,8 +726,7 @@ caught.,type_error}
 
 @since version 3.0.0
 */
-class type_error :
-public exception
+class type_error : public exception
 {
 public:
 static type_error create(int id_, const std::string& what_arg)
@@ -840,8 +736,7 @@ return type_error(id_, w.c_str());
 }
 
 private:
-type_error(int id_, const char* what_arg) : exception(id_, what_arg) {
-}
+type_error(int id_, const char* what_arg) : exception(id_, what_arg) {}
 };
 
 /*!
@@ -876,8 +771,7 @@ caught.,out_of_range}
 
 @since version 3.0.0
 */
-class out_of_range :
-public exception
+class out_of_range : public exception
 {
 public:
 static out_of_range create(int id_, const std::string& what_arg)
@@ -887,8 +781,7 @@ return out_of_range(id_, w.c_str());
 }
 
 private:
-out_of_range(int id_, const char* what_arg) : exception(id_, what_arg) {
-}
+out_of_range(int id_, const char* what_arg) : exception(id_, what_arg) {}
 };
 
 /*!
@@ -915,8 +808,7 @@ caught.,other_error}
 
 @since version 3.0.0
 */
-class other_error :
-public exception
+class other_error : public exception
 {
 public:
 static other_error create(int id_, const std::string& what_arg)
@@ -926,8 +818,7 @@ return other_error(id_, w.c_str());
 }
 
 private:
-other_error(int id_, const char* what_arg) : exception(id_, what_arg) {
-}
+other_error(int id_, const char* what_arg) : exception(id_, what_arg) {}
 };
 }
 }
@@ -935,14 +826,10 @@ other_error(int id_, const char* what_arg) : exception(id_, what_arg) {
 // #include <nlohmann/detail/value_t.hpp>
 
 
-#include
-<array> // array
-#include
-<ciso646> // and
-#include
-<cstddef> // size_t
-#include
-<cstdint> // uint8_t
+#include <array> // array
+#include <ciso646> // and
+#include <cstddef> // size_t
+#include <cstdint> // uint8_t
 
 namespace nlohmann
 {
@@ -1001,8 +888,7 @@ Returns an ordering that is similar to Python:
 */
 inline bool operator<(const value_t lhs, const value_t rhs) noexcept
 {
-static constexpr std::array<std::uint8_t, 8> order = {
-{
+static constexpr std::array<std::uint8_t, 8> order = {{
 0 /* null */, 3 /* object */, 4 /* array */, 5 /* string */,
 1 /* boolean */, 2 /* integer */, 2 /* unsigned */, 2 /* float */
 }
@@ -1018,28 +904,17 @@ return l_index < order.size() and r_index < order.size() and order[l_index] < or
 // #include <nlohmann/detail/conversions/from_json.hpp>
 
 
-#include
-<algorithm> // transform
-#include
-<array> // array
-#include
-<ciso646> // and, not
-#include
-<forward_list> // forward_list
-#include
-<iterator> // inserter, front_inserter, end
-#include
-<map> // map
-#include
-<string> // string
-#include
-<tuple> // tuple, make_tuple
-#include
-<type_traits> // is_arithmetic, is_same, is_enum, underlying_type, is_convertible
-#include
-<utility> // pair, declval
-#include
-<valarray> // valarray
+#include <algorithm> // transform
+#include <array> // array
+#include <ciso646> // and, not
+#include <forward_list> // forward_list
+#include <iterator> // inserter, front_inserter, end
+#include <map> // map
+#include <string> // string
+#include <tuple> // tuple, make_tuple
+#include <type_traits> // is_arithmetic, is_same, is_enum, underlying_type, is_convertible
+#include <utility> // pair, declval
+#include <valarray> // valarray
 
 // #include <nlohmann/detail/exceptions.hpp>
 
@@ -1151,7 +1026,7 @@ if (JSON_UNLIKELY(not j.is_array()))
 JSON_THROW(type_error::create(302, "type must be array, but is " + std::string(j.type_name())));
 }
 std::transform(j.rbegin(), j.rend(),
-std::front_inserter(l),[](const BasicJsonType & i)
+std::front_inserter(l), [](const BasicJsonType & i)
 {
 return i.template get<T>();
 });
@@ -1176,7 +1051,7 @@ void from_json_array_impl(const BasicJsonType& j, CompatibleArrayType& arr, prio
 using std::end;
 
 std::transform(j.begin(), j.end(),
-std::inserter(arr, end(arr)),[](const BasicJsonType & i)
+std::inserter(arr, end(arr)), [](const BasicJsonType & i)
 {
 // get<BasicJsonType>() returns *this, this won't call a from_json
 // method when value_type is BasicJsonType
@@ -1194,7 +1069,7 @@ using std::end;
 
 arr.reserve(j.size());
 std::transform(j.begin(), j.end(),
-std::inserter(arr, end(arr)),[](const BasicJsonType & i)
+std::inserter(arr, end(arr)), [](const BasicJsonType & i)
 {
 // get<BasicJsonType>() returns *this, this won't call a from_json
 // method when value_type is BasicJsonType
@@ -1228,8 +1103,7 @@ JSON_THROW(type_error::create(302, "type must be array, but is " +
 std::string(j.type_name())));
 }
 
-from_json_array_impl(j, arr, priority_tag<2> {
-});
+from_json_array_impl(j, arr, priority_tag<2> {});
 }
 
 template<typename BasicJsonType, typename CompatibleObjectType,
@@ -1297,23 +1171,19 @@ JSON_THROW(type_error::create(302, "type must be number, but is " + std::string(
 template<typename BasicJsonType, typename A1, typename A2>
 void from_json(const BasicJsonType& j, std::pair<A1, A2>& p)
 {
-p = {
-j.at(0).
-template get<A1>(), j.at(1).template get<A2>() };
+p = {j.at(0).template get<A1>(), j.at(1).template get<A2>()};
 }
 
 template<typename BasicJsonType, typename Tuple, std::size_t... Idx>
 void from_json_tuple_impl(const BasicJsonType& j, Tuple& t, index_sequence<Idx...>)
 {
-t = std::make_tuple(j.at(Idx).
-template get<typename std::tuple_element<Idx, Tuple>::type>()...);
+t = std::make_tuple(j.at(Idx).template get<typename std::tuple_element<Idx, Tuple>::type>()...);
 }
 
 template<typename BasicJsonType, typename... Args>
 void from_json(const BasicJsonType& j, std::tuple<Args...>& t)
 {
-from_json_tuple_impl(j, t, index_sequence_for<Args...> {
-});
+from_json_tuple_impl(j, t, index_sequence_for<Args...> {});
 }
 
 template <typename BasicJsonType, typename Key, typename Value,
@@ -1331,8 +1201,7 @@ if (JSON_UNLIKELY(not p.is_array()))
 {
 JSON_THROW(type_error::create(302, "type must be array, but is " + std::string(p.type_name())));
 }
-m.emplace(p.at(0).template get<Key>(), p.at(1).
-template get<Value>());
+m.emplace(p.at(0).template get<Key>(), p.at(1).template get<Value>());
 }
 }
 
@@ -1352,8 +1221,7 @@ void call(const BasicJsonType& /*unused*/, T& /*unused*/, priority_tag<0> /*unus
 {
 static_assert(sizeof(BasicJsonType) == 0,
 "could not find from_json() method in T's namespace");
-#ifdef
-_MSC_VER
+#ifdef _MSC_VER
 // MSVC does not show a stacktrace for the above assert
 using decayed = uncvref_t<T>;
 static_assert(sizeof(typename decayed::force_msvc_stacktrace) == 0,
@@ -1364,11 +1232,9 @@ static_assert(sizeof(typename decayed::force_msvc_stacktrace) == 0,
 public:
 template<typename BasicJsonType, typename T>
 void operator()(const BasicJsonType& j, T& val) const
-noexcept(noexcept(std::declval<from_json_fn>().call(j, val, priority_tag<1> {
-})))
+noexcept(noexcept(std::declval<from_json_fn>().call(j, val, priority_tag<1> {})))
 {
-return call(j, val, priority_tag<1> {
-});
+return call(j, val, priority_tag<1> {});
 }
 };
 }
@@ -1385,20 +1251,13 @@ constexpr const auto& from_json = detail::static_const<detail::from_json_fn>::va
 // #include <nlohmann/detail/conversions/to_json.hpp>
 
 
-#include
-<ciso646> // or, and, not
-#include
-<iterator> // begin, end
-#include
-<tuple> // tuple, get
-#include
-<type_traits> // is_same, is_constructible, is_floating_point, is_enum, underlying_type
-#include
-<utility> // move, forward, declval, pair
-#include
-<valarray> // valarray
-#include
-<vector> // vector
+#include <ciso646> // or, and, not
+#include <iterator> // begin, end
+#include <tuple> // tuple, get
+#include <type_traits> // is_same, is_constructible, is_floating_point, is_enum, underlying_type
+#include <utility> // move, forward, declval, pair
+#include <valarray> // valarray
+#include <vector> // vector
 
 // #include <nlohmann/detail/meta.hpp>
 
@@ -1675,24 +1534,19 @@ external_constructor<value_t::array>::construct(j, arr);
 template<typename BasicJsonType, typename... Args>
 void to_json(BasicJsonType& j, const std::pair<Args...>& p)
 {
-j = {
-p.first, p.second
-};
+j = {p.first, p.second};
 }
 
 template<typename BasicJsonType, typename Tuple, std::size_t... Idx>
 void to_json_tuple_impl(BasicJsonType& j, const Tuple& t, index_sequence<Idx...>)
 {
-j = {
-std::get<Idx>(t)...
-};
+j = {std::get<Idx>(t)...};
 }
 
 template<typename BasicJsonType, typename... Args>
 void to_json(BasicJsonType& j, const std::tuple<Args...>& t)
 {
-to_json_tuple_impl(j, t, index_sequence_for<Args...> {
-});
+to_json_tuple_impl(j, t, index_sequence_for<Args...> {});
 }
 
 struct to_json_fn
@@ -1711,8 +1565,7 @@ void call(BasicJsonType& /*unused*/, T&& /*unused*/, priority_tag<0> /*unused*/)
 static_assert(sizeof(BasicJsonType) == 0,
 "could not find to_json() method in T's namespace");
 
-#ifdef
-_MSC_VER
+#ifdef _MSC_VER
 // MSVC does not show a stacktrace for the above assert
 using decayed = uncvref_t<T>;
 static_assert(sizeof(typename decayed::force_msvc_stacktrace) == 0,
@@ -1723,11 +1576,9 @@ static_assert(sizeof(typename decayed::force_msvc_stacktrace) == 0,
 public:
 template<typename BasicJsonType, typename T>
 void operator()(BasicJsonType& j, T&& val) const
-noexcept(noexcept(std::declval<to_json_fn>().call(j, std::forward<T>(val), priority_tag<1> {
-})))
+noexcept(noexcept(std::declval<to_json_fn>().call(j, std::forward<T>(val), priority_tag<1> {})))
 {
-return call(j, std::forward<T>(val), priority_tag<1> {
-});
+return call(j, std::forward<T>(val), priority_tag<1> {});
 }
 };
 }
@@ -1742,26 +1593,16 @@ constexpr const auto& to_json = detail::static_const<detail::to_json_fn>::value;
 // #include <nlohmann/detail/input/input_adapters.hpp>
 
 
-#include
-<cassert> // assert
-#include
-<cstddef> // size_t
-#include
-<cstring> // strlen
-#include
-<istream> // istream
-#include
-<iterator> // begin, end, iterator_traits, random_access_iterator_tag, distance, next
-#include
-<memory> // shared_ptr, make_shared, addressof
-#include
-<numeric> // accumulate
-#include
-<string> // string, char_traits
-#include
-<type_traits> // enable_if, is_base_of, is_pointer, is_integral, remove_pointer
-#include
-<utility> // pair, declval
+#include <cassert> // assert
+#include <cstddef> // size_t
+#include <cstring> // strlen
+#include <istream> // istream
+#include <iterator> // begin, end, iterator_traits, random_access_iterator_tag, distance, next
+#include <memory> // shared_ptr, make_shared, addressof
+#include <numeric> // accumulate
+#include <string> // string, char_traits
+#include <type_traits> // enable_if, is_base_of, is_pointer, is_integral, remove_pointer
+#include <utility> // pair, declval
 
 // #include <nlohmann/detail/macro_scope.hpp>
 
@@ -1771,9 +1612,7 @@ namespace nlohmann
 namespace detail
 {
 /// the supported input formats
-enum class input_format_t {
-json, cbor, msgpack, ubjson
-};
+enum class input_format_t { json, cbor, msgpack, ubjson };
 
 ////////////////////
 // input adapters //
@@ -1809,8 +1648,7 @@ characters following those used in parsing the JSON input.  Clears the
 std::istream flags; any input errors (e.g., EOF) will be detected by the first
 subsequent call for input from the std::istream.
 */
-class input_stream_adapter :
-public input_adapter_protocol
+class input_stream_adapter : public input_adapter_protocol
 {
 public:
 ~input_stream_adapter() override
@@ -1822,8 +1660,7 @@ is.clear();
 
 explicit input_stream_adapter(std::istream& i)
 : is(i), sb(*i.rdbuf())
-{
-}
+{}
 
 // delete because of pointer members
 input_stream_adapter(const input_stream_adapter&) = delete;
@@ -1844,14 +1681,12 @@ std::streambuf& sb;
 };
 
 /// input adapter for buffer input
-class input_buffer_adapter :
-public input_adapter_protocol
+class input_buffer_adapter : public input_adapter_protocol
 {
 public:
 input_buffer_adapter(const char* b, const std::size_t l)
 : cursor(b), limit(b + l)
-{
-}
+{}
 
 // delete because of pointer members
 input_buffer_adapter(const input_buffer_adapter&) = delete;
@@ -1875,12 +1710,10 @@ const char* const limit;
 };
 
 template<typename WideStringType>
-class wide_string_input_adapter :
-public input_adapter_protocol
+class wide_string_input_adapter : public input_adapter_protocol
 {
 public:
-wide_string_input_adapter(const WideStringType& w) : str(w) {
-}
+wide_string_input_adapter(const WideStringType& w) : str(w) {}
 
 std::char_traits<char>::int_type get_character() noexcept override
 {
@@ -2021,7 +1854,7 @@ const WideStringType& str;
 std::size_t current_wchar = 0;
 
 /// a buffer for UTF-8 bytes
-std::array<std::char_traits<char>::int_type, 4> utf8_bytes = {{ 0, 0, 0, 0 }};
+std::array<std::char_traits<char>::int_type, 4> utf8_bytes = {{0, 0, 0, 0}};
 
 /// index to the utf8_codes array for the next valid byte
 std::size_t utf8_bytes_index = 0;
@@ -2036,24 +1869,20 @@ public:
 
 /// input adapter for input stream
 input_adapter(std::istream& i)
-: ia(std::make_shared<input_stream_adapter>(i)) {
-}
+: ia(std::make_shared<input_stream_adapter>(i)) {}
 
 /// input adapter for input stream
 input_adapter(std::istream&& i)
 : ia(std::make_shared<input_stream_adapter>(i)) {}
 
 input_adapter(const std::wstring& ws)
-: ia(std::make_shared<wide_string_input_adapter<std::wstring>>(ws)) {
-}
+: ia(std::make_shared<wide_string_input_adapter<std::wstring>>(ws)) {}
 
 input_adapter(const std::u16string& ws)
-: ia(std::make_shared<wide_string_input_adapter<std::u16string>>(ws)) {
-}
+: ia(std::make_shared<wide_string_input_adapter<std::u16string>>(ws)) {}
 
 input_adapter(const std::u32string& ws)
-: ia(std::make_shared<wide_string_input_adapter<std::u32string>>(ws)) {
-}
+: ia(std::make_shared<wide_string_input_adapter<std::u32string>>(ws)) {}
 
 /// input adapter for buffer
 template<typename CharT,
@@ -2063,8 +1892,7 @@ std::is_integral<typename std::remove_pointer<CharT>::type>::value and
 sizeof(typename std::remove_pointer<CharT>::type) == 1,
 int>::type = 0>
 input_adapter(CharT b, std::size_t l)
-: ia(std::make_shared<input_buffer_adapter>(reinterpret_cast<const char*>(b), l)) {
-}
+: ia(std::make_shared<input_buffer_adapter>(reinterpret_cast<const char*>(b), l)) {}
 
 // derived support
 
@@ -2077,8 +1905,7 @@ sizeof(typename std::remove_pointer<CharT>::type) == 1,
 int>::type = 0>
 input_adapter(CharT b)
 : input_adapter(reinterpret_cast<const char*>(b),
-std::strlen(reinterpret_cast<const char*>(b))) {
-}
+std::strlen(reinterpret_cast<const char*>(b))) {}
 
 /// input adapter for iterator range with contiguous storage
 template<class IteratorType,
@@ -2118,8 +1945,7 @@ ia = std::make_shared<input_buffer_adapter>(nullptr, len);
 /// input adapter for array
 template<class T, std::size_t N>
 input_adapter(T (&array)[N])
-: input_adapter(std::begin(array), std::end(array)) {
-}
+: input_adapter(std::begin(array), std::end(array)) {}
 
 /// input adapter for contiguous container
 template<class ContiguousContainer, typename
@@ -2127,8 +1953,7 @@ std::enable_if<not std::is_pointer<ContiguousContainer>::value and
 std::is_base_of<std::random_access_iterator_tag, typename std::iterator_traits<decltype(std::begin(std::declval<ContiguousContainer const>()))>::iterator_category>::value,
 int>::type = 0>
 input_adapter(const ContiguousContainer& c)
-: input_adapter(std::begin(c), std::end(c)) {
-}
+: input_adapter(std::begin(c), std::end(c)) {}
 
 operator input_adapter_t()
 {
@@ -2145,24 +1970,15 @@ input_adapter_t ia = nullptr;
 // #include <nlohmann/detail/input/lexer.hpp>
 
 
-#include
-<clocale> // localeconv
-#include
-<cstddef> // size_t
-#include
-<cstdlib> // strtof, strtod, strtold, strtoll, strtoull
-#include
-<initializer_list> // initializer_list
-#include
-<ios> // hex, uppercase
-#include
-<iomanip> // setw, setfill
-#include
-<sstream> // stringstream
-#include
-<string> // char_traits, string
-#include
-<vector> // vector
+#include <clocale> // localeconv
+#include <cstddef> // size_t
+#include <cstdlib> // strtof, strtod, strtold, strtoll, strtoull
+#include <initializer_list> // initializer_list
+#include <ios> // hex, uppercase
+#include <iomanip> // setw, setfill
+#include <sstream> // stringstream
+#include <string> // char_traits, string
+#include <vector> // vector
 
 // #include <nlohmann/detail/macro_scope.hpp>
 
@@ -2256,8 +2072,7 @@ return "unknown token"; // LCOV_EXCL_LINE
 }
 
 explicit lexer(detail::input_adapter_t&& adapter)
-: ia(std::move(adapter)), decimal_point_char(get_decimal_point()) {
-}
+: ia(std::move(adapter)), decimal_point_char(get_decimal_point()) {}
 
 // delete because of pointer members
 lexer(const lexer&) = delete;
@@ -2718,8 +2533,7 @@ case 0xDD:
 case 0xDE:
 case 0xDF:
 {
-if (JSON_UNLIKELY(not next_byte_in_range({0x80, 0xBF
-})))
+if (JSON_UNLIKELY(not next_byte_in_range({0x80, 0xBF})))
 {
 return token_type::parse_error;
 }
@@ -2729,9 +2543,7 @@ break;
 // U+0800..U+0FFF: bytes E0 A0..BF 80..BF
 case 0xE0:
 {
-if (JSON_UNLIKELY(not (next_byte_in_range({
-0xA0, 0xBF, 0x80, 0xBF
-}))))
+if (JSON_UNLIKELY(not (next_byte_in_range({0xA0, 0xBF, 0x80, 0xBF}))))
 {
 return token_type::parse_error;
 }
@@ -2755,9 +2567,7 @@ case 0xEC:
 case 0xEE:
 case 0xEF:
 {
-if (JSON_UNLIKELY(not (next_byte_in_range({
-0x80, 0xBF, 0x80, 0xBF
-}))))
+if (JSON_UNLIKELY(not (next_byte_in_range({0x80, 0xBF, 0x80, 0xBF}))))
 {
 return token_type::parse_error;
 }
@@ -2767,9 +2577,7 @@ break;
 // U+D000..U+D7FF: bytes ED 80..9F 80..BF
 case 0xED:
 {
-if (JSON_UNLIKELY(not (next_byte_in_range({
-0x80, 0x9F, 0x80, 0xBF
-}))))
+if (JSON_UNLIKELY(not (next_byte_in_range({0x80, 0x9F, 0x80, 0xBF}))))
 {
 return token_type::parse_error;
 }
@@ -2779,9 +2587,7 @@ break;
 // U+10000..U+3FFFF F0 90..BF 80..BF 80..BF
 case 0xF0:
 {
-if (JSON_UNLIKELY(not (next_byte_in_range({
-0x90, 0xBF, 0x80, 0xBF, 0x80, 0xBF
-}))))
+if (JSON_UNLIKELY(not (next_byte_in_range({0x90, 0xBF, 0x80, 0xBF, 0x80, 0xBF}))))
 {
 return token_type::parse_error;
 }
@@ -2793,9 +2599,7 @@ case 0xF1:
 case 0xF2:
 case 0xF3:
 {
-if (JSON_UNLIKELY(not (next_byte_in_range({
-0x80, 0xBF, 0x80, 0xBF, 0x80, 0xBF
-}))))
+if (JSON_UNLIKELY(not (next_byte_in_range({0x80, 0xBF, 0x80, 0xBF, 0x80, 0xBF}))))
 {
 return token_type::parse_error;
 }
@@ -2805,9 +2609,7 @@ break;
 // U+100000..U+10FFFF F4 80..8F 80..BF 80..BF
 case 0xF4:
 {
-if (JSON_UNLIKELY(not (next_byte_in_range({
-0x80, 0x8F, 0x80, 0xBF, 0x80, 0xBF
-}))))
+if (JSON_UNLIKELY(not (next_byte_in_range({0x80, 0x8F, 0x80, 0xBF, 0x80, 0xBF}))))
 {
 return token_type::parse_error;
 }
@@ -3504,18 +3306,12 @@ const char decimal_point_char = '.';
 // #include <nlohmann/detail/input/parser.hpp>
 
 
-#include
-<cassert> // assert
-#include
-<cmath> // isfinite
-#include
-<cstdint> // uint8_t
-#include
-<functional> // function
-#include
-<string> // string
-#include
-<utility> // move
+#include <cassert> // assert
+#include <cmath> // isfinite
+#include <cstdint> // uint8_t
+#include <functional> // function
+#include <string> // string
+#include <utility> // move
 
 // #include <nlohmann/detail/exceptions.hpp>
 
@@ -3526,12 +3322,9 @@ const char decimal_point_char = '.';
 // #include <nlohmann/detail/input/json_sax.hpp>
 
 
-#include
-<cstddef>
-#include
-<string>
-#include
-<vector>
+#include <cstddef>
+#include <string>
+#include <vector>
 
 // #include <nlohmann/detail/input/parser.hpp>
 
@@ -3667,8 +3460,7 @@ constructor contains the parsed value.
 @tparam BasicJsonType  the JSON type
 */
 template<typename BasicJsonType>
-class json_sax_dom_parser :
-public json_sax<BasicJsonType>
+class json_sax_dom_parser : public json_sax<BasicJsonType>
 {
 public:
 using number_integer_t = typename BasicJsonType::number_integer_t;
@@ -3683,8 +3475,7 @@ using string_t = typename BasicJsonType::string_t;
     */
 json_sax_dom_parser(BasicJsonType& r, const bool allow_exceptions_ = true)
 : root(r), allow_exceptions(allow_exceptions_)
-{
-}
+{}
 
 bool null() override
 {
@@ -3843,8 +3634,7 @@ const bool allow_exceptions = true;
 };
 
 template<typename BasicJsonType>
-class json_sax_dom_callback_parser :
-public json_sax<BasicJsonType>
+class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
 {
 public:
 using number_integer_t = typename BasicJsonType::number_integer_t;
@@ -4082,9 +3872,7 @@ assert(not keep_stack.empty());
 // container
 if (not keep_stack.back())
 {
-return {
-false, nullptr
-};
+return {false, nullptr};
 }
 
 // create value
@@ -4096,15 +3884,13 @@ const bool keep = skip_callback or callback(static_cast<int>(ref_stack.size()), 
 // do not handle this value if we just learnt it shall be discarded
 if (not keep)
 {
-return {
-false, nullptr
-};
+return {false, nullptr};
 }
 
 if (ref_stack.empty())
 {
 root = std::move(value);
-return { true, &root };
+return {true, &root};
 }
 else
 {
@@ -4112,7 +3898,7 @@ assert(ref_stack.back()->is_array() or ref_stack.back()->is_object());
 if (ref_stack.back()->is_array())
 {
 ref_stack.back()->m_value.array->push_back(std::move(value));
-return { true, &(ref_stack.back()->m_value.array->back()) };
+return {true, &(ref_stack.back()->m_value.array->back())};
 }
 else
 {
@@ -4123,14 +3909,12 @@ key_keep_stack.pop_back();
 
 if (not store_element)
 {
-return {
-false, nullptr
-};
+return {false, nullptr};
 }
 
 assert(object_element);
 *object_element = std::move(value);
-return { true, object_element };
+return {true, object_element};
 }
 }
 }
@@ -4156,8 +3940,7 @@ BasicJsonType discarded = BasicJsonType::value_t::discarded;
 };
 
 template<typename BasicJsonType>
-class json_sax_acceptor :
-public json_sax<BasicJsonType>
+class json_sax_acceptor : public json_sax<BasicJsonType>
 {
 public:
 using number_integer_t = typename BasicJsonType::number_integer_t;
@@ -4708,10 +4491,8 @@ const bool allow_exceptions = true;
 // #include <nlohmann/detail/iterators/primitive_iterator.hpp>
 
 
-#include
-<cstddef> // ptrdiff_t
-#include
-<limits>  // numeric_limits
+#include <cstddef> // ptrdiff_t
+#include <limits>  // numeric_limits
 
 namespace nlohmann
 {
@@ -4848,8 +4629,7 @@ unions members with complex constructors, see https://github.com/nlohmann/json/p
 template<typename BasicJsonType> struct internal_iterator
 {
 /// iterator for JSON objects
-typename BasicJsonType::object_t::iterator object_iterator {
-};
+typename BasicJsonType::object_t::iterator object_iterator {};
 /// iterator for JSON arrays
 typename BasicJsonType::array_t::iterator array_iterator {};
 /// generic iterator for all other types
@@ -4861,12 +4641,9 @@ primitive_iterator_t primitive_iterator {};
 // #include <nlohmann/detail/iterators/iter_impl.hpp>
 
 
-#include
-<ciso646> // not
-#include
-<iterator> // iterator, random_access_iterator_tag, bidirectional_iterator_tag, advance, next
-#include
-<type_traits> // conditional, is_const, remove_const
+#include <ciso646> // not
+#include <iterator> // iterator, random_access_iterator_tag, bidirectional_iterator_tag, advance, next
+#include <type_traits> // conditional, is_const, remove_const
 
 // #include <nlohmann/detail/exceptions.hpp>
 
@@ -4995,8 +4772,7 @@ break;
     @note It is not checked whether @a other is initialized.
     */
 iter_impl(const iter_impl<typename std::remove_const<BasicJsonType>::type>& other) noexcept
-: m_object(other.m_object), m_it(other.m_it) {
-}
+: m_object(other.m_object), m_it(other.m_it) {}
 
 /*!
     @brief converting assignment
@@ -5306,7 +5082,7 @@ return (m_it.primitive_iterator < other.m_it.primitive_iterator);
     */
 bool operator<=(const iter_impl& other) const
 {
-return not other.operator< (*this);
+return not other.operator < (*this);
 }
 
 /*!
@@ -5487,10 +5263,8 @@ internal_iterator<typename std::remove_const<BasicJsonType>::type> m_it;
 // #include <nlohmann/detail/iterators/iteration_proxy.hpp>
 
 
-#include
-<cstddef> // size_t
-#include
-<string> // string, to_string
+#include <cstddef> // size_t
+#include <string> // string, to_string
 
 // #include <nlohmann/detail/value_t.hpp>
 
@@ -5519,8 +5293,7 @@ mutable std::string array_index_str = "0";
 const std::string empty_str = "";
 
 public:
-explicit iteration_proxy_internal(IteratorType it) noexcept : anchor(it) {
-}
+explicit iteration_proxy_internal(IteratorType it) noexcept : anchor(it) {}
 
 /// dereference operator (needed for range-based for)
 iteration_proxy_internal& operator*()
@@ -5584,8 +5357,7 @@ typename IteratorType::reference container;
 public:
 /// construct iteration proxy from a container
 explicit iteration_proxy(typename IteratorType::reference cont) noexcept
-: container(cont) {
-}
+: container(cont) {}
 
 /// return iterator begin (needed for range-based for)
 iteration_proxy_internal begin() noexcept
@@ -5605,12 +5377,9 @@ return iteration_proxy_internal(container.end());
 // #include <nlohmann/detail/iterators/json_reverse_iterator.hpp>
 
 
-#include
-<cstddef> // ptrdiff_t
-#include
-<iterator> // reverse_iterator
-#include
-<utility> // declval
+#include <cstddef> // ptrdiff_t
+#include <iterator> // reverse_iterator
+#include <utility> // declval
 
 namespace nlohmann
 {
@@ -5639,8 +5408,7 @@ create @ref const_reverse_iterator).
 @since version 1.0.0
 */
 template<typename Base>
-class json_reverse_iterator :
-public std::reverse_iterator<Base>
+class json_reverse_iterator : public std::reverse_iterator<Base>
 {
 public:
 using difference_type = std::ptrdiff_t;
@@ -5651,12 +5419,10 @@ using reference = typename Base::reference;
 
 /// create reverse iterator from iterator
 json_reverse_iterator(const typename base_iterator::iterator_type& it) noexcept
-: base_iterator(it) {
-}
+: base_iterator(it) {}
 
 /// create reverse iterator from base class
-json_reverse_iterator(const base_iterator& it) noexcept : base_iterator(it) {
-}
+json_reverse_iterator(const base_iterator& it) noexcept : base_iterator(it) {}
 
 /// post-increment (it++)
 json_reverse_iterator const operator++(int)
@@ -5723,7 +5489,7 @@ return it.key();
 reference value() const
 {
 auto it = --this->base();
-return it.operator* ();
+return it.operator * ();
 }
 };
 }
@@ -5732,22 +5498,14 @@ return it.operator* ();
 // #include <nlohmann/detail/output/output_adapters.hpp>
 
 
-#include
-<algorithm> // copy
-#include
-<cstddef> // size_t
-#include
-<ios> // streamsize
-#include
-<iterator> // back_inserter
-#include
-<memory> // shared_ptr, make_shared
-#include
-<ostream> // basic_ostream
-#include
-<string> // basic_string
-#include
-<vector> // vector
+#include <algorithm> // copy
+#include <cstddef> // size_t
+#include <ios> // streamsize
+#include <iterator> // back_inserter
+#include <memory> // shared_ptr, make_shared
+#include <ostream> // basic_ostream
+#include <string> // basic_string
+#include <vector> // vector
 
 namespace nlohmann
 {
@@ -5767,12 +5525,10 @@ using output_adapter_t = std::shared_ptr<output_adapter_protocol<CharType>>;
 
 /// output adapter for byte vectors
 template<typename CharType>
-class output_vector_adapter :
-public output_adapter_protocol<CharType>
+class output_vector_adapter : public output_adapter_protocol<CharType>
 {
 public:
-explicit output_vector_adapter(std::vector<CharType>& vec) : v(vec) {
-}
+explicit output_vector_adapter(std::vector<CharType>& vec) : v(vec) {}
 
 void write_character(CharType c) override
 {
@@ -5790,12 +5546,10 @@ std::vector<CharType>& v;
 
 /// output adapter for output streams
 template<typename CharType>
-class output_stream_adapter :
-public output_adapter_protocol<CharType>
+class output_stream_adapter : public output_adapter_protocol<CharType>
 {
 public:
-explicit output_stream_adapter(std::basic_ostream<CharType>& s) : stream(s) {
-}
+explicit output_stream_adapter(std::basic_ostream<CharType>& s) : stream(s) {}
 
 void write_character(CharType c) override
 {
@@ -5813,12 +5567,10 @@ std::basic_ostream<CharType>& stream;
 
 /// output adapter for basic_string
 template<typename CharType, typename StringType = std::basic_string<CharType>>
-class output_string_adapter :
-public output_adapter_protocol<CharType>
+class output_string_adapter : public output_adapter_protocol<CharType>
 {
 public:
-explicit output_string_adapter(StringType& s) : str(s) {
-}
+explicit output_string_adapter(StringType& s) : str(s) {}
 
 void write_character(CharType c) override
 {
@@ -5839,16 +5591,13 @@ class output_adapter
 {
 public:
 output_adapter(std::vector<CharType>& vec)
-: oa(std::make_shared<output_vector_adapter<CharType>>(vec)) {
-}
+: oa(std::make_shared<output_vector_adapter<CharType>>(vec)) {}
 
 output_adapter(std::basic_ostream<CharType>& s)
-: oa(std::make_shared<output_stream_adapter<CharType>>(s)) {
-}
+: oa(std::make_shared<output_stream_adapter<CharType>>(s)) {}
 
 output_adapter(StringType& s)
-: oa(std::make_shared<output_string_adapter<CharType, StringType>>(s)) {
-}
+: oa(std::make_shared<output_string_adapter<CharType, StringType>>(s)) {}
 
 operator output_adapter_t<CharType>()
 {
@@ -5864,34 +5613,20 @@ output_adapter_t<CharType> oa = nullptr;
 // #include <nlohmann/detail/input/binary_reader.hpp>
 
 
-#include
-<algorithm> // generate_n
-#include
-<array> // array
-#include
-<cassert> // assert
-#include
-<cmath> // ldexp
-#include
-<cstddef> // size_t
-#include
-<cstdint> // uint8_t, uint16_t, uint32_t, uint64_t
-#include
-<cstring> // memcpy
-#include
-<iomanip> // setw, setfill
-#include
-<ios> // hex
-#include
-<iterator> // back_inserter
-#include
-<limits> // numeric_limits
-#include
-<sstream> // stringstream
-#include
-<string> // char_traits, string
-#include
-<utility> // make_pair, move
+#include <algorithm> // generate_n
+#include <array> // array
+#include <cassert> // assert
+#include <cmath> // ldexp
+#include <cstddef> // size_t
+#include <cstdint> // uint8_t, uint16_t, uint32_t, uint64_t
+#include <cstring> // memcpy
+#include <iomanip> // setw, setfill
+#include <ios> // hex
+#include <iterator> // back_inserter
+#include <limits> // numeric_limits
+#include <sstream> // stringstream
+#include <string> // char_traits, string
+#include <utility> // make_pair, move
 
 // #include <nlohmann/detail/input/input_adapters.hpp>
 
@@ -6792,7 +6527,7 @@ template<typename NumberType>
 bool get_string(const NumberType len, string_t& result)
 {
 bool success = true;
-std::generate_n(std::back_inserter(result), len,[this, &success]()
+std::generate_n(std::back_inserter(result), len, [this, &success]()
 {
 get();
 if (JSON_UNLIKELY(not unexpect_eof()))
@@ -7575,16 +7310,11 @@ json_sax_t* sax = nullptr;
 // #include <nlohmann/detail/output/binary_writer.hpp>
 
 
-#include
-<algorithm> // reverse
-#include
-<array> // array
-#include
-<cstdint> // uint8_t, uint16_t, uint32_t, uint64_t
-#include
-<cstring> // memcpy
-#include
-<limits> // numeric_limits
+#include <algorithm> // reverse
+#include <array> // array
+#include <cstdint> // uint8_t, uint16_t, uint32_t, uint64_t
+#include <cstring> // memcpy
+#include <limits> // numeric_limits
 
 // #include <nlohmann/detail/input/binary_reader.hpp>
 
@@ -8533,52 +8263,32 @@ output_adapter_t<CharType> oa = nullptr;
 // #include <nlohmann/detail/output/serializer.hpp>
 
 
-#include
-<algorithm> // reverse, remove, fill, find, none_of
-#include
-<array> // array
-#include
-<cassert> // assert
-#include
-<ciso646> // and, or
-#include
-<clocale> // localeconv, lconv
-#include
-<cmath> // labs, isfinite, isnan, signbit
-#include
-<cstddef> // size_t, ptrdiff_t
-#include
-<cstdint> // uint8_t
-#include
-<cstdio> // snprintf
-#include
-<iomanip> // setfill
-#include
-<iterator> // next
-#include
-<limits> // numeric_limits
-#include
-<string> // string
-#include
-<sstream> // stringstream
-#include
-<type_traits> // is_same
+#include <algorithm> // reverse, remove, fill, find, none_of
+#include <array> // array
+#include <cassert> // assert
+#include <ciso646> // and, or
+#include <clocale> // localeconv, lconv
+#include <cmath> // labs, isfinite, isnan, signbit
+#include <cstddef> // size_t, ptrdiff_t
+#include <cstdint> // uint8_t
+#include <cstdio> // snprintf
+#include <iomanip> // setfill
+#include <iterator> // next
+#include <limits> // numeric_limits
+#include <string> // string
+#include <sstream> // stringstream
+#include <type_traits> // is_same
 
 // #include <nlohmann/detail/exceptions.hpp>
 
 // #include <nlohmann/detail/conversions/to_chars.hpp>
 
 
-#include
-<cassert> // assert
-#include
-<ciso646> // or, and, not
-#include
-<cmath>   // signbit, isfinite
-#include
-<cstdint> // intN_t, uintN_t
-#include
-<cstring> // memcpy, memmove
+#include <cassert> // assert
+#include <ciso646> // or, and, not
+#include <cmath>   // signbit, isfinite
+#include <cstdint> // intN_t, uintN_t
+#include <cstring> // memcpy, memmove
 
 namespace nlohmann
 {
@@ -8624,10 +8334,8 @@ static constexpr int kPrecision = 64; // = q
 uint64_t f;
 int e;
 
-constexpr diyfp() noexcept : f(0), e(0) {
-}
-constexpr diyfp(uint64_t f_, int e_) noexcept : f(f_), e(e_) {
-}
+constexpr diyfp() noexcept : f(0), e(0) {}
+constexpr diyfp(uint64_t f_, int e_) noexcept : f(f_), e(e_) {}
 
 /*!
     @brief returns x - y
@@ -8699,7 +8407,7 @@ uint64_t Q = p0_hi + p1_lo + p2_lo;
 // Effectively we only need to add the highest bit in p_lo to p_hi (and
 // Q_hi + 1 does not overflow).
 
-Q += uint64_t{ 1 } << (64 - 32 - 1); // round, ties up
+Q += uint64_t{1} << (64 - 32 - 1); // round, ties up
 
 const uint64_t h = p3 + p2_hi + p1_hi + (Q >> 32);
 
@@ -8767,10 +8475,10 @@ assert(value > 0);
 static_assert(std::numeric_limits<FloatType>::is_iec559,
 "internal error: dtoa_short requires an IEEE-754 floating-point implementation");
 
-constexpr int kPrecision = std::numeric_limits<FloatType>::digits; // = p (includes the hidden bit)
-constexpr int kBias      = std::numeric_limits<FloatType>::max_exponent - 1 + (kPrecision - 1);
-constexpr int kMinExp    = 1 - kBias;
-constexpr uint64_t kHiddenBit = uint64_t{ 1 } << (kPrecision - 1); // = 2^(p-1)
+constexpr int      kPrecision = std::numeric_limits<FloatType>::digits; // = p (includes the hidden bit)
+constexpr int      kBias      = std::numeric_limits<FloatType>::max_exponent - 1 + (kPrecision - 1);
+constexpr int      kMinExp    = 1 - kBias;
+constexpr uint64_t kHiddenBit = uint64_t{1} << (kPrecision - 1); // = 2^(p-1)
 
 using bits_type = typename std::conditional< kPrecision == 24, uint32_t, uint64_t >::type;
 
@@ -8816,7 +8524,7 @@ const diyfp w_plus = diyfp::normalize(m_plus);
 // Determine w- = m- such that e_(w-) = e_(w+).
 const diyfp w_minus = diyfp::normalize_to(m_minus, w_plus.e);
 
-return { diyfp::normalize(v), w_minus, w_plus };
+return {diyfp::normalize(v), w_minus, w_plus};
 }
 
 // Given normalized diyfp w, Grisu needs to find a (normalized) cached
@@ -8949,241 +8657,85 @@ constexpr int kCachedPowersDecStep = 8;
 
 static constexpr cached_power kCachedPowers[] =
 {
-{
-0xAB70FE17C79AC6CA, -1060, -300
-},
-{
-0xFF77B1FCBEBCDC4F, -1034, -292
-},
-{
-0xBE5691EF416BD60C, -1007, -284
-},
-{
-0x8DD01FAD907FFC3C, -980, -276
-},
-{
-0xD3515C2831559A83, -954, -268
-},
-{
-0x9D71AC8FADA6C9B5, -927, -260
-},
-{
-0xEA9C227723EE8BCB, -901, -252
-},
-{
-0xAECC49914078536D, -874, -244
-},
-{
-0x823C12795DB6CE57, -847, -236
-},
-{
-0xC21094364DFB5637, -821, -228
-},
-{
-0x9096EA6F3848984F, -794, -220
-},
-{
-0xD77485CB25823AC7, -768, -212
-},
-{
-0xA086CFCD97BF97F4, -741, -204
-},
-{
-0xEF340A98172AACE5, -715, -196
-},
-{
-0xB23867FB2A35B28E, -688, -188
-},
-{
-0x84C8D4DFD2C63F3B, -661, -180
-},
-{
-0xC5DD44271AD3CDBA, -635, -172
-},
-{
-0x936B9FCEBB25C996, -608, -164
-},
-{
-0xDBAC6C247D62A584, -582, -156
-},
-{
-0xA3AB66580D5FDAF6, -555, -148
-},
-{
-0xF3E2F893DEC3F126, -529, -140
-},
-{
-0xB5B5ADA8AAFF80B8, -502, -132
-},
-{
-0x87625F056C7C4A8B, -475, -124
-},
-{
-0xC9BCFF6034C13053, -449, -116
-},
-{
-0x964E858C91BA2655, -422, -108
-},
-{
-0xDFF9772470297EBD, -396, -100
-},
-{
-0xA6DFBD9FB8E5B88F, -369, -92
-},
-{
-0xF8A95FCF88747D94, -343, -84
-},
-{
-0xB94470938FA89BCF, -316, -76
-},
-{
-0x8A08F0F8BF0F156B, -289, -68
-},
-{
-0xCDB02555653131B6, -263, -60
-},
-{
-0x993FE2C6D07B7FAC, -236, -52
-},
-{
-0xE45C10C42A2B3B06, -210, -44
-},
-{
-0xAA242499697392D3, -183, -36
-},
-{
-0xFD87B5F28300CA0E, -157, -28
-},
-{
-0xBCE5086492111AEB, -130, -20
-},
-{
-0x8CBCCC096F5088CC, -103, -12
-},
-{
-0xD1B71758E219652C, -77, -4
-},
-{
-0x9C40000000000000, -50, 4
-},
-{
-0xE8D4A51000000000,   -24, 12
-},
-{
-0xAD78EBC5AC620000, 3, 20
-},
-{
-0x813F3978F8940984, 30, 28
-},
-{
-0xC097CE7BC90715B3, 56, 36
-},
-{
-0x8F7E32CE7BEA5C70, 83, 44
-},
-{
-0xD5D238A4ABE98068, 109, 52
-},
-{
-0x9F4F2726179A2245, 136, 60
-},
-{
-0xED63A231D4C4FB27, 162, 68
-},
-{
-0xB0DE65388CC8ADA8, 189, 76
-},
-{
-0x83C7088E1AAB65DB, 216, 84
-},
-{
-0xC45D1DF942711D9A, 242, 92
-},
-{
-0x924D692CA61BE758, 269, 100
-},
-{
-0xDA01EE641A708DEA, 295, 108 },
-{
-0xA26DA3999AEF774A, 322, 116
-},
-{
-0xF209787BB47D6B85, 348, 124
-},
-{
-0xB454E4A179DD1877, 375, 132
-},
-{
-0x865B86925B9BC5C2, 402, 140
-},
-{
-0xC83553C5C8965D3D, 428, 148
-},
-{
-0x952AB45CFA97A0B3, 455, 156
-},
-{
-0xDE469FBD99A05FE3, 481, 164
-},
-{
-0xA59BC234DB398C25, 508, 172
-},
-{
-0xF6C69A72A3989F5C, 534, 180
-},
-{
-0xB7DCBF5354E9BECE, 561, 188
-},
-{
-0x88FCF317F22241E2, 588, 196
-},
-{
-0xCC20CE9BD35C78A5, 614, 204
-},
-{
-0x98165AF37B2153DF, 641, 212
-},
-{
-0xE2A0B5DC971F303A, 667, 220
-},
-{
-0xA8D9D1535CE3B396, 694, 228
-},
-{
-0xFB9B7CD9A4A7443C, 720, 236
-},
-{
-0xBB764C4CA7A44410, 747, 244
-},
-{
-0x8BAB8EEFB6409C1A, 774, 252
-},
-{
-0xD01FEF10A657842C, 800, 260
-},
-{
-0x9B10A4E5E9913129, 827, 268
-},
-{
-0xE7109BFBA19C0C9D, 853, 276
-},
-{
-0xAC2820D9623BF429, 880, 284
-},
-{
-0x80444B5E7AA7CF85, 907, 292
-},
-{
-0xBF21E44003ACDD2D, 933, 300
-},
-{
-0x8E679C2F5E44FF8F, 960, 308 },
-{
-0xD433179D9C8CB841, 986, 316
-},
-{
-0x9E19DB92B4E31BA9, 1013, 324
-},
+{ 0xAB70FE17C79AC6CA, -1060, -300 },
+{ 0xFF77B1FCBEBCDC4F, -1034, -292 },
+{ 0xBE5691EF416BD60C, -1007, -284 },
+{ 0x8DD01FAD907FFC3C,  -980, -276 },
+{ 0xD3515C2831559A83,  -954, -268 },
+{ 0x9D71AC8FADA6C9B5,  -927, -260 },
+{ 0xEA9C227723EE8BCB,  -901, -252 },
+{ 0xAECC49914078536D,  -874, -244 },
+{ 0x823C12795DB6CE57,  -847, -236 },
+{ 0xC21094364DFB5637,  -821, -228 },
+{ 0x9096EA6F3848984F,  -794, -220 },
+{ 0xD77485CB25823AC7,  -768, -212 },
+{ 0xA086CFCD97BF97F4,  -741, -204 },
+{ 0xEF340A98172AACE5,  -715, -196 },
+{ 0xB23867FB2A35B28E,  -688, -188 },
+{ 0x84C8D4DFD2C63F3B,  -661, -180 },
+{ 0xC5DD44271AD3CDBA,  -635, -172 },
+{ 0x936B9FCEBB25C996,  -608, -164 },
+{ 0xDBAC6C247D62A584,  -582, -156 },
+{ 0xA3AB66580D5FDAF6,  -555, -148 },
+{ 0xF3E2F893DEC3F126,  -529, -140 },
+{ 0xB5B5ADA8AAFF80B8,  -502, -132 },
+{ 0x87625F056C7C4A8B,  -475, -124 },
+{ 0xC9BCFF6034C13053,  -449, -116 },
+{ 0x964E858C91BA2655,  -422, -108 },
+{ 0xDFF9772470297EBD,  -396, -100 },
+{ 0xA6DFBD9FB8E5B88F,  -369,  -92 },
+{ 0xF8A95FCF88747D94,  -343,  -84 },
+{ 0xB94470938FA89BCF,  -316,  -76 },
+{ 0x8A08F0F8BF0F156B,  -289,  -68 },
+{ 0xCDB02555653131B6,  -263,  -60 },
+{ 0x993FE2C6D07B7FAC,  -236,  -52 },
+{ 0xE45C10C42A2B3B06,  -210,  -44 },
+{ 0xAA242499697392D3,  -183,  -36 },
+{ 0xFD87B5F28300CA0E,  -157,  -28 },
+{ 0xBCE5086492111AEB,  -130,  -20 },
+{ 0x8CBCCC096F5088CC,  -103,  -12 },
+{ 0xD1B71758E219652C,   -77,   -4 },
+{ 0x9C40000000000000,   -50,    4 },
+{ 0xE8D4A51000000000,   -24,   12 },
+{ 0xAD78EBC5AC620000,     3,   20 },
+{ 0x813F3978F8940984,    30,   28 },
+{ 0xC097CE7BC90715B3,    56,   36 },
+{ 0x8F7E32CE7BEA5C70,    83,   44 },
+{ 0xD5D238A4ABE98068,   109,   52 },
+{ 0x9F4F2726179A2245,   136,   60 },
+{ 0xED63A231D4C4FB27,   162,   68 },
+{ 0xB0DE65388CC8ADA8,   189,   76 },
+{ 0x83C7088E1AAB65DB,   216,   84 },
+{ 0xC45D1DF942711D9A,   242,   92 },
+{ 0x924D692CA61BE758,   269,  100 },
+{ 0xDA01EE641A708DEA,   295,  108 },
+{ 0xA26DA3999AEF774A,   322,  116 },
+{ 0xF209787BB47D6B85,   348,  124 },
+{ 0xB454E4A179DD1877,   375,  132 },
+{ 0x865B86925B9BC5C2,   402,  140 },
+{ 0xC83553C5C8965D3D,   428,  148 },
+{ 0x952AB45CFA97A0B3,   455,  156 },
+{ 0xDE469FBD99A05FE3,   481,  164 },
+{ 0xA59BC234DB398C25,   508,  172 },
+{ 0xF6C69A72A3989F5C,   534,  180 },
+{ 0xB7DCBF5354E9BECE,   561,  188 },
+{ 0x88FCF317F22241E2,   588,  196 },
+{ 0xCC20CE9BD35C78A5,   614,  204 },
+{ 0x98165AF37B2153DF,   641,  212 },
+{ 0xE2A0B5DC971F303A,   667,  220 },
+{ 0xA8D9D1535CE3B396,   694,  228 },
+{ 0xFB9B7CD9A4A7443C,   720,  236 },
+{ 0xBB764C4CA7A44410,   747,  244 },
+{ 0x8BAB8EEFB6409C1A,   774,  252 },
+{ 0xD01FEF10A657842C,   800,  260 },
+{ 0x9B10A4E5E9913129,   827,  268 },
+{ 0xE7109BFBA19C0C9D,   853,  276 },
+{ 0xAC2820D9623BF429,   880,  284 },
+{ 0x80444B5E7AA7CF85,   907,  292 },
+{ 0xBF21E44003ACDD2D,   933,  300 },
+{ 0x8E679C2F5E44FF8F,   960,  308 },
+{ 0xD433179D9C8CB841,   986,  316 },
+{ 0x9E19DB92B4E31BA9,  1013,  324 },
 };
 
 // This computation gives exactly the same results for k as
@@ -9339,7 +8891,7 @@ uint64_t dist  = diyfp::sub(M_plus, w      ).f; // (significand of (M+ - w ), im
 //         = ((p1        ) * 2^-e + (p2        )) * 2^e
 //         = p1 + p2 * 2^e
 
-const diyfp one(uint64_t{ 1 } << -M_plus.e, M_plus.e);
+const diyfp one(uint64_t{1} << -M_plus.e, M_plus.e);
 
 uint32_t p1 = static_cast<uint32_t>(M_plus.f >> -one.e); // p1 = f div 2^-e (Since -e >= 32, p1 fits into a 32-bit int.)
 uint64_t p2 = M_plus.f & (one.f - 1);                    // p2 = f mod 2^-e
@@ -9404,7 +8956,7 @@ n--;
 // Note:
 // Since rest and delta share the same exponent e, it suffices to
 // compare the significands.
-const uint64_t rest = (uint64_t{ p1 } << -one.e) + p2;
+const uint64_t rest = (uint64_t{p1} << -one.e) + p2;
 if (rest <= delta)
 {
 // V = buffer * 10^n, with M- <= V <= M+.
@@ -9420,7 +8972,7 @@ decimal_exponent += n;
 //
 //      10^n = (10^n * 2^-e) * 2^e = ulp * 2^e
 //
-const uint64_t ten_n = uint64_t{ pow10 } << -one.e;
+const uint64_t ten_n = uint64_t{pow10} << -one.e;
 grisu2_round(buffer, length, dist, delta, rest, ten_n);
 
 return;
@@ -9568,9 +9120,9 @@ const cached_power cached = get_cached_power_for_binary_exponent(m_plus.e);
 const diyfp c_minus_k(cached.f, cached.e); // = c ~= 10^-k
 
 // The exponent of the products is = v.e + c_minus_k.e + q and is in the range [alpha,gamma]
-const diyfp w       = diyfp::mul(v, c_minus_k);
+const diyfp w       = diyfp::mul(v,       c_minus_k);
 const diyfp w_minus = diyfp::mul(m_minus, c_minus_k);
-const diyfp w_plus  = diyfp::mul(m_plus, c_minus_k);
+const diyfp w_plus  = diyfp::mul(m_plus,  c_minus_k);
 
 //  ----(---+---)---------------(---+---)---------------(---+---)----
 //          w-                      w                       w+
@@ -9631,8 +9183,7 @@ assert(value > 0);
 // NB: If the neighbors are computed for single-precision numbers, there is a single float
 //     (7.0385307e-26f) which can't be recovered using strtod. The resulting double precision
 //     value is off by 1 ulp.
-#if
-0
+#if 0
 const boundaries w = compute_boundaries(static_cast<double>(value));
 #else
 const boundaries w = compute_boundaries(value);
@@ -9864,8 +9415,7 @@ serializer(output_adapter_t<char> s, const char ichar)
 thousands_sep(loc->thousands_sep == nullptr ? '\0' : * (loc->thousands_sep)),
 decimal_point(loc->decimal_point == nullptr ? '\0' : * (loc->decimal_point)),
 indent_char(ichar), indent_string(512, indent_char)
-{
-}
+{}
 
 // delete because of pointer members
 serializer(const serializer&) = delete;
@@ -10315,7 +9865,7 @@ dump_float(x, std::integral_constant<bool, is_ieee_single_or_double>());
 void dump_float(number_float_t x, std::true_type /*is_ieee_single_or_double*/)
 {
 char* begin = number_buffer.data();
-char* end =::nlohmann::detail::to_chars(begin, begin + number_buffer.size(), x);
+char* end = ::nlohmann::detail::to_chars(begin, begin + number_buffer.size(), x);
 
 o->write_characters(begin, static_cast<size_t>(end - begin));
 }
@@ -10450,10 +10000,8 @@ string_t indent_string;
 // #include <nlohmann/detail/json_ref.hpp>
 
 
-#include
-<initializer_list>
-#include
-<utility>
+#include <initializer_list>
+#include <utility>
 
 namespace nlohmann
 {
@@ -10467,24 +10015,20 @@ using value_type = BasicJsonType;
 
 json_ref(value_type&& value)
 : owned_value(std::move(value)), value_ref(&owned_value), is_rvalue(true)
-{
-}
+{}
 
 json_ref(const value_type& value)
 : value_ref(const_cast<value_type*>(&value)), is_rvalue(false)
-{
-}
+{}
 
 json_ref(std::initializer_list<json_ref> init)
 : owned_value(init), value_ref(&owned_value), is_rvalue(true)
-{
-}
+{}
 
 template<class... Args>
 json_ref(Args&& ... args)
 : owned_value(std::forward<Args>(args)...), value_ref(&owned_value), is_rvalue(true)
-{
-}
+{}
 
 // class should be movable only
 json_ref(json_ref&&) = default;
@@ -10521,14 +10065,10 @@ const bool is_rvalue;
 // #include <nlohmann/detail/json_pointer.hpp>
 
 
-#include
-<cassert> // assert
-#include
-<numeric> // accumulate
-#include
-<string> // string
-#include
-<vector> // vector
+#include <cassert> // assert
+#include <numeric> // accumulate
+#include <string> // string
+#include <vector> // vector
 
 // #include <nlohmann/detail/macro_scope.hpp>
 
@@ -10570,8 +10110,7 @@ public:
     */
 explicit json_pointer(const std::string& s = "")
 : reference_tokens(split(s))
-{
-}
+{}
 
 /*!
     @brief return a string representation of the JSON pointer
@@ -10591,8 +10130,7 @@ explicit json_pointer(const std::string& s = "")
 std::string to_string() const noexcept
 {
 return std::accumulate(reference_tokens.begin(), reference_tokens.end(),
-std::string{
-},
+std::string{},
 [](const std::string & a, const std::string & b)
 {
 return a + "/" + escape(b);
@@ -10657,7 +10195,7 @@ JSON_THROW(detail::out_of_range::create(405, "JSON pointer has no parent"));
 }
 
 json_pointer result = *this;
-result.reference_tokens = { reference_tokens[0] };
+result.reference_tokens = {reference_tokens[0]};
 return result;
 }
 
@@ -11093,8 +10631,7 @@ for (auto pos = s.find(f);                // find first occurrence of f
 pos != std::string::npos;         // make sure f was found
 s.replace(pos, f.size(), t),      // replace with t, and
 pos = s.find(f, pos + t.size()))  // find next occurrence of f
-{
-}
+{}
 }
 
 /// escape "~"" to "~0" and "/" to "~1"
@@ -11229,8 +10766,7 @@ std::vector<std::string> reference_tokens;
 // #include <nlohmann/adl_serializer.hpp>
 
 
-#include
-<utility>
+#include <utility>
 
 // #include <nlohmann/detail/conversions/from_json.hpp>
 
@@ -11371,48 +10907,48 @@ class basic_json
 {
 private:
 template<detail::value_t> friend struct detail::external_constructor;
-friend::nlohmann::json_pointer<basic_json>;
-friend::nlohmann::detail::parser<basic_json>;
-friend::nlohmann::detail::serializer<basic_json>;
+friend ::nlohmann::json_pointer<basic_json>;
+friend ::nlohmann::detail::parser<basic_json>;
+friend ::nlohmann::detail::serializer<basic_json>;
 template<typename BasicJsonType>
-friend class::nlohmann::detail::iter_impl;
+friend class ::nlohmann::detail::iter_impl;
 template<typename BasicJsonType, typename CharType>
-friend class::nlohmann::detail::binary_writer;
+friend class ::nlohmann::detail::binary_writer;
 template<typename BasicJsonType>
-friend class::nlohmann::detail::binary_reader;
+friend class ::nlohmann::detail::binary_reader;
 template<typename BasicJsonType>
-friend class::nlohmann::detail::json_sax_dom_parser;
+friend class ::nlohmann::detail::json_sax_dom_parser;
 template<typename BasicJsonType>
-friend class::nlohmann::detail::json_sax_dom_callback_parser;
+friend class ::nlohmann::detail::json_sax_dom_callback_parser;
 
 /// workaround type for MSVC
 using basic_json_t = NLOHMANN_BASIC_JSON_TPL;
 
 // convenience aliases for types residing in namespace detail;
-using lexer =::nlohmann::detail::lexer<basic_json>;
-using parser =::nlohmann::detail::parser<basic_json>;
+using lexer = ::nlohmann::detail::lexer<basic_json>;
+using parser = ::nlohmann::detail::parser<basic_json>;
 
-using primitive_iterator_t =::nlohmann::detail::primitive_iterator_t;
+using primitive_iterator_t = ::nlohmann::detail::primitive_iterator_t;
 template<typename BasicJsonType>
-using internal_iterator =::nlohmann::detail::internal_iterator<BasicJsonType>;
+using internal_iterator = ::nlohmann::detail::internal_iterator<BasicJsonType>;
 template<typename BasicJsonType>
-using iter_impl =::nlohmann::detail::iter_impl<BasicJsonType>;
+using iter_impl = ::nlohmann::detail::iter_impl<BasicJsonType>;
 template<typename Iterator>
-using iteration_proxy =::nlohmann::detail::iteration_proxy<Iterator>;
-template<typename Base> using json_reverse_iterator =::nlohmann::detail::json_reverse_iterator<Base>;
+using iteration_proxy = ::nlohmann::detail::iteration_proxy<Iterator>;
+template<typename Base> using json_reverse_iterator = ::nlohmann::detail::json_reverse_iterator<Base>;
 
 template<typename CharType>
-using output_adapter_t =::nlohmann::detail::output_adapter_t<CharType>;
+using output_adapter_t = ::nlohmann::detail::output_adapter_t<CharType>;
 
-using binary_reader =::nlohmann::detail::binary_reader<basic_json>;
-template<typename CharType> using binary_writer =::nlohmann::detail::binary_writer<basic_json, CharType>;
+using binary_reader = ::nlohmann::detail::binary_reader<basic_json>;
+template<typename CharType> using binary_writer = ::nlohmann::detail::binary_writer<basic_json, CharType>;
 
-using serializer =::nlohmann::detail::serializer<basic_json>;
+using serializer = ::nlohmann::detail::serializer<basic_json>;
 
 public:
 using value_t = detail::value_t;
 /// @copydoc nlohmann::json_pointer
-using json_pointer =::nlohmann::json_pointer<basic_json>;
+using json_pointer = ::nlohmann::json_pointer<basic_json>;
 template<typename T, typename SFINAE>
 using json_serializer = JSONSerializer<T, SFINAE>;
 /// helper type for initializer lists of basic_json values
@@ -11535,99 +11071,39 @@ result["version"]["major"] = NLOHMANN_JSON_VERSION_MAJOR;
 result["version"]["minor"] = NLOHMANN_JSON_VERSION_MINOR;
 result["version"]["patch"] = NLOHMANN_JSON_VERSION_PATCH;
 
-#ifdef
-_WIN32
+#ifdef _WIN32
 result["platform"] = "win32";
-#elif
-defined __linux__
+#elif defined __linux__
 result["platform"] = "linux";
-#elif
-defined __APPLE__
+#elif defined __APPLE__
 result["platform"] = "apple";
-#elif
-defined __unix__
+#elif defined __unix__
 result["platform"] = "unix";
 #else
 result["platform"] = "unknown";
 #endif
 
-#if
-defined(__ICC) || defined(__INTEL_COMPILER)
-result["compiler"] = {
-{
-"family", "icc"
-}, {
-"version", __INTEL_COMPILER
-}
-};
-#elif
-defined(__clang__)
-result["compiler"] = {
-{
-"family", "clang"
-}, {
-"version", __clang_version__
-}
-};
-#elif
-defined(__GNUC__) || defined(__GNUG__)
-result["compiler"] = {
-{
-"family", "gcc"
-}, {
-"version", std::to_string(__GNUC__) + "." + std::to_string(__GNUC_MINOR__) + "." + std::to_string(__GNUC_PATCHLEVEL__)
-}};
-#elif
-defined(__HP_cc) || defined(__HP_aCC)
+#if defined(__ICC) || defined(__INTEL_COMPILER)
+result["compiler"] = {{"family", "icc"}, {"version", __INTEL_COMPILER}};
+#elif defined(__clang__)
+result["compiler"] = {{"family", "clang"}, {"version", __clang_version__}};
+#elif defined(__GNUC__) || defined(__GNUG__)
+result["compiler"] = {{"family", "gcc"}, {"version", std::to_string(__GNUC__) + "." + std::to_string(__GNUC_MINOR__) + "." + std::to_string(__GNUC_PATCHLEVEL__)}};
+#elif defined(__HP_cc) || defined(__HP_aCC)
 result["compiler"] = "hp"
-#elif
-defined(__IBMCPP__)
-result["compiler"] = {
-{
-"family", "ilecpp"
-}, {
-"version", __IBMCPP__
-}
-};
-#elif
-defined(_MSC_VER)
-result["compiler"] = {
-{
-"family", "msvc"
-}, {
-"version", _MSC_VER
-}
-};
-#elif
-defined(__PGI)
-result["compiler"] = {
-{
-"family", "pgcpp"
-}, {
-"version", __PGI
-}
-};
-#elif
-defined(__SUNPRO_CC)
-result["compiler"] = {
-{
-"family", "sunpro"
-}, {
-"version", __SUNPRO_CC
-}
-};
+#elif defined(__IBMCPP__)
+result["compiler"] = {{"family", "ilecpp"}, {"version", __IBMCPP__}};
+#elif defined(_MSC_VER)
+result["compiler"] = {{"family", "msvc"}, {"version", _MSC_VER}};
+#elif defined(__PGI)
+result["compiler"] = {{"family", "pgcpp"}, {"version", __PGI}};
+#elif defined(__SUNPRO_CC)
+result["compiler"] = {{"family", "sunpro"}, {"version", __SUNPRO_CC}};
 #else
-result["compiler"] = {
-{
-"family", "unknown"
-}, {
-"version", "unknown"
-}
-};
+result["compiler"] = {{"family", "unknown"}, {"version", "unknown"}};
 #endif
 
-#ifdef
-__cplusplus
+#ifdef __cplusplus
 result["compiler"]["c++"] = std::to_string(__cplusplus);
 #else
 result["compiler"]["c++"] = "unknown";
@@ -11645,8 +11121,7 @@ return result;
 /// the template arguments passed to class @ref basic_json.
 /// @{
 
-#if
-defined(JSON_HAS_CPP_14)
+#if defined(JSON_HAS_CPP_14)
 // Use transparent comparator if possible, combined with perfect forwarding
 // on find() and count() calls prevents unnecessary string construction.
 using object_comparator_t = std::less<>;
@@ -12090,7 +11565,7 @@ static T* create(Args&& ... args)
 AllocatorType<T> alloc;
 using AllocatorTraits = std::allocator_traits<AllocatorType<T>>;
 
-auto deleter =[&](T * object)
+auto deleter = [&](T * object)
 {
 AllocatorTraits::deallocate(alloc, object, 1);
 };
@@ -12148,17 +11623,13 @@ number_float_t number_float;
 /// default constructor (for null values)
 json_value() = default;
 /// constructor for booleans
-json_value(boolean_t v) noexcept : boolean(v) {
-}
+json_value(boolean_t v) noexcept : boolean(v) {}
 /// constructor for numbers (integer)
-json_value(number_integer_t v) noexcept : number_integer(v) {
-}
+json_value(number_integer_t v) noexcept : number_integer(v) {}
 /// constructor for numbers (unsigned)
-json_value(number_unsigned_t v) noexcept : number_unsigned(v) {
-}
+json_value(number_unsigned_t v) noexcept : number_unsigned(v) {}
 /// constructor for numbers (floating-point)
-json_value(number_float_t v) noexcept : number_float(v) {
-}
+json_value(number_float_t v) noexcept : number_float(v) {}
 /// constructor for empty values of a given type
 json_value(value_t t)
 {
@@ -12704,7 +12175,7 @@ if (is_an_object)
 m_type = value_t::object;
 m_value = value_t::object;
 
-std::for_each(init.begin(), init.end(),[this](const detail::json_ref<basic_json>& element_ref)
+std::for_each(init.begin(), init.end(), [this](const detail::json_ref<basic_json>& element_ref)
 {
 auto element = element_ref.moved_or_copied();
 m_value.object->emplace(
@@ -12759,8 +12230,7 @@ assert_invariant();
 
     @since version 1.0.0
     */
-static basic_json array(initializer_list_t init = {
-})
+static basic_json array(initializer_list_t init = {})
 {
 return basic_json(init, false, value_t::array);
 }
@@ -12803,8 +12273,7 @@ return basic_json(init, false, value_t::array);
 
     @since version 1.0.0
     */
-static basic_json object(initializer_list_t init = {
-})
+static basic_json object(initializer_list_t init = {})
 {
 return basic_json(init, false, value_t::object);
 }
@@ -12993,8 +12462,7 @@ assert_invariant();
 /// @private
 basic_json(const detail::json_ref<basic_json>& ref)
 : basic_json(ref.moved_or_copied())
-{
-}
+{}
 
 /*!
     @brief copy constructor
@@ -13141,7 +12609,7 @@ assert_invariant();
 
     @since version 1.0.0
     */
-reference& operator=(basic_json other) noexcept(
+reference& operator=(basic_json other) noexcept (
 std::is_nothrow_move_constructible<value_t>::value and
 std::is_nothrow_move_assignable<value_t>::value and
 std::is_nothrow_move_constructible<json_value>::value and
@@ -13734,8 +13202,7 @@ template<typename ReferenceType, typename ThisType>
 static ReferenceType get_ref_impl(ThisType& obj)
 {
 // delegate the call to get_ptr<>()
-auto ptr = obj.
-template get_ptr<typename std::add_pointer<ReferenceType>::type>();
+auto ptr = obj.template get_ptr<typename std::add_pointer<ReferenceType>::type>();
 
 if (JSON_LIKELY(ptr != nullptr))
 {
@@ -14104,12 +13571,10 @@ not std::is_pointer<ValueType>::value and
 not std::is_same<ValueType, detail::json_ref<basic_json>>::value and
 not std::is_same<ValueType, typename string_t::value_type>::value and
 not detail::is_basic_json<ValueType>::value
-#ifndef
-_MSC_VER  // fix for issue #167 operator<< ambiguity under VS2015
+#ifndef _MSC_VER  // fix for issue #167 operator<< ambiguity under VS2015
 and not std::is_same<ValueType, std::initializer_list<typename string_t::value_type>>::value
 #endif
-#if
-defined(JSON_HAS_CPP_17)
+#if defined(JSON_HAS_CPP_17)
 and not std::is_same<ValueType, typename std::string_view>::value
 #endif
 , int >::type = 0 >
@@ -16218,7 +15683,7 @@ auto it = begin();
 it.m_it.object_iterator = res.first;
 
 // return pair of iterator and boolean
-return { it, res.second };
+return {it, res.second};
 }
 
 /*!
@@ -16591,7 +16056,7 @@ m_value.object->operator[](it.key()) = it.value();
 
     @since version 1.0.0
     */
-void swap(reference other) noexcept(
+void swap(reference other) noexcept (
 std::is_nothrow_move_constructible<value_t>::value and
 std::is_nothrow_move_assignable<value_t>::value and
 std::is_nothrow_move_constructible<json_value>::value and
@@ -18405,9 +17870,9 @@ basic_json patch(const basic_json& json_patch) const
 basic_json result = *this;
 
 // the valid JSON Patch operations
-enum class patch_operations { add, remove, replace, move, copy, test, invalid };
+enum class patch_operations {add, remove, replace, move, copy, test, invalid};
 
-const auto get_op =[](const std::string & op)
+const auto get_op = [](const std::string & op)
 {
 if (op == "add")
 {
@@ -18438,7 +17903,7 @@ return patch_operations::invalid;
 };
 
 // wrapper for "add" operation; add value at ptr
-const auto operation_add =[&result](json_pointer & ptr, basic_json val)
+const auto operation_add = [&result](json_pointer & ptr, basic_json val)
 {
 // adding to the root of the target document means replacing it
 if (ptr.is_root())
@@ -18502,7 +17967,7 @@ assert(false);  // LCOV_EXCL_LINE
 };
 
 // wrapper for "remove" operation; remove value at ptr
-const auto operation_remove =[&result](json_pointer & ptr)
+const auto operation_remove = [&result](json_pointer & ptr)
 {
 // get reference to parent of JSON pointer ptr
 const auto last_path = ptr.pop_back();
@@ -18539,7 +18004,7 @@ JSON_THROW(parse_error::create(104, 0, "JSON patch must be an array of objects")
 for (const auto& val : json_patch)
 {
 // wrapper to get a value for an operation
-const auto get_value =[&val](const std::string & op,
+const auto get_value = [&val](const std::string & op,
 const std::string & member,
 bool string_type) -> basic_json &
 {
@@ -18714,13 +18179,7 @@ if (source.type() != target.type())
 // different types: replace value
 result.push_back(
 {
-{
-"op", "replace"
-}, {
-"path", path
-}, {
-"value", target
-}
+{"op", "replace"}, {"path", path}, {"value", target}
 });
 }
 else
@@ -18750,12 +18209,8 @@ while (i < source.size())
 // indices
 result.insert(result.begin() + end_index, object(
 {
-{
-"op", "remove"
-},
-{
-"path", path + "/" + std::to_string(i)
-}
+{"op", "remove"},
+{"path", path + "/" + std::to_string(i)}
 }));
 ++i;
 }
@@ -18765,15 +18220,9 @@ while (i < target.size())
 {
 result.push_back(
 {
-{
-"op", "add"
-},
-{
-"path", path + "/" + std::to_string(i)
-},
-{
-"value", target[i]
-}
+{"op", "add"},
+{"path", path + "/" + std::to_string(i)},
+{"value", target[i]}
 });
 ++i;
 }
@@ -18800,11 +18249,7 @@ else
 // found a key that is not in o -> remove it
 result.push_back(object(
 {
-{
-"op", "remove"
-}, {
-"path", path + "/" + key
-}
+{"op", "remove"}, {"path", path + "/" + key}
 }));
 }
 }
@@ -18818,14 +18263,8 @@ if (source.find(it.key()) == source.end())
 const auto key = json_pointer::escape(it.key());
 result.push_back(
 {
-{
-"op", "add"
-}, {
-"path", path + "/" + key
-},
-{
-"value", it.value()
-}
+{"op", "add"}, {"path", path + "/" + key},
+{"value", it.value()}
 });
 }
 }
@@ -18838,13 +18277,7 @@ default:
 // both primitive type: replace value
 result.push_back(
 {
-{
-"op", "replace"
-}, {
-"path", path
-}, {
-"value", target
-}
+{"op", "replace"}, {"path", path}, {"value", target}
 });
 break;
 }
@@ -18978,7 +18411,7 @@ return h(j.dump());
 /// @note: do not remove the space after '<',
 ///        see https://github.com/nlohmann/json/pull/679
 template<>
-struct less<::nlohmann::detail::value_t>
+struct less< ::nlohmann::detail::value_t>
 {
 /*!
     @brief compare two value_t enum values
@@ -19033,39 +18466,25 @@ return nlohmann::json::json_pointer(std::string(s, n));
 
 
 // restore GCC/clang diagnostic settings
-#if
-defined(__clang__) || defined(__GNUC__) || defined(__GNUG__)
-#pragma
-GCC diagnostic pop
+#if defined(__clang__) || defined(__GNUC__) || defined(__GNUG__)
+#pragma GCC diagnostic pop
 #endif
-#if
-defined(__clang__)
-#pragma
-GCC diagnostic pop
+#if defined(__clang__)
+#pragma GCC diagnostic pop
 #endif
 
 // clean up
-#undef
-JSON_CATCH
-#undef
-JSON_THROW
-#undef
-JSON_TRY
-#undef
-JSON_LIKELY
-#undef
-JSON_UNLIKELY
-#undef
-JSON_DEPRECATED
-#undef
-JSON_HAS_CPP_14
-#undef
-JSON_HAS_CPP_17
-#undef
-NLOHMANN_BASIC_JSON_TPL_DECLARATION
+#undef JSON_CATCH
+#undef JSON_THROW
+#undef JSON_TRY
+#undef JSON_LIKELY
+#undef JSON_UNLIKELY
+#undef JSON_DEPRECATED
+#undef JSON_HAS_CPP_14
+#undef JSON_HAS_CPP_17
+#undef NLOHMANN_BASIC_JSON_TPL_DECLARATION
 #undef NLOHMANN_BASIC_JSON_TPL
-#undef
-NLOHMANN_JSON_HAS_HELPER
+#undef NLOHMANN_JSON_HAS_HELPER
 
 
 #endif
