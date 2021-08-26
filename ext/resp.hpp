@@ -10,14 +10,14 @@
 
 namespace base {
     struct htmlresponse : public crow::response {
-        htmlresponse(std::string &&_body)
+        explicit htmlresponse(std::string &&_body)
                 : crow::response{std::move(_body)} {
             add_header("Content-Type", "text/html; charset=utf-8");
         }
     };
 
     struct jsonresponse : public crow::response {
-        jsonresponse(const nlohmann::json &_body)
+        explicit jsonresponse(const nlohmann::json &_body)
                 : crow::response{_body.dump()} {
             add_header("Access-Control-Allow-Credentials", "true");
             add_header("Access-Control-Allow-Origin", "*");
