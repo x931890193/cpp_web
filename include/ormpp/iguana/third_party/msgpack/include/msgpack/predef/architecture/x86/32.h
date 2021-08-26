@@ -80,7 +80,9 @@ If available versions \[3-6\] are specifically detected.
 #define MSGPACK_ARCH_X86_32_NAME "Intel x86-32"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_X86_32,MSGPACK_ARCH_X86_32_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_X86_32,
+MSGPACK_ARCH_X86_32_NAME)
 
 #include <msgpack/predef/architecture/x86.h>
 

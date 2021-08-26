@@ -51,7 +51,9 @@ If available version number as major, minor, and patch.
 #define MSGPACK_LIB_STD_RW_NAME "Roguewave"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_RW,MSGPACK_LIB_STD_RW_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_RW,
+MSGPACK_LIB_STD_RW_NAME)
 
 
 #endif

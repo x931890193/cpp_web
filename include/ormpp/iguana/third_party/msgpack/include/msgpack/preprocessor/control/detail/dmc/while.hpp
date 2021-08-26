@@ -6,18 +6,28 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_CONTROL_DETAIL_WHILE_HPP
 # define MSGPACK_PREPROCESSOR_CONTROL_DETAIL_WHILE_HPP
 #
+
+
 # include <msgpack/preprocessor/control/iif.hpp>
 # include <msgpack/preprocessor/logical/bool.hpp>
 # include <msgpack/preprocessor/tuple/eat.hpp>
+
 #
+
 # define MSGPACK_PP_WHILE_1(p, o, s) MSGPACK_PP_WHILE_1_C(MSGPACK_PP_BOOL(p##(2, s)), p, o, s)
 # define MSGPACK_PP_WHILE_2(p, o, s) MSGPACK_PP_WHILE_2_C(MSGPACK_PP_BOOL(p##(3, s)), p, o, s)
 # define MSGPACK_PP_WHILE_3(p, o, s) MSGPACK_PP_WHILE_3_C(MSGPACK_PP_BOOL(p##(4, s)), p, o, s)
@@ -275,6 +285,7 @@
 # define MSGPACK_PP_WHILE_255(p, o, s) MSGPACK_PP_WHILE_255_C(MSGPACK_PP_BOOL(p##(256, s)), p, o, s)
 # define MSGPACK_PP_WHILE_256(p, o, s) MSGPACK_PP_WHILE_256_C(MSGPACK_PP_BOOL(p##(257, s)), p, o, s)
 #
+
 # define MSGPACK_PP_WHILE_1_C(c, p, o, s) MSGPACK_PP_IIF(c, MSGPACK_PP_WHILE_2, MSGPACK_PP_TUPLE_ELEM_3_2)(p, o, MSGPACK_PP_IIF(c, o, MSGPACK_PP_TUPLE_ELEM_2_1)(2, s))
 # define MSGPACK_PP_WHILE_2_C(c, p, o, s) MSGPACK_PP_IIF(c, MSGPACK_PP_WHILE_3, MSGPACK_PP_TUPLE_ELEM_3_2)(p, o, MSGPACK_PP_IIF(c, o, MSGPACK_PP_TUPLE_ELEM_2_1)(3, s))
 # define MSGPACK_PP_WHILE_3_C(c, p, o, s) MSGPACK_PP_IIF(c, MSGPACK_PP_WHILE_4, MSGPACK_PP_TUPLE_ELEM_3_2)(p, o, MSGPACK_PP_IIF(c, o, MSGPACK_PP_TUPLE_ELEM_2_1)(4, s))
@@ -532,5 +543,7 @@
 # define MSGPACK_PP_WHILE_255_C(c, p, o, s) MSGPACK_PP_IIF(c, MSGPACK_PP_WHILE_256, MSGPACK_PP_TUPLE_ELEM_3_2)(p, o, MSGPACK_PP_IIF(c, o, MSGPACK_PP_TUPLE_ELEM_2_1)(256, s))
 # define MSGPACK_PP_WHILE_256_C(c, p, o, s) MSGPACK_PP_IIF(c, MSGPACK_PP_WHILE_257, MSGPACK_PP_TUPLE_ELEM_3_2)(p, o, MSGPACK_PP_IIF(c, o, MSGPACK_PP_TUPLE_ELEM_2_1)(257, s))
 #
+
 #
+
 # endif

@@ -55,7 +55,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_INTEL_NAME "Intel C/C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_INTEL,MSGPACK_COMP_INTEL_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_INTEL,
+MSGPACK_COMP_INTEL_NAME)
 
 #ifdef MSGPACK_COMP_INTEL_EMULATED
 #include <msgpack/predef/detail/test.h>

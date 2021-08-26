@@ -6,15 +6,24 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002-2011) */
+
 # /* Revised by Edward Diener (2011,2014) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_TUPLE_ELEM_HPP
 # define MSGPACK_PREPROCESSOR_TUPLE_ELEM_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/facilities/expand.hpp>
@@ -22,7 +31,9 @@
 # include <msgpack/preprocessor/tuple/rem.hpp>
 # include <msgpack/preprocessor/variadic/elem.hpp>
 # include <msgpack/preprocessor/tuple/detail/is_single_return.hpp>
+
 #
+
 # if MSGPACK_PP_VARIADICS
 #    if MSGPACK_PP_VARIADICS_MSVC
 #        define MSGPACK_PP_TUPLE_ELEM(...) MSGPACK_PP_TUPLE_ELEM_I(MSGPACK_PP_OVERLOAD(MSGPACK_PP_TUPLE_ELEM_O_, __VA_ARGS__), (__VA_ARGS__))
@@ -34,8 +45,8 @@
   functionality. See tuple_elem_bug_test.cxx.
 */
 #    	 define MSGPACK_PP_TUPLE_ELEM_O_2(n, tuple) \
-			MSGPACK_PP_VARIADIC_ELEM(n, MSGPACK_PP_EXPAND(MSGPACK_PP_TUPLE_IS_SINGLE_RETURN(MSGPACK_PP_REM_CAT,MSGPACK_PP_REM,tuple) tuple)) \
-			/**/
+            MSGPACK_PP_VARIADIC_ELEM(n, MSGPACK_PP_EXPAND(MSGPACK_PP_TUPLE_IS_SINGLE_RETURN(MSGPACK_PP_REM_CAT,MSGPACK_PP_REM,tuple) tuple)) \
+            /**/
 #    else
 #        define MSGPACK_PP_TUPLE_ELEM(...) MSGPACK_PP_OVERLOAD(MSGPACK_PP_TUPLE_ELEM_O_, __VA_ARGS__)(__VA_ARGS__)
 #    	 define MSGPACK_PP_TUPLE_ELEM_O_2(n, tuple) MSGPACK_PP_VARIADIC_ELEM(n, MSGPACK_PP_REM tuple)
@@ -187,15 +198,21 @@
 #    define MSGPACK_PP_TUPLE_ELEM_63(e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, e19, e20, e21, e22, e23, e24, e25, e26, e27, e28, e29, e30, e31, e32, e33, e34, e35, e36, e37, e38, e39, e40, e41, e42, e43, e44, e45, e46, e47, e48, e49, e50, e51, e52, e53, e54, e55, e56, e57, e58, e59, e60, e61, e62, e63) e63
 # endif
 #
+
 # /* directly used elsewhere in Boost... */
+
 #
+
 # define MSGPACK_PP_TUPLE_ELEM_1_0(a) a
 #
+
 # define MSGPACK_PP_TUPLE_ELEM_2_0(a, b) a
 # define MSGPACK_PP_TUPLE_ELEM_2_1(a, b) b
 #
+
 # define MSGPACK_PP_TUPLE_ELEM_3_0(a, b, c) a
 # define MSGPACK_PP_TUPLE_ELEM_3_1(a, b, c) b
 # define MSGPACK_PP_TUPLE_ELEM_3_2(a, b, c) c
 #
+
 # endif

@@ -6,16 +6,24 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_FACILITIES_INTERCEPT_HPP
 # define MSGPACK_PREPROCESSOR_FACILITIES_INTERCEPT_HPP
 #
+
 # /* MSGPACK_PP_INTERCEPT */
+
 #
+
 # define MSGPACK_PP_INTERCEPT MSGPACK_PP_INTERCEPT_
 #
+
 # define MSGPACK_PP_INTERCEPT_0
 # define MSGPACK_PP_INTERCEPT_1
 # define MSGPACK_PP_INTERCEPT_2
@@ -274,4 +282,5 @@
 # define MSGPACK_PP_INTERCEPT_255
 # define MSGPACK_PP_INTERCEPT_256
 #
+
 # endif

@@ -48,7 +48,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_LIB_STD_MSL_NAME "Metrowerks"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_MSL,MSGPACK_LIB_STD_MSL_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_MSL,
+MSGPACK_LIB_STD_MSL_NAME)
 
 
 #endif

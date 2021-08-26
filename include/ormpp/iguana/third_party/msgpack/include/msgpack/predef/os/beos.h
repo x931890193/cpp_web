@@ -25,9 +25,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 
 #define MSGPACK_OS_BEOS MSGPACK_VERSION_NUMBER_NOT_AVAILABLE
 
-#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && ( \
+#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && (\
     defined(__BEOS__) \
-    )
+)
 #   undef MSGPACK_OS_BEOS
 #   define MSGPACK_OS_BEOS MSGPACK_VERSION_NUMBER_AVAILABLE
 #endif
@@ -40,7 +40,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_OS_BEOS_NAME "BeOS"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_BEOS,MSGPACK_OS_BEOS_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_BEOS,
+MSGPACK_OS_BEOS_NAME)
 
 
 #endif

@@ -56,7 +56,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_GHS_NAME "Green Hills C/C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_GHS,MSGPACK_COMP_GHS_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_GHS,
+MSGPACK_COMP_GHS_NAME)
 
 #ifdef MSGPACK_COMP_GHS_EMULATED
 #include <msgpack/predef/detail/test.h>

@@ -56,7 +56,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_SUNPRO_NAME "Sun Studio"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_SUNPRO,MSGPACK_COMP_SUNPRO_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_SUNPRO,
+MSGPACK_COMP_SUNPRO_NAME)
 
 #ifdef MSGPACK_COMP_SUNPRO_EMULATED
 #include <msgpack/predef/detail/test.h>

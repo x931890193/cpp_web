@@ -7,17 +7,25 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)                                *
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_VARIADIC_HPP
 # define MSGPACK_PREPROCESSOR_VARIADIC_HPP
 #
+
+
 # include <msgpack/preprocessor/variadic/elem.hpp>
 # include <msgpack/preprocessor/variadic/size.hpp>
 # include <msgpack/preprocessor/variadic/to_array.hpp>
 # include <msgpack/preprocessor/variadic/to_list.hpp>
 # include <msgpack/preprocessor/variadic/to_seq.hpp>
 # include <msgpack/preprocessor/variadic/to_tuple.hpp>
+
 #
+
 # endif

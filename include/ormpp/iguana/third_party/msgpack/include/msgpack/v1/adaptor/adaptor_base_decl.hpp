@@ -16,46 +16,46 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
-template <typename Stream>
-class packer;
+            template <typename Stream>
+            class packer;
 
-namespace adaptor {
+            namespace adaptor {
 
 // Adaptor functors
 
-template <typename T, typename Enabler = void>
-struct convert;
+                template<typename T, typename Enabler = void>
+                struct convert;
 
-template <typename T, typename Enabler = void>
-struct pack;
+                template<typename T, typename Enabler = void>
+                struct pack;
 
-template <typename T, typename Enabler = void>
-struct object;
+                template<typename T, typename Enabler = void>
+                struct object;
 
-template <typename T, typename Enabler = void>
-struct object_with_zone;
+                template<typename T, typename Enabler = void>
+                struct object_with_zone;
 
-} // namespace adaptor
+            } // namespace adaptor
 
 // operators
 
-template <typename T>
- msgpack::object const& operator>> (msgpack::object const& o, T& v);
+            template <typename T>
+            msgpack::object const& operator>> (msgpack::object const& o, T& v);
 
-template <typename Stream, typename T>
-msgpack::packer<Stream>& operator<< (msgpack::packer<Stream>& o, T const& v);
+            template <typename Stream, typename T>
+            msgpack::packer<Stream>& operator<< (msgpack::packer<Stream>& o, T const& v);
 
-template <typename T>
-void operator<< (msgpack::object& o, T const& v);
+            template <typename T>
+            void operator<< (msgpack::object& o, T const& v);
 
-template <typename T>
-void operator<< (msgpack::object::with_zone& o, T const& v);
+            template <typename T>
+            void operator<< (msgpack::object::with_zone& o, T const& v);
 
 /// @cond
-} // MSGPACK_API_VERSION_NAMESPACE(v1)
+    } // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 } // namespace msgpack

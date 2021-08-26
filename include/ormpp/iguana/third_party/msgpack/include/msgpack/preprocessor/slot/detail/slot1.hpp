@@ -6,13 +6,21 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
+
 # include <msgpack/preprocessor/slot/detail/shared.hpp>
+
 #
+
 # undef MSGPACK_PP_SLOT_1
 #
+
 # undef MSGPACK_PP_SLOT_1_DIGIT_1
 # undef MSGPACK_PP_SLOT_1_DIGIT_2
 # undef MSGPACK_PP_SLOT_1_DIGIT_3
@@ -24,6 +32,7 @@
 # undef MSGPACK_PP_SLOT_1_DIGIT_9
 # undef MSGPACK_PP_SLOT_1_DIGIT_10
 #
+
 # if MSGPACK_PP_SLOT_TEMP_10 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_10 0
 # elif MSGPACK_PP_SLOT_TEMP_10 == 1
@@ -46,6 +55,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_10 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_TEMP_9 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_9 0
 # elif MSGPACK_PP_SLOT_TEMP_9 == 1
@@ -68,6 +78,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_9 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_TEMP_8 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_8 0
 # elif MSGPACK_PP_SLOT_TEMP_8 == 1
@@ -90,6 +101,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_8 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_TEMP_7 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_7 0
 # elif MSGPACK_PP_SLOT_TEMP_7 == 1
@@ -112,6 +124,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_7 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_TEMP_6 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_6 0
 # elif MSGPACK_PP_SLOT_TEMP_6 == 1
@@ -134,6 +147,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_6 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_TEMP_5 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_5 0
 # elif MSGPACK_PP_SLOT_TEMP_5 == 1
@@ -156,6 +170,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_5 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_TEMP_4 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_4 0
 # elif MSGPACK_PP_SLOT_TEMP_4 == 1
@@ -178,6 +193,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_4 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_TEMP_3 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_3 0
 # elif MSGPACK_PP_SLOT_TEMP_3 == 1
@@ -200,6 +216,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_3 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_TEMP_2 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_2 0
 # elif MSGPACK_PP_SLOT_TEMP_2 == 1
@@ -222,6 +239,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_2 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_TEMP_1 == 0
 #    define MSGPACK_PP_SLOT_1_DIGIT_1 0
 # elif MSGPACK_PP_SLOT_TEMP_1 == 1
@@ -244,6 +262,7 @@
 #    define MSGPACK_PP_SLOT_1_DIGIT_1 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_1_DIGIT_10
 #    define MSGPACK_PP_SLOT_1() MSGPACK_PP_SLOT_CC_10(MSGPACK_PP_SLOT_1_DIGIT_10, MSGPACK_PP_SLOT_1_DIGIT_9, MSGPACK_PP_SLOT_1_DIGIT_8, MSGPACK_PP_SLOT_1_DIGIT_7, MSGPACK_PP_SLOT_1_DIGIT_6, MSGPACK_PP_SLOT_1_DIGIT_5, MSGPACK_PP_SLOT_1_DIGIT_4, MSGPACK_PP_SLOT_1_DIGIT_3, MSGPACK_PP_SLOT_1_DIGIT_2, MSGPACK_PP_SLOT_1_DIGIT_1)
 # elif MSGPACK_PP_SLOT_1_DIGIT_9

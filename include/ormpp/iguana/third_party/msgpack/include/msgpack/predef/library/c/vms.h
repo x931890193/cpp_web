@@ -42,7 +42,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_LIB_C_VMS_NAME "VMS"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_C_VMS,MSGPACK_LIB_C_VMS_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_C_VMS,
+MSGPACK_LIB_C_VMS_NAME)
 
 
 #endif

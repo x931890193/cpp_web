@@ -6,13 +6,21 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_SELECTION_HPP
 # define MSGPACK_PREPROCESSOR_SELECTION_HPP
 #
+
+
 # include <msgpack/preprocessor/selection/max.hpp>
 # include <msgpack/preprocessor/selection/min.hpp>
+
 #
+
 # endif

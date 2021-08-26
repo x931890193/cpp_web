@@ -31,9 +31,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 
 #define MSGPACK_OS_BSD_NET MSGPACK_VERSION_NUMBER_NOT_AVAILABLE
 
-#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && ( \
+#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && (\
     defined(__NETBSD__) || defined(__NetBSD__) \
-    )
+)
 #   ifndef MSGPACK_OS_BSD_AVAILABLE
 #       define MSGPACK_OS_BSD MSGPACK_VERSION_NUMBER_AVAILABLE
 #       define MSGPACK_OS_BSD_AVAILABLE
@@ -79,6 +79,8 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_OS_BSD_NET_NAME "DragonFly BSD"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_BSD_NET,MSGPACK_OS_BSD_NET_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_BSD_NET,
+MSGPACK_OS_BSD_NET_NAME)
 
 #endif

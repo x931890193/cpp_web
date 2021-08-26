@@ -46,7 +46,9 @@ If available version number as major, minor, and patch.
 #define MSGPACK_LIB_STD_SGI_NAME "SGI"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_SGI,MSGPACK_LIB_STD_SGI_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_SGI,
+MSGPACK_LIB_STD_SGI_NAME)
 
 
 #endif

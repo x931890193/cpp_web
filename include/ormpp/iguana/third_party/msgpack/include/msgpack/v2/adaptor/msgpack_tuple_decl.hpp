@@ -15,7 +15,9 @@
 #if defined(MSGPACK_USE_CPP03)
 #include "msgpack/v2/adaptor/detail/cpp03_msgpack_tuple_decl.hpp"
 #else  // MSGPACK_USE_CPP03
+
 #include "msgpack/v2/adaptor/detail/cpp11_msgpack_tuple_decl.hpp"
+
 #endif // MSGPACK_USE_CPP03
 
 #endif // MSGPACK_V2_MSGPACK_TUPLE_DECL_HPP

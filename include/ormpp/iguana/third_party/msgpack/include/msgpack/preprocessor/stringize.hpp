@@ -6,18 +6,30 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_STRINGIZE_HPP
 # define MSGPACK_PREPROCESSOR_STRINGIZE_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
+
 #
+
 # /* MSGPACK_PP_STRINGIZE */
+
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MSVC()
 #    define MSGPACK_PP_STRINGIZE(text) MSGPACK_PP_STRINGIZE_A((text))
 #    define MSGPACK_PP_STRINGIZE_A(arg) MSGPACK_PP_STRINGIZE_I arg
@@ -28,6 +40,8 @@
 #    define MSGPACK_PP_STRINGIZE(text) MSGPACK_PP_STRINGIZE_I(text)
 # endif
 #
+
 # define MSGPACK_PP_STRINGIZE_I(text) #text
 #
+
 # endif

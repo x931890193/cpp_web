@@ -77,23 +77,23 @@ struct underlying_type;
 
 namespace msgpack {
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
-    // unique_ptr
-    using std::unique_ptr;
-    // using std::make_unique; // since C++14
-    using std::hash;
+            // unique_ptr
+            using std::unique_ptr;
+            // using std::make_unique; // since C++14
+            using std::hash;
 
-    // utility
-    using std::move;
-    using std::swap;
-    using std::enable_if;
-    using std::is_same;
-    using std::underlying_type;
+            // utility
+            using std::move;
+            using std::swap;
+            using std::enable_if;
+            using std::is_same;
+            using std::underlying_type;
 
 /// @cond
-}  // MSGPACK_API_VERSION_NAMESPACE(v1)
+    }  // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 }  // namespace msgpack
 

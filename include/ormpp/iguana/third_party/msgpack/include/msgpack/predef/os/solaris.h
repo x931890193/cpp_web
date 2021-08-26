@@ -26,9 +26,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 
 #define MSGPACK_OS_SOLARIS MSGPACK_VERSION_NUMBER_NOT_AVAILABLE
 
-#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && ( \
+#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && (\
     defined(sun) || defined(__sun) \
-    )
+)
 #   undef MSGPACK_OS_SOLARIS
 #   define MSGPACK_OS_SOLARIS MSGPACK_VERSION_NUMBER_AVAILABLE
 #endif
@@ -41,7 +41,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_OS_SOLARIS_NAME "Solaris"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_SOLARIS,MSGPACK_OS_SOLARIS_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_SOLARIS,
+MSGPACK_OS_SOLARIS_NAME)
 
 
 #endif

@@ -6,12 +6,20 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_DEC_HPP
 # define MSGPACK_PREPROCESSOR_DEC_HPP
 #
+
+
 # include <msgpack/preprocessor/arithmetic/dec.hpp>
+
 #
+
 # endif

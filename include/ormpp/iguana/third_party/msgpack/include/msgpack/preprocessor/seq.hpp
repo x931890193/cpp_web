@@ -7,12 +7,18 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)                                *
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_SEQ_HPP
 # define MSGPACK_PREPROCESSOR_SEQ_HPP
 #
+
+
 # include <msgpack/preprocessor/seq/cat.hpp>
 # include <msgpack/preprocessor/seq/elem.hpp>
 # include <msgpack/preprocessor/seq/enum.hpp>
@@ -40,5 +46,7 @@
 # include <msgpack/preprocessor/seq/to_tuple.hpp>
 # include <msgpack/preprocessor/seq/transform.hpp>
 # include <msgpack/preprocessor/seq/variadic_seq_to_seq.hpp>
+
 #
+
 # endif

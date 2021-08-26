@@ -25,13 +25,13 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
-class vrefbuffer;
+            class vrefbuffer;
 
 /// @cond
-}  // MSGPACK_API_VERSION_NAMESPACE(v1)
+    }  // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 }  // namespace msgpack

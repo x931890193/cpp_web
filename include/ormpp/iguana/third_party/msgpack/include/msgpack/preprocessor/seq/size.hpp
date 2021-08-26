@@ -6,15 +6,23 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_SEQ_SIZE_HPP
 # define MSGPACK_PREPROCESSOR_SEQ_SIZE_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
+
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MWCC()
 #    define MSGPACK_PP_SEQ_SIZE(seq) MSGPACK_PP_SEQ_SIZE_I((seq))
 #    define MSGPACK_PP_SEQ_SIZE_I(par) MSGPACK_PP_SEQ_SIZE_II ## par
@@ -28,6 +36,7 @@
 #    define MSGPACK_PP_SEQ_SIZE(seq) MSGPACK_PP_CAT(MSGPACK_PP_SEQ_SIZE_, MSGPACK_PP_SEQ_SIZE_0 seq)
 # endif
 #
+
 # define MSGPACK_PP_SEQ_SIZE_0(_) MSGPACK_PP_SEQ_SIZE_1
 # define MSGPACK_PP_SEQ_SIZE_1(_) MSGPACK_PP_SEQ_SIZE_2
 # define MSGPACK_PP_SEQ_SIZE_2(_) MSGPACK_PP_SEQ_SIZE_3
@@ -286,6 +295,7 @@
 # define MSGPACK_PP_SEQ_SIZE_255(_) MSGPACK_PP_SEQ_SIZE_256
 # define MSGPACK_PP_SEQ_SIZE_256(_) MSGPACK_PP_SEQ_SIZE_257
 #
+
 # define MSGPACK_PP_SEQ_SIZE_MSGPACK_PP_SEQ_SIZE_0 0
 # define MSGPACK_PP_SEQ_SIZE_MSGPACK_PP_SEQ_SIZE_1 1
 # define MSGPACK_PP_SEQ_SIZE_MSGPACK_PP_SEQ_SIZE_2 2
@@ -544,4 +554,5 @@
 # define MSGPACK_PP_SEQ_SIZE_MSGPACK_PP_SEQ_SIZE_255 255
 # define MSGPACK_PP_SEQ_SIZE_MSGPACK_PP_SEQ_SIZE_256 256
 #
+
 # endif

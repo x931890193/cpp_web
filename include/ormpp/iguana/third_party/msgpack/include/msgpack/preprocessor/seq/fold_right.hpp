@@ -6,28 +6,41 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_SEQ_FOLD_RIGHT_HPP
 # define MSGPACK_PREPROCESSOR_SEQ_FOLD_RIGHT_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/detail/auto_rec.hpp>
 # include <msgpack/preprocessor/seq/fold_left.hpp>
 # include <msgpack/preprocessor/seq/reverse.hpp>
 # include <msgpack/preprocessor/seq/seq.hpp>
+
 #
+
 # /* MSGPACK_PP_SEQ_FOLD_RIGHT */
+
 #
+
 # if 0
 #    define MSGPACK_PP_SEQ_FOLD_RIGHT(op, state, seq) ...
 # endif
 #
+
 # define MSGPACK_PP_SEQ_FOLD_RIGHT MSGPACK_PP_CAT(MSGPACK_PP_SEQ_FOLD_RIGHT_, MSGPACK_PP_AUTO_REC(MSGPACK_PP_SEQ_FOLD_LEFT_P, 256))
 #
+
 # define MSGPACK_PP_SEQ_FOLD_RIGHT_257(op, st, ss) MSGPACK_PP_ERROR(0x0005)
 #
+
 # define MSGPACK_PP_SEQ_FOLD_RIGHT_1(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_1(op, st, MSGPACK_PP_SEQ_REVERSE_S(2, ss), MSGPACK_PP_SEQ_SIZE(ss))
 # define MSGPACK_PP_SEQ_FOLD_RIGHT_2(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_2(op, st, MSGPACK_PP_SEQ_REVERSE_S(3, ss), MSGPACK_PP_SEQ_SIZE(ss))
 # define MSGPACK_PP_SEQ_FOLD_RIGHT_3(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_3(op, st, MSGPACK_PP_SEQ_REVERSE_S(4, ss), MSGPACK_PP_SEQ_SIZE(ss))
@@ -285,4 +298,5 @@
 # define MSGPACK_PP_SEQ_FOLD_RIGHT_255(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_255(op, st, MSGPACK_PP_SEQ_REVERSE_S(256, ss), MSGPACK_PP_SEQ_SIZE(ss))
 # define MSGPACK_PP_SEQ_FOLD_RIGHT_256(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_256(op, st, MSGPACK_PP_SEQ_REVERSE_S(257, ss), MSGPACK_PP_SEQ_SIZE(ss))
 #
+
 # endif

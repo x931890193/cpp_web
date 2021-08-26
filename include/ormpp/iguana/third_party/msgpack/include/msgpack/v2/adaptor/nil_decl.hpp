@@ -15,20 +15,20 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v2) {
+    MSGPACK_API_VERSION_NAMESPACE(v2) {
 /// @endcond
 
-namespace type {
+            namespace type {
 
-using v1::type::nil_t;
+                using v1::type::nil_t;
 
-using v1::type::operator<;
-using v1::type::operator==;
+                using v1::type::operator<;
+                using v1::type::operator==;
 
-}  // namespace type
+            }  // namespace type
 
 /// @cond
-}  // MSGPACK_API_VERSION_NAMESPACE(v2)
+    }  // MSGPACK_API_VERSION_NAMESPACE(v2)
 /// @endcond
 
 }  // namespace msgpack

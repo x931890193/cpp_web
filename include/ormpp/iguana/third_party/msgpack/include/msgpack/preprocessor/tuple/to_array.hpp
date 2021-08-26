@@ -7,20 +7,30 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)                                *
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_TUPLE_TO_ARRAY_HPP
 # define MSGPACK_PREPROCESSOR_TUPLE_TO_ARRAY_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/facilities/overload.hpp>
 # include <msgpack/preprocessor/tuple/size.hpp>
 # include <msgpack/preprocessor/variadic/size.hpp>
+
 #
+
 # /* MSGPACK_PP_TUPLE_TO_ARRAY */
+
 #
+
 # if MSGPACK_PP_VARIADICS
 #    if MSGPACK_PP_VARIADICS_MSVC
 #        define MSGPACK_PP_TUPLE_TO_ARRAY(...) MSGPACK_PP_TUPLE_TO_ARRAY_I(MSGPACK_PP_OVERLOAD(MSGPACK_PP_TUPLE_TO_ARRAY_, __VA_ARGS__), (__VA_ARGS__))
@@ -36,4 +46,5 @@
 #    define MSGPACK_PP_TUPLE_TO_ARRAY(size, tuple) (size, tuple)
 # endif
 #
+
 # endif

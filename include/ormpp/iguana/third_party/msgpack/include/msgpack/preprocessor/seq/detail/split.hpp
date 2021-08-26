@@ -6,24 +6,36 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_SEQ_DETAIL_SPLIT_HPP
 # define MSGPACK_PREPROCESSOR_SEQ_DETAIL_SPLIT_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
+
 #
+
 # /* MSGPACK_PP_SEQ_SPLIT */
+
 #
+
 # define MSGPACK_PP_SEQ_SPLIT(n, seq) MSGPACK_PP_SEQ_SPLIT_D(n, seq)
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MWCC()
 #    define MSGPACK_PP_SEQ_SPLIT_D(n, seq) (MSGPACK_PP_SEQ_SPLIT_ ## n seq)
 # else
 #    define MSGPACK_PP_SEQ_SPLIT_D(n, seq) (MSGPACK_PP_SEQ_SPLIT_ ## n ## seq)
 # endif
 #
+
 # define MSGPACK_PP_SEQ_SPLIT_1(x) (x),
 # define MSGPACK_PP_SEQ_SPLIT_2(x) (x) MSGPACK_PP_SEQ_SPLIT_1
 # define MSGPACK_PP_SEQ_SPLIT_3(x) (x) MSGPACK_PP_SEQ_SPLIT_2
@@ -281,4 +293,5 @@
 # define MSGPACK_PP_SEQ_SPLIT_255(x) (x) MSGPACK_PP_SEQ_SPLIT_254
 # define MSGPACK_PP_SEQ_SPLIT_256(x) (x) MSGPACK_PP_SEQ_SPLIT_255
 #
+
 # endif

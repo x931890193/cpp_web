@@ -17,14 +17,14 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v2) {
+    MSGPACK_API_VERSION_NAMESPACE(v2) {
 /// @endcond
 
-using v1::begin;
-using v1::end;
+            using v1::begin;
+            using v1::end;
 
 /// @cond
-}
+    }
 /// @endcond
 
 }

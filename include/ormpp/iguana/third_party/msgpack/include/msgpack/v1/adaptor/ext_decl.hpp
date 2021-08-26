@@ -19,18 +19,18 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
-namespace type {
+            namespace type {
 
-class ext_ref;
-class ext;
+                class ext_ref;
+                class ext;
 
-} // namespace type
+            } // namespace type
 
 /// @cond
-} // MSGPACK_API_VERSION_NAMESPACE(v1)
+    } // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 } // namespace msgpack

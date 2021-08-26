@@ -17,7 +17,7 @@
 
 #define MSGPACK_VERSION MSGPACK_VERSION_I(MSGPACK_VERSION_MAJOR, MSGPACK_VERSION_MINOR, MSGPACK_VERSION_REVISION)
 
-inline const char* msgpack_version(void) {
+inline const char *msgpack_version(void) {
     return MSGPACK_VERSION;
 }
 

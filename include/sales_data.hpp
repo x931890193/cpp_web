@@ -14,10 +14,10 @@ struct Sales_data {
     unsigned unit_sold = 0;
     my_double venue = 0.0;
 public:
-    Sales_data (){
-       this->BookNo = "001";
-       this->unit_sold = 0;
-       this->venue = 0.0;
+    Sales_data() {
+        this->BookNo = "001";
+        this->unit_sold = 0;
+        this->venue = 0.0;
     }
 };
 

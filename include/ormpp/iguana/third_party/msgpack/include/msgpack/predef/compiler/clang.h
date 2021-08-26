@@ -40,13 +40,17 @@ Version number available as major, minor, and patch.
 #       define MSGPACK_COMP_CLANG MSGPACK_COMP_CLANG_DETECTION
 #   endif
 #   define MSGPACK_COMP_CLANG_AVAILABLE
+
 #   include <msgpack/predef/detail/comp_detected.h>
+
 #endif
 
 #define MSGPACK_COMP_CLANG_NAME "Clang"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_CLANG,MSGPACK_COMP_CLANG_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_CLANG,
+MSGPACK_COMP_CLANG_NAME)
 
 #ifdef MSGPACK_COMP_CLANG_EMULATED
 #include <msgpack/predef/detail/test.h>

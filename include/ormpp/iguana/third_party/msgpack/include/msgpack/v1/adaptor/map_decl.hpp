@@ -17,18 +17,18 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
-namespace type {
+            namespace type {
 
-template <typename K, typename V, typename Compare = std::less<K>, typename Alloc = std::allocator<std::pair<K, V> > >
-class assoc_vector;
+                template<typename K, typename V, typename Compare = std::less<K>, typename Alloc = std::allocator<std::pair<K, V> > >
+                class assoc_vector;
 
-}  //namespace type
+            }  //namespace type
 
 /// @cond
-}  // MSGPACK_API_VERSION_NAMESPACE(v1)
+    }  // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 }  // namespace msgpack

@@ -6,18 +6,28 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_SEQ_ENUM_HPP
 # define MSGPACK_PREPROCESSOR_SEQ_ENUM_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/seq/size.hpp>
+
 #
+
 # /* MSGPACK_PP_SEQ_ENUM */
+
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    define MSGPACK_PP_SEQ_ENUM(seq) MSGPACK_PP_SEQ_ENUM_I(seq)
 #    define MSGPACK_PP_SEQ_ENUM_I(seq) MSGPACK_PP_CAT(MSGPACK_PP_SEQ_ENUM_, MSGPACK_PP_SEQ_SIZE(seq)) seq
@@ -28,6 +38,7 @@
 #    define MSGPACK_PP_SEQ_ENUM(seq) MSGPACK_PP_CAT(MSGPACK_PP_SEQ_ENUM_, MSGPACK_PP_SEQ_SIZE(seq)) seq
 # endif
 #
+
 # define MSGPACK_PP_SEQ_ENUM_1(x) x
 # define MSGPACK_PP_SEQ_ENUM_2(x) x, MSGPACK_PP_SEQ_ENUM_1
 # define MSGPACK_PP_SEQ_ENUM_3(x) x, MSGPACK_PP_SEQ_ENUM_2
@@ -285,4 +296,5 @@
 # define MSGPACK_PP_SEQ_ENUM_255(x) x, MSGPACK_PP_SEQ_ENUM_254
 # define MSGPACK_PP_SEQ_ENUM_256(x) x, MSGPACK_PP_SEQ_ENUM_255
 #
+
 # endif

@@ -6,14 +6,22 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_CONTROL_WHILE_HPP
 # define MSGPACK_PREPROCESSOR_CONTROL_WHILE_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/debug/error.hpp>
@@ -21,23 +29,31 @@
 # include <msgpack/preprocessor/list/fold_left.hpp>
 # include <msgpack/preprocessor/list/fold_right.hpp>
 # include <msgpack/preprocessor/logical/bitand.hpp>
+
 #
+
 # /* MSGPACK_PP_WHILE */
+
 #
+
 # if 0
 #    define MSGPACK_PP_WHILE(pred, op, state)
 # endif
 #
+
 # define MSGPACK_PP_WHILE MSGPACK_PP_CAT(MSGPACK_PP_WHILE_, MSGPACK_PP_AUTO_REC(MSGPACK_PP_WHILE_P, 256))
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    define MSGPACK_PP_WHILE_P(n) MSGPACK_PP_BITAND(MSGPACK_PP_CAT(MSGPACK_PP_WHILE_CHECK_, MSGPACK_PP_WHILE_ ## n(MSGPACK_PP_WHILE_F, MSGPACK_PP_NIL, MSGPACK_PP_NIL)), MSGPACK_PP_BITAND(MSGPACK_PP_CAT(MSGPACK_PP_LIST_FOLD_LEFT_CHECK_, MSGPACK_PP_LIST_FOLD_LEFT_ ## n(MSGPACK_PP_NIL, MSGPACK_PP_NIL, MSGPACK_PP_NIL)), MSGPACK_PP_CAT(MSGPACK_PP_LIST_FOLD_RIGHT_CHECK_, MSGPACK_PP_LIST_FOLD_RIGHT_ ## n(MSGPACK_PP_NIL, MSGPACK_PP_NIL, MSGPACK_PP_NIL))))
 # else
 #    define MSGPACK_PP_WHILE_P(n) MSGPACK_PP_BITAND(MSGPACK_PP_CAT(MSGPACK_PP_WHILE_CHECK_, MSGPACK_PP_WHILE_ ## n(MSGPACK_PP_WHILE_F, MSGPACK_PP_NIL, MSGPACK_PP_NIL)), MSGPACK_PP_CAT(MSGPACK_PP_LIST_FOLD_LEFT_CHECK_, MSGPACK_PP_LIST_FOLD_LEFT_ ## n(MSGPACK_PP_NIL, MSGPACK_PP_NIL, MSGPACK_PP_NIL)))
 # endif
 #
+
 # define MSGPACK_PP_WHILE_F(d, _) 0
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    include <msgpack/preprocessor/control/detail/edg/while.hpp>
 # elif MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MSVC()
@@ -45,13 +61,18 @@
 # elif MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_DMC()
 #    include <msgpack/preprocessor/control/detail/dmc/while.hpp>
 # else
+
 #    include <msgpack/preprocessor/control/detail/while.hpp>
+
 # endif
 #
+
 # define MSGPACK_PP_WHILE_257(p, o, s) MSGPACK_PP_ERROR(0x0001)
 #
+
 # define MSGPACK_PP_WHILE_CHECK_MSGPACK_PP_NIL 1
 #
+
 # define MSGPACK_PP_WHILE_CHECK_MSGPACK_PP_WHILE_1(p, o, s) 0
 # define MSGPACK_PP_WHILE_CHECK_MSGPACK_PP_WHILE_2(p, o, s) 0
 # define MSGPACK_PP_WHILE_CHECK_MSGPACK_PP_WHILE_3(p, o, s) 0
@@ -309,4 +330,5 @@
 # define MSGPACK_PP_WHILE_CHECK_MSGPACK_PP_WHILE_255(p, o, s) 0
 # define MSGPACK_PP_WHILE_CHECK_MSGPACK_PP_WHILE_256(p, o, s) 0
 #
+
 # endif

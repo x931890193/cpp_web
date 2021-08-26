@@ -6,14 +6,22 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_DETAIL_SPLIT_HPP
 # define MSGPACK_PREPROCESSOR_DETAIL_SPLIT_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
+
 #
+
 # /* MSGPACK_PP_SPLIT */
+
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MWCC()
 #    define MSGPACK_PP_SPLIT(n, im) MSGPACK_PP_SPLIT_I((n, im))
 #    define MSGPACK_PP_SPLIT_I(par) MSGPACK_PP_SPLIT_II ## par
@@ -29,7 +37,9 @@
 #    define MSGPACK_PP_SPLIT_I(n) MSGPACK_PP_SPLIT_ ## n
 # endif
 #
+
 # define MSGPACK_PP_SPLIT_0(a, b) a
 # define MSGPACK_PP_SPLIT_1(a, b) b
 #
+
 # endif

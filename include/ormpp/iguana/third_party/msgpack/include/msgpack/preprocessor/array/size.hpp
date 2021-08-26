@@ -6,17 +6,27 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_ARRAY_SIZE_HPP
 # define MSGPACK_PREPROCESSOR_ARRAY_SIZE_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/tuple/elem.hpp>
+
 #
+
 # /* MSGPACK_PP_ARRAY_SIZE */
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    define MSGPACK_PP_ARRAY_SIZE(array) MSGPACK_PP_TUPLE_ELEM(2, 0, array)
 # else
@@ -25,4 +35,5 @@
 #    define MSGPACK_PP_ARRAY_SIZE_II(size, data) size
 # endif
 #
+
 # endif

@@ -6,9 +6,13 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 #ifndef MSGPACK_PREPROCESSOR_DETAIL_IS_EMPTY_HPP
 #define MSGPACK_PREPROCESSOR_DETAIL_IS_EMPTY_HPP
 
@@ -31,8 +35,8 @@
 #if MSGPACK_PP_VARIADICS_MSVC && _MSC_VER <= 1400
 
 #define MSGPACK_PP_DETAIL_IS_EMPTY_PROCESS(param) \
-	MSGPACK_PP_IS_BEGIN_PARENS \
-    	( \
+    MSGPACK_PP_IS_BEGIN_PARENS \
+        ( \
         MSGPACK_PP_DETAIL_IS_EMPTY_NON_FUNCTION_C param () \
         ) \
 /**/
@@ -40,7 +44,7 @@
 #else
 
 #define MSGPACK_PP_DETAIL_IS_EMPTY_PROCESS(...) \
-	MSGPACK_PP_IS_BEGIN_PARENS \
+    MSGPACK_PP_IS_BEGIN_PARENS \
         ( \
         MSGPACK_PP_DETAIL_IS_EMPTY_NON_FUNCTION_C __VA_ARGS__ () \
         ) \

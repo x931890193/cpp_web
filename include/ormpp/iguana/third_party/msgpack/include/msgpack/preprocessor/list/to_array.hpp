@@ -7,12 +7,18 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_LIST_TO_ARRAY_HPP
 # define MSGPACK_PREPROCESSOR_LIST_TO_ARRAY_HPP
 #
+
+
 # include <msgpack/preprocessor/arithmetic/dec.hpp>
 # include <msgpack/preprocessor/arithmetic/inc.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
@@ -20,21 +26,25 @@
 # include <msgpack/preprocessor/list/adt.hpp>
 # include <msgpack/preprocessor/tuple/elem.hpp>
 # include <msgpack/preprocessor/tuple/rem.hpp>
+
 # if MSGPACK_PP_VARIADICS && MSGPACK_PP_VARIADICS_MSVC && (_MSC_VER <= 1400)
 # include <msgpack/preprocessor/control/iif.hpp>
 # endif
 #
+
 # /* MSGPACK_PP_LIST_TO_ARRAY */
+
 #
+
 # if MSGPACK_PP_VARIADICS && MSGPACK_PP_VARIADICS_MSVC && (_MSC_VER <= 1400)
 # define MSGPACK_PP_LIST_TO_ARRAY(list) \
-	MSGPACK_PP_IIF \
-		( \
-		MSGPACK_PP_LIST_IS_NIL(list), \
-		MSGPACK_PP_LIST_TO_ARRAY_VC8ORLESS_EMPTY, \
-		MSGPACK_PP_LIST_TO_ARRAY_VC8ORLESS_DO \
-		) \
-	(list) \
+    MSGPACK_PP_IIF \
+        ( \
+        MSGPACK_PP_LIST_IS_NIL(list), \
+        MSGPACK_PP_LIST_TO_ARRAY_VC8ORLESS_EMPTY, \
+        MSGPACK_PP_LIST_TO_ARRAY_VC8ORLESS_DO \
+        ) \
+    (list) \
 /**/
 # define MSGPACK_PP_LIST_TO_ARRAY_VC8ORLESS_EMPTY(list) (0,())
 # define MSGPACK_PP_LIST_TO_ARRAY_VC8ORLESS_DO(list) MSGPACK_PP_LIST_TO_ARRAY_I(MSGPACK_PP_WHILE, list)
@@ -46,7 +56,7 @@
 #    define MSGPACK_PP_LIST_TO_ARRAY_I(w, list) \
         MSGPACK_PP_LIST_TO_ARRAY_II(((MSGPACK_PP_TUPLE_REM_CTOR( \
             3, \
-	        w(MSGPACK_PP_LIST_TO_ARRAY_P, MSGPACK_PP_LIST_TO_ARRAY_O, (list, 1, (~))) \
+            w(MSGPACK_PP_LIST_TO_ARRAY_P, MSGPACK_PP_LIST_TO_ARRAY_O, (list, 1, (~))) \
         )))) \
         /**/
 #    define MSGPACK_PP_LIST_TO_ARRAY_II(p) MSGPACK_PP_LIST_TO_ARRAY_II_B(p)
@@ -56,7 +66,7 @@
 #    define MSGPACK_PP_LIST_TO_ARRAY_I(w, list) \
         MSGPACK_PP_LIST_TO_ARRAY_II(MSGPACK_PP_TUPLE_REM_CTOR( \
             3, \
-	        w(MSGPACK_PP_LIST_TO_ARRAY_P, MSGPACK_PP_LIST_TO_ARRAY_O, (list, 1, (~))) \
+            w(MSGPACK_PP_LIST_TO_ARRAY_P, MSGPACK_PP_LIST_TO_ARRAY_O, (list, 1, (~))) \
         )) \
         /**/
 #    define MSGPACK_PP_LIST_TO_ARRAY_II(im) MSGPACK_PP_LIST_TO_ARRAY_III(im)
@@ -134,17 +144,20 @@
 # define MSGPACK_PP_LIST_TO_ARRAY_O(d, state) MSGPACK_PP_LIST_TO_ARRAY_O_I state
 # define MSGPACK_PP_LIST_TO_ARRAY_O_I(list, size, tuple) (MSGPACK_PP_LIST_REST(list), MSGPACK_PP_INC(size), (MSGPACK_PP_TUPLE_REM(size) tuple, MSGPACK_PP_LIST_FIRST(list)))
 #
+
 # /* MSGPACK_PP_LIST_TO_ARRAY_D */
+
 #
+
 # if MSGPACK_PP_VARIADICS && MSGPACK_PP_VARIADICS_MSVC && (_MSC_VER <= 1400)
 # define MSGPACK_PP_LIST_TO_ARRAY_D(d, list) \
-	MSGPACK_PP_IIF \
-		( \
-		MSGPACK_PP_LIST_IS_NIL(list), \
-		MSGPACK_PP_LIST_TO_ARRAY_D_VC8ORLESS_EMPTY, \
-		MSGPACK_PP_LIST_TO_ARRAY_D_VC8ORLESS_DO \
-		) \
-	(d, list) \
+    MSGPACK_PP_IIF \
+        ( \
+        MSGPACK_PP_LIST_IS_NIL(list), \
+        MSGPACK_PP_LIST_TO_ARRAY_D_VC8ORLESS_EMPTY, \
+        MSGPACK_PP_LIST_TO_ARRAY_D_VC8ORLESS_DO \
+        ) \
+    (d, list) \
 /**/
 # define MSGPACK_PP_LIST_TO_ARRAY_D_VC8ORLESS_EMPTY(d, list) (0,())
 # define MSGPACK_PP_LIST_TO_ARRAY_D_VC8ORLESS_DO(d, list) MSGPACK_PP_LIST_TO_ARRAY_I(MSGPACK_PP_WHILE_ ## d, list)
@@ -152,4 +165,5 @@
 # define MSGPACK_PP_LIST_TO_ARRAY_D(d, list) MSGPACK_PP_LIST_TO_ARRAY_I(MSGPACK_PP_WHILE_ ## d, list)
 # endif
 #
+
 # endif /* MSGPACK_PREPROCESSOR_LIST_TO_ARRAY_HPP */

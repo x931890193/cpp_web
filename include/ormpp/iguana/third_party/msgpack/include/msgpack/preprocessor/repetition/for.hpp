@@ -6,32 +6,48 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_REPETITION_FOR_HPP
 # define MSGPACK_PREPROCESSOR_REPETITION_FOR_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/debug/error.hpp>
 # include <msgpack/preprocessor/detail/auto_rec.hpp>
+
 #
+
 # /* MSGPACK_PP_FOR */
+
 #
+
 # if 0
 #    define MSGPACK_PP_FOR(state, pred, op, macro)
 # endif
 #
+
 # define MSGPACK_PP_FOR MSGPACK_PP_CAT(MSGPACK_PP_FOR_, MSGPACK_PP_AUTO_REC(MSGPACK_PP_FOR_P, 256))
 #
+
 # define MSGPACK_PP_FOR_P(n) MSGPACK_PP_CAT(MSGPACK_PP_FOR_CHECK_, MSGPACK_PP_FOR_ ## n(1, MSGPACK_PP_FOR_SR_P, MSGPACK_PP_FOR_SR_O, MSGPACK_PP_FOR_SR_M))
 #
+
 # define MSGPACK_PP_FOR_SR_P(r, s) s
 # define MSGPACK_PP_FOR_SR_O(r, s) 0
 # define MSGPACK_PP_FOR_SR_M(r, s) MSGPACK_PP_NIL
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    include <msgpack/preprocessor/repetition/detail/edg/for.hpp>
 # elif MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MSVC()
@@ -39,13 +55,18 @@
 # elif MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_DMC()
 #    include <msgpack/preprocessor/repetition/detail/dmc/for.hpp>
 # else
+
 #    include <msgpack/preprocessor/repetition/detail/for.hpp>
+
 # endif
 #
+
 # define MSGPACK_PP_FOR_257(s, p, o, m) MSGPACK_PP_ERROR(0x0002)
 #
+
 # define MSGPACK_PP_FOR_CHECK_MSGPACK_PP_NIL 1
 #
+
 # define MSGPACK_PP_FOR_CHECK_MSGPACK_PP_FOR_1(s, p, o, m) 0
 # define MSGPACK_PP_FOR_CHECK_MSGPACK_PP_FOR_2(s, p, o, m) 0
 # define MSGPACK_PP_FOR_CHECK_MSGPACK_PP_FOR_3(s, p, o, m) 0
@@ -303,4 +324,5 @@
 # define MSGPACK_PP_FOR_CHECK_MSGPACK_PP_FOR_255(s, p, o, m) 0
 # define MSGPACK_PP_FOR_CHECK_MSGPACK_PP_FOR_256(s, p, o, m) 0
 #
+
 # endif

@@ -18,87 +18,84 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
-namespace type {
+            namespace type {
 
-struct raw_ref {
-    raw_ref() : size(0), ptr(nullptr) {}
-    raw_ref(const char* p, uint32_t s) : size(s), ptr(p) {}
+                struct raw_ref {
+                    raw_ref() : size(0), ptr(nullptr) {}
 
-    uint32_t size;
-    const char* ptr;
+                    raw_ref(const char *p, uint32_t s) : size(s), ptr(p) {}
 
-    std::string str() const { return std::string(ptr, size); }
+                    uint32_t size;
+                    const char *ptr;
 
-    bool operator== (const raw_ref& x) const
-    {
-        return size == x.size && std::memcmp(ptr, x.ptr, size) == 0;
-    }
+                    std::string str() const { return std::string(ptr, size); }
 
-    bool operator!= (const raw_ref& x) const
-    {
-        return !(*this == x);
-    }
+                    bool operator==(const raw_ref &x) const {
+                        return size == x.size && std::memcmp(ptr, x.ptr, size) == 0;
+                    }
 
-    bool operator< (const raw_ref& x) const
-    {
-        if(size == x.size) { return std::memcmp(ptr, x.ptr, size) < 0; }
-        else { return size < x.size; }
-    }
+                    bool operator!=(const raw_ref &x) const {
+                        return !(*this == x);
+                    }
 
-    bool operator> (const raw_ref& x) const
-    {
-        if(size == x.size) { return std::memcmp(ptr, x.ptr, size) > 0; }
-        else { return size > x.size; }
-    }
-};
+                    bool operator<(const raw_ref &x) const {
+                        if (size == x.size) { return std::memcmp(ptr, x.ptr, size) < 0; }
+                        else { return size < x.size; }
+                    }
 
-} // namespace type
+                    bool operator>(const raw_ref &x) const {
+                        if (size == x.size) { return std::memcmp(ptr, x.ptr, size) > 0; }
+                        else { return size > x.size; }
+                    }
+                };
 
-namespace adaptor {
+            } // namespace type
 
-template <>
-struct convert<type::raw_ref> {
-    msgpack::object const& operator()(msgpack::object const& o, type::raw_ref& v) const {
-        if(o.type != msgpack::type::BIN) { throw msgpack::type_error(); }
-        v.ptr  = o.via.bin.ptr;
-        v.size = o.via.bin.size;
-        return o;
-    }
-};
+            namespace adaptor {
 
-template <>
-struct pack<type::raw_ref> {
-    template <typename Stream>
-    msgpack::packer<Stream>& operator()(msgpack::packer<Stream>& o, const type::raw_ref& v) const {
-        o.pack_bin(v.size);
-        o.pack_bin_body(v.ptr, v.size);
-        return o;
-    }
-};
+                template<>
+                struct convert<type::raw_ref> {
+                    msgpack::object const &operator()(msgpack::object const &o, type::raw_ref &v) const {
+                        if (o.type != msgpack::type::BIN) { throw msgpack::type_error(); }
+                        v.ptr = o.via.bin.ptr;
+                        v.size = o.via.bin.size;
+                        return o;
+                    }
+                };
 
-template <>
-struct object<type::raw_ref> {
-    void operator()(msgpack::object& o, const type::raw_ref& v) const {
-        o.type = msgpack::type::BIN;
-        o.via.bin.ptr = v.ptr;
-        o.via.bin.size = v.size;
-    }
-};
+                template<>
+                struct pack<type::raw_ref> {
+                    template<typename Stream>
+                    msgpack::packer<Stream> &operator()(msgpack::packer<Stream> &o, const type::raw_ref &v) const {
+                        o.pack_bin(v.size);
+                        o.pack_bin_body(v.ptr, v.size);
+                        return o;
+                    }
+                };
 
-template <>
-struct object_with_zone<type::raw_ref> {
-    void operator()(msgpack::object::with_zone& o, const type::raw_ref& v) const {
-        static_cast<msgpack::object&>(o) << v;
-    }
-};
+                template<>
+                struct object<type::raw_ref> {
+                    void operator()(msgpack::object &o, const type::raw_ref &v) const {
+                        o.type = msgpack::type::BIN;
+                        o.via.bin.ptr = v.ptr;
+                        o.via.bin.size = v.size;
+                    }
+                };
 
-} // namespace adaptor
+                template<>
+                struct object_with_zone<type::raw_ref> {
+                    void operator()(msgpack::object::with_zone &o, const type::raw_ref &v) const {
+                        static_cast<msgpack::object &>(o) << v;
+                    }
+                };
+
+            } // namespace adaptor
 
 /// @cond
-} // MSGPACK_API_VERSION_NAMESPACE(v1)
+    } // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 } // namespace msgpack

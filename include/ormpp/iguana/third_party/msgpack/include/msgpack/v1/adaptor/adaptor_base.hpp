@@ -15,65 +15,65 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
 
-namespace adaptor {
+            namespace adaptor {
 
 // Adaptor functors
 
-template <typename T, typename Enabler>
-struct convert {
-    msgpack::object const& operator()(msgpack::object const& o, T& v) const;
-};
+                template<typename T, typename Enabler>
+                struct convert {
+                    msgpack::object const &operator()(msgpack::object const &o, T &v) const;
+                };
 
-template <typename T, typename Enabler>
-struct pack {
-    template <typename Stream>
-    msgpack::packer<Stream>& operator()(msgpack::packer<Stream>& o, T const& v) const;
-};
+                template<typename T, typename Enabler>
+                struct pack {
+                    template<typename Stream>
+                    msgpack::packer<Stream> &operator()(msgpack::packer<Stream> &o, T const &v) const;
+                };
 
-template <typename T, typename Enabler>
-struct object {
-    void operator()(msgpack::object& o, T const& v) const;
-};
+                template<typename T, typename Enabler>
+                struct object {
+                    void operator()(msgpack::object &o, T const &v) const;
+                };
 
-template <typename T, typename Enabler>
-struct object_with_zone {
-    void operator()(msgpack::object::with_zone& o, T const& v) const;
-};
+                template<typename T, typename Enabler>
+                struct object_with_zone {
+                    void operator()(msgpack::object::with_zone &o, T const &v) const;
+                };
 
-} // namespace adaptor
+            } // namespace adaptor
 
 // operators
 
-template <typename T>
-inline
-msgpack::object const& operator>> (msgpack::object const& o, T& v) {
-    return adaptor::convert<T>()(o, v);
-}
+            template <typename T>
+            inline
+            msgpack::object const& operator>> (msgpack::object const& o, T& v) {
+                return adaptor::convert<T>()(o, v);
+            }
 
-template <typename Stream, typename T>
-inline
-msgpack::packer<Stream>& operator<< (msgpack::packer<Stream>& o, T const& v) {
-    return adaptor::pack<T>()(o, v);
-}
+            template <typename Stream, typename T>
+            inline
+            msgpack::packer<Stream>& operator<< (msgpack::packer<Stream>& o, T const& v) {
+                return adaptor::pack<T>()(o, v);
+            }
 
-template <typename T>
-inline
-void operator<< (msgpack::object& o, T const& v) {
-    adaptor::object<T>()(o, v);
-}
+            template <typename T>
+            inline
+            void operator<< (msgpack::object& o, T const& v) {
+                adaptor::object<T>()(o, v);
+            }
 
-template <typename T>
-inline
-void operator<< (msgpack::object::with_zone& o, T const& v) {
-    adaptor::object_with_zone<T>()(o, v);
-}
+            template <typename T>
+            inline
+            void operator<< (msgpack::object::with_zone& o, T const& v) {
+                adaptor::object_with_zone<T>()(o, v);
+            }
 
 /// @cond
-} // MSGPACK_API_VERSION_NAMESPACE(v1)
+    } // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 } // namespace msgpack

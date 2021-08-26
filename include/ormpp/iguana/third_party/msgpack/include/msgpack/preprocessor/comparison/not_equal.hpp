@@ -6,20 +6,32 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_COMPARISON_NOT_EQUAL_HPP
 # define MSGPACK_PREPROCESSOR_COMPARISON_NOT_EQUAL_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/control/iif.hpp>
+
 #
+
 # /* MSGPACK_PP_NOT_EQUAL */
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MWCC()
 #    define MSGPACK_PP_NOT_EQUAL(x, y) MSGPACK_PP_NOT_EQUAL_I(x, y)
 # else
@@ -27,14 +39,20 @@
 #    define MSGPACK_PP_NOT_EQUAL_OO(par) MSGPACK_PP_NOT_EQUAL_I ## par
 # endif
 #
+
 # define MSGPACK_PP_NOT_EQUAL_I(x, y) MSGPACK_PP_CAT(MSGPACK_PP_NOT_EQUAL_CHECK_, MSGPACK_PP_NOT_EQUAL_ ## x(0, MSGPACK_PP_NOT_EQUAL_ ## y))
 #
+
 # /* MSGPACK_PP_NOT_EQUAL_D */
+
 #
+
 # define MSGPACK_PP_NOT_EQUAL_D(d, x, y) MSGPACK_PP_NOT_EQUAL(x, y)
 #
+
 # define MSGPACK_PP_NOT_EQUAL_CHECK_MSGPACK_PP_NIL 1
 #
+
 # define MSGPACK_PP_NOT_EQUAL_CHECK_MSGPACK_PP_NOT_EQUAL_0(c, y) 0
 # define MSGPACK_PP_NOT_EQUAL_CHECK_MSGPACK_PP_NOT_EQUAL_1(c, y) 0
 # define MSGPACK_PP_NOT_EQUAL_CHECK_MSGPACK_PP_NOT_EQUAL_2(c, y) 0
@@ -293,6 +311,7 @@
 # define MSGPACK_PP_NOT_EQUAL_CHECK_MSGPACK_PP_NOT_EQUAL_255(c, y) 0
 # define MSGPACK_PP_NOT_EQUAL_CHECK_MSGPACK_PP_NOT_EQUAL_256(c, y) 0
 #
+
 #if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_DMC()
 #    define MSGPACK_PP_NOT_EQUAL_0(c, y) MSGPACK_PP_IIF(c, MSGPACK_PP_NIL, y(1, MSGPACK_PP_NIL))
 #    define MSGPACK_PP_NOT_EQUAL_1(c, y) MSGPACK_PP_IIF(c, MSGPACK_PP_NIL, y(1, MSGPACK_PP_NIL))
@@ -811,4 +830,5 @@
 #    define MSGPACK_PP_NOT_EQUAL_256(c, y) MSGPACK_PP_IIF(c, MSGPACK_PP_NIL, y##(1, MSGPACK_PP_NIL))
 # endif
 #
+
 # endif

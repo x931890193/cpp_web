@@ -59,7 +59,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_PLAT_MINGW_NAME "MinGW"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_PLAT_MINGW,MSGPACK_PLAT_MINGW_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_PLAT_MINGW,
+MSGPACK_PLAT_MINGW_NAME)
 
 #ifdef MSGPACK_PLAT_MINGW_EMULATED
 #include <msgpack/predef/detail/test.h>

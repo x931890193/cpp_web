@@ -48,7 +48,9 @@ Version number available as year (from 1970), month, and day.
 #define MSGPACK_LIB_STD_GNU_NAME "GNU"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_GNU,MSGPACK_LIB_STD_GNU_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_GNU,
+MSGPACK_LIB_STD_GNU_NAME)
 
 
 #endif

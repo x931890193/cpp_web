@@ -6,14 +6,22 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_CONTROL_IIF_HPP
 # define MSGPACK_PREPROCESSOR_CONTROL_IIF_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MWCC()
 #    define MSGPACK_PP_IIF(bit, t, f) MSGPACK_PP_IIF_I(bit, t, f)
 # else
@@ -21,6 +29,7 @@
 #    define MSGPACK_PP_IIF_OO(par) MSGPACK_PP_IIF_I ## par
 # endif
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MSVC()
 #    define MSGPACK_PP_IIF_I(bit, t, f) MSGPACK_PP_IIF_ ## bit(t, f)
 # else
@@ -28,7 +37,9 @@
 #    define MSGPACK_PP_IIF_II(id) id
 # endif
 #
+
 # define MSGPACK_PP_IIF_0(t, f) f
 # define MSGPACK_PP_IIF_1(t, f) t
 #
+
 # endif

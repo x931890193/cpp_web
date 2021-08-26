@@ -6,15 +6,24 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 # /* Revised by Edward Diener (2011,2013) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_TUPLE_HPP
 # define MSGPACK_PREPROCESSOR_TUPLE_HPP
 #
+
+
 # include <msgpack/preprocessor/tuple/eat.hpp>
 # include <msgpack/preprocessor/tuple/elem.hpp>
 # include <msgpack/preprocessor/tuple/enum.hpp>
@@ -31,5 +40,7 @@
 # include <msgpack/preprocessor/tuple/to_array.hpp>
 # include <msgpack/preprocessor/tuple/to_list.hpp>
 # include <msgpack/preprocessor/tuple/to_seq.hpp>
+
 #
+
 # endif

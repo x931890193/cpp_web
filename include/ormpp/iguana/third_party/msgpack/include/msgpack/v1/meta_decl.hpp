@@ -19,27 +19,30 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
-namespace detail {
+            namespace detail {
 
-template<bool...> struct bool_pack;
+                template<bool...>
+                struct bool_pack;
 
-template<bool...values> struct all_of_imp;
+                template<bool...values>
+                struct all_of_imp;
 
-} // namespace detail
+            } // namespace detail
 
-template<template <class> class T, class... U>
-using all_of = detail::all_of_imp<T<U>::value...>;
+            template<
+            template <class> class T, class... U>
+            using all_of = detail::all_of_imp<T<U>::value...>;
 
-template<std::size_t... Is> struct seq;
+            template<std::size_t... Is> struct seq;
 
-template<std::size_t N, std::size_t... Is>
-struct gen_seq;
+            template<std::size_t N, std::size_t... Is>
+            struct gen_seq;
 
 /// @cond
-} // MSGPACK_API_VERSION_NAMESPACE(v1)
+    } // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 } // namespace msgpack

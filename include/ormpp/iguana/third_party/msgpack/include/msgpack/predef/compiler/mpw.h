@@ -53,7 +53,9 @@ Version number available as major, and minor.
 #define MSGPACK_COMP_MPW_NAME "MPW C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_MPW,MSGPACK_COMP_MPW_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_MPW,
+MSGPACK_COMP_MPW_NAME)
 
 #ifdef MSGPACK_COMP_MPW_EMULATED
 #include <msgpack/predef/detail/test.h>

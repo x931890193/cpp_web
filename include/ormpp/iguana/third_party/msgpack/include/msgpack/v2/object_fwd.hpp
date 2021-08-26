@@ -16,48 +16,48 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v2) {
+    MSGPACK_API_VERSION_NAMESPACE(v2) {
 /// @endcond
 
 #if !defined(MSGPACK_USE_CPP03)
 
-namespace adaptor {
+            namespace adaptor {
 
 // If v1 has as specialization for T, then dispatch v1::adaptor::as<T>.
 // So I call v1::has_as<T> meta function intentionally.
-template <typename T>
-struct as<T, typename std::enable_if<v1::has_as<T>::value>::type> : v1::adaptor::as<T> {
-};
+                template<typename T>
+                struct as<T, typename std::enable_if<v1::has_as<T>::value>::type> : v1::adaptor::as<T> {
+                };
 
-} // namespace adaptor
+            } // namespace adaptor
 
-template <typename T>
-struct has_as {
-private:
-    template <typename U>
-    static auto check(U*) ->
-        typename std::enable_if<
-            // check v2 specialization
-            std::is_same<
-                decltype(adaptor::as<U>()(std::declval<msgpack::object>())),
-                U
-            >::value
-            ||
-            // check v1 specialization
-            v1::has_as<U>::value,
-            std::true_type
-        >::type;
-    template <typename>
-    static std::false_type check(...);
-public:
-    using type = decltype(check<T>(nullptr));
-    static constexpr bool value = type::value;
-};
+            template <typename T>
+            struct has_as {
+                private:
+                template<typename U>
+                static auto check(U *) ->
+                typename std::enable_if<
+                        // check v2 specialization
+                        std::is_same<
+                                decltype(adaptor::as<U>()(std::declval<msgpack::object>())),
+                                U
+                        >::value
+                        ||
+                        // check v1 specialization
+                        v1::has_as<U>::value,
+                        std::true_type
+                >::type;
+                template<typename>
+                static std::false_type check(...);
+                public:
+                using type = decltype(check<T>(nullptr));
+                static constexpr bool value = type::value;
+            };
 
 #endif // !defined(MSGPACK_USE_CPP03)
 
 /// @cond
-} // MSGPACK_API_VERSION_NAMESPACE(v2)
+    } // MSGPACK_API_VERSION_NAMESPACE(v2)
 /// @endcond
 
 } // namespace msgpack

@@ -48,7 +48,9 @@ If available, the year of the standard is detected as YYYY.MM.1 from the Epoc da
 #define MSGPACK_LANG_STDC_NAME "Standard C"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LANG_STDC,MSGPACK_LANG_STDC_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LANG_STDC,
+MSGPACK_LANG_STDC_NAME)
 
 
 #endif

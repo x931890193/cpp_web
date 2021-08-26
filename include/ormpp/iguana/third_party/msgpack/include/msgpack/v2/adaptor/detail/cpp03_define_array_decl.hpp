@@ -14,17 +14,17 @@
 
 namespace msgpack {
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v2) {
+    MSGPACK_API_VERSION_NAMESPACE(v2) {
 /// @endcond
-namespace type {
+            namespace type {
 
-using v1::type::define_array;
+                using v1::type::define_array;
 
-using v1::type::make_define_array;
+                using v1::type::make_define_array;
 
-}  // namespace type
+            }  // namespace type
 /// @cond
-}  // MSGPACK_API_VERSION_NAMESPACE(v2)
+    }  // MSGPACK_API_VERSION_NAMESPACE(v2)
 /// @endcond
 }  // namespace msgpack
 

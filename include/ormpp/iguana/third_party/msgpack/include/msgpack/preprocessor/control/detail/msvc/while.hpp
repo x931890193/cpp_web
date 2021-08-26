@@ -6,17 +6,27 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_CONTROL_DETAIL_MSVC_WHILE_HPP
 # define MSGPACK_PREPROCESSOR_CONTROL_DETAIL_MSVC_WHILE_HPP
 #
+
+
 # include <msgpack/preprocessor/control/if.hpp>
 # include <msgpack/preprocessor/tuple/eat.hpp>
+
 #
+
 # define MSGPACK_PP_WHILE_1(p, o, s) MSGPACK_PP_IF(p(2, s), MSGPACK_PP_WHILE_2, s MSGPACK_PP_TUPLE_EAT_3)(p, o, o(2, s))
 # define MSGPACK_PP_WHILE_2(p, o, s) MSGPACK_PP_IF(p(3, s), MSGPACK_PP_WHILE_3, s MSGPACK_PP_TUPLE_EAT_3)(p, o, o(3, s))
 # define MSGPACK_PP_WHILE_3(p, o, s) MSGPACK_PP_IF(p(4, s), MSGPACK_PP_WHILE_4, s MSGPACK_PP_TUPLE_EAT_3)(p, o, o(4, s))
@@ -274,4 +284,5 @@
 # define MSGPACK_PP_WHILE_255(p, o, s) MSGPACK_PP_IF(p(256, s), MSGPACK_PP_WHILE_256, s MSGPACK_PP_TUPLE_EAT_3)(p, o, o(256, s))
 # define MSGPACK_PP_WHILE_256(p, o, s) MSGPACK_PP_IF(p(257, s), MSGPACK_PP_WHILE_257, s MSGPACK_PP_TUPLE_EAT_3)(p, o, o(257, s))
 #
+
 # endif

@@ -26,23 +26,23 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
 /// The class holds object and zone
-class object_handle;
+            class object_handle;
 
-namespace detail {
+            namespace detail {
 
-template <std::size_t N>
-std::size_t add_ext_type_size(std::size_t size);
+                template<std::size_t N>
+                std::size_t add_ext_type_size(std::size_t size);
 
-template <>
-std::size_t add_ext_type_size<4>(std::size_t size);
+                template<>
+                std::size_t add_ext_type_size<4>(std::size_t size);
 
-} // namespace detail
+            } // namespace detail
 
-std::size_t aligned_zone_size(msgpack::object const& obj);
+            std::size_t aligned_zone_size(msgpack::object const& obj);
 
 /// clone object
 /**
@@ -52,59 +52,59 @@ std::size_t aligned_zone_size(msgpack::object const& obj);
  *
  * @return object_handle that holds deep copied object and zone.
  */
-object_handle clone(msgpack::object const& obj);
+            object_handle clone(msgpack::object const& obj);
 
-namespace detail {
+            namespace detail {
 
-template <typename Stream, typename T>
-struct packer_serializer;
+                template<typename Stream, typename T>
+                struct packer_serializer;
 
-} // namespace detail
-
-// obsolete
-template <typename Type>
-class define;
-
-bool operator==(const msgpack::object& x, const msgpack::object& y);
-
-template <typename T>
-bool operator==(const msgpack::object& x, const T& y);
-
-bool operator!=(const msgpack::object& x, const msgpack::object& y);
-
-template <typename T>
-bool operator==(const T& y, const msgpack::object& x);
-
-template <typename T>
-bool operator!=(const msgpack::object& x, const T& y);
-
-template <typename T>
-bool operator!=(const T& y, const msgpack::object& x);
-
-void operator<< (msgpack::object& o, const msgpack_object& v);
+            } // namespace detail
 
 // obsolete
-template <typename T>
-void convert(T& v, msgpack::object const& o);
+            template <typename Type>
+            class define;
+
+            bool operator==(const msgpack::object& x, const msgpack::object& y);
+
+            template <typename T>
+            bool operator==(const msgpack::object& x, const T& y);
+
+            bool operator!=(const msgpack::object& x, const msgpack::object& y);
+
+            template <typename T>
+            bool operator==(const T& y, const msgpack::object& x);
+
+            template <typename T>
+            bool operator!=(const msgpack::object& x, const T& y);
+
+            template <typename T>
+            bool operator!=(const T& y, const msgpack::object& x);
+
+            void operator<< (msgpack::object& o, const msgpack_object& v);
 
 // obsolete
-template <typename Stream, typename T>
-void pack(msgpack::packer<Stream>& o, const T& v);
+            template <typename T>
+            void convert(T& v, msgpack::object const& o);
 
 // obsolete
-template <typename Stream, typename T>
-void pack_copy(msgpack::packer<Stream>& o, T v);
+            template <typename Stream, typename T>
+            void pack(msgpack::packer<Stream>& o, const T& v);
 
-template <typename Stream>
-msgpack::packer<Stream>& operator<< (msgpack::packer<Stream>& o, const msgpack::object& v);
+// obsolete
+            template <typename Stream, typename T>
+            void pack_copy(msgpack::packer<Stream>& o, T v);
 
-template <typename Stream>
-msgpack::packer<Stream>& operator<< (msgpack::packer<Stream>& o, const msgpack::object::with_zone& v);
+            template <typename Stream>
+            msgpack::packer<Stream>& operator<< (msgpack::packer<Stream>& o, const msgpack::object& v);
 
-std::ostream& operator<< (std::ostream& s, const msgpack::object& o);
+            template <typename Stream>
+            msgpack::packer<Stream>& operator<< (msgpack::packer<Stream>& o, const msgpack::object::with_zone& v);
+
+            std::ostream& operator<< (std::ostream& s, const msgpack::object& o);
 
 /// @cond
-}  // MSGPACK_API_VERSION_NAMESPACE(v1)
+    }  // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 }  // namespace msgpack

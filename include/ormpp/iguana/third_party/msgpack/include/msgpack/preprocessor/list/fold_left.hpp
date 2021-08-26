@@ -6,43 +6,63 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_LIST_FOLD_LEFT_HPP
 # define MSGPACK_PREPROCESSOR_LIST_FOLD_LEFT_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/control/while.hpp>
 # include <msgpack/preprocessor/debug/error.hpp>
 # include <msgpack/preprocessor/detail/auto_rec.hpp>
+
 #
+
 # /* MSGPACK_PP_LIST_FOLD_LEFT */
+
 #
+
 # if 0
 #    define MSGPACK_PP_LIST_FOLD_LEFT(op, state, list)
 # endif
 #
+
 # define MSGPACK_PP_LIST_FOLD_LEFT MSGPACK_PP_CAT(MSGPACK_PP_LIST_FOLD_LEFT_, MSGPACK_PP_AUTO_REC(MSGPACK_PP_WHILE_P, 256))
 #
+
 # define MSGPACK_PP_LIST_FOLD_LEFT_257(o, s, l) MSGPACK_PP_ERROR(0x0004)
 #
+
 # define MSGPACK_PP_LIST_FOLD_LEFT_D(d, o, s, l) MSGPACK_PP_LIST_FOLD_LEFT_ ## d(o, s, l)
 # define MSGPACK_PP_LIST_FOLD_LEFT_2ND MSGPACK_PP_LIST_FOLD_LEFT
 # define MSGPACK_PP_LIST_FOLD_LEFT_2ND_D MSGPACK_PP_LIST_FOLD_LEFT_D
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    include <msgpack/preprocessor/list/detail/edg/fold_left.hpp>
 # elif MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_DMC()
 #    include <msgpack/preprocessor/list/detail/dmc/fold_left.hpp>
 # else
+
 #    include <msgpack/preprocessor/list/detail/fold_left.hpp>
+
 # endif
 #
+
 # define MSGPACK_PP_LIST_FOLD_LEFT_CHECK_MSGPACK_PP_NIL 1
 #
+
 # define MSGPACK_PP_LIST_FOLD_LEFT_CHECK_MSGPACK_PP_LIST_FOLD_LEFT_1(o, s, l) 0
 # define MSGPACK_PP_LIST_FOLD_LEFT_CHECK_MSGPACK_PP_LIST_FOLD_LEFT_2(o, s, l) 0
 # define MSGPACK_PP_LIST_FOLD_LEFT_CHECK_MSGPACK_PP_LIST_FOLD_LEFT_3(o, s, l) 0
@@ -300,4 +320,5 @@
 # define MSGPACK_PP_LIST_FOLD_LEFT_CHECK_MSGPACK_PP_LIST_FOLD_LEFT_255(o, s, l) 0
 # define MSGPACK_PP_LIST_FOLD_LEFT_CHECK_MSGPACK_PP_LIST_FOLD_LEFT_256(o, s, l) 0
 #
+
 # endif

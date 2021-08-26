@@ -46,7 +46,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_EDG_NAME "EDG C++ Frontend"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_EDG,MSGPACK_COMP_EDG_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_EDG,
+MSGPACK_COMP_EDG_NAME)
 
 #ifdef MSGPACK_COMP_EDG_EMULATED
 #include <msgpack/predef/detail/test.h>

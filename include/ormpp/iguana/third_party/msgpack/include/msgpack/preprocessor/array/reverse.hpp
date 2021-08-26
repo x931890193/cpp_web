@@ -6,19 +6,29 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_ARRAY_REVERSE_HPP
 # define MSGPACK_PREPROCESSOR_ARRAY_REVERSE_HPP
 #
+
+
 # include <msgpack/preprocessor/array/data.hpp>
 # include <msgpack/preprocessor/array/size.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/tuple/reverse.hpp>
+
 #
+
 # /* MSGPACK_PP_ARRAY_REVERSE */
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    define MSGPACK_PP_ARRAY_REVERSE(array) (MSGPACK_PP_ARRAY_SIZE(array), MSGPACK_PP_TUPLE_REVERSE(MSGPACK_PP_ARRAY_SIZE(array), MSGPACK_PP_ARRAY_DATA(array)))
 # else
@@ -26,4 +36,5 @@
 #    define MSGPACK_PP_ARRAY_REVERSE_I(array) (MSGPACK_PP_ARRAY_SIZE(array), MSGPACK_PP_TUPLE_REVERSE(MSGPACK_PP_ARRAY_SIZE(array), MSGPACK_PP_ARRAY_DATA(array)))
 # endif
 #
+
 # endif

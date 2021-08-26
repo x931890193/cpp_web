@@ -62,7 +62,9 @@ If available versions \[1-5\] are specifically detected.
 #define MSGPACK_ARCH_SH_NAME "SuperH"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_SH,MSGPACK_ARCH_SH_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_SH,
+MSGPACK_ARCH_SH_NAME)
 
 
 #endif

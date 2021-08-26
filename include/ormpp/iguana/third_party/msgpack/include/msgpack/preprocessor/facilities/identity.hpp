@@ -6,18 +6,31 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_FACILITIES_IDENTITY_HPP
 # define MSGPACK_PREPROCESSOR_FACILITIES_IDENTITY_HPP
 #
+
+
 # include <msgpack/preprocessor/facilities/empty.hpp>
+
 #
+
 # /* MSGPACK_PP_IDENTITY */
+
 #
+
 # define MSGPACK_PP_IDENTITY(item) item MSGPACK_PP_EMPTY
 #
+
 # endif

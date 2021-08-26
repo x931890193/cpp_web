@@ -46,7 +46,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_PALM_NAME "Palm C/C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_PALM,MSGPACK_COMP_PALM_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_PALM,
+MSGPACK_COMP_PALM_NAME)
 
 #ifdef MSGPACK_COMP_PALM_EMULATED
 #include <msgpack/predef/detail/test.h>

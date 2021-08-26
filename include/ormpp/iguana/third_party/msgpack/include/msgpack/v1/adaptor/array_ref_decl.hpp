@@ -16,24 +16,24 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
-namespace type {
+            namespace type {
 
-template <typename T>
-struct array_ref;
+                template<typename T>
+                struct array_ref;
 
-template <typename T>
-array_ref<T const> make_array_ref(T const& t);
+                template<typename T>
+                array_ref<T const> make_array_ref(T const &t);
 
-template <typename T>
-array_ref<T> make_array_ref(T& t);
+                template<typename T>
+                array_ref<T> make_array_ref(T &t);
 
-} // namespace type
+            } // namespace type
 
 /// @cond
-} // MSGPACK_API_VERSION_NAMESPACE(v1)
+    } // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 } // namespace msgpack

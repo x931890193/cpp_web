@@ -42,7 +42,9 @@ Version number available as major.
 #define MSGPACK_LIB_STD_COMO_NAME "Comeau Computing"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_COMO,MSGPACK_LIB_STD_COMO_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_COMO,
+MSGPACK_LIB_STD_COMO_NAME)
 
 
 #endif

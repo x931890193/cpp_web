@@ -43,7 +43,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_COMP_MRI_NAME "Microtec C/C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_MRI,MSGPACK_COMP_MRI_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_MRI,
+MSGPACK_COMP_MRI_NAME)
 
 #ifdef MSGPACK_COMP_MRI_EMULATED
 #include <msgpack/predef/detail/test.h>

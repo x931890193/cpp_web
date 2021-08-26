@@ -43,23 +43,23 @@ using v1::underlying_type;
 
 namespace msgpack {
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v2) {
+    MSGPACK_API_VERSION_NAMESPACE(v2) {
 /// @endcond
 
 // unique_ptr
-using v1::unique_ptr;
+            using v1::unique_ptr;
 // using v1::make_unique; // since C++14
-using v1::hash;
+            using v1::hash;
 
 // utility
-using v1::move;
-using v1::swap;
-using v1::enable_if;
-using v1::is_same;
-using v1::underlying_type;
+            using v1::move;
+            using v1::swap;
+            using v1::enable_if;
+            using v1::is_same;
+            using v1::underlying_type;
 
 /// @cond
-}  // MSGPACK_API_VERSION_NAMESPACE(v2)
+    }  // MSGPACK_API_VERSION_NAMESPACE(v2)
 /// @endcond
 }  // namespace msgpack
 

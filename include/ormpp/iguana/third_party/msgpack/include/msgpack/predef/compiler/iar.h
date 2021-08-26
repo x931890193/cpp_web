@@ -46,7 +46,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_IAR_NAME "IAR C/C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_IAR,MSGPACK_COMP_IAR_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_IAR,
+MSGPACK_COMP_IAR_NAME)
 
 #ifdef MSGPACK_COMP_IAR_EMULATED
 #include <msgpack/predef/detail/test.h>

@@ -6,18 +6,30 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_LOGICAL_BOOL_HPP
 # define MSGPACK_PREPROCESSOR_LOGICAL_BOOL_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
+
 #
+
 # /* MSGPACK_PP_BOOL */
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MWCC()
 #    define MSGPACK_PP_BOOL(x) MSGPACK_PP_BOOL_I(x)
 # else
@@ -25,8 +37,10 @@
 #    define MSGPACK_PP_BOOL_OO(par) MSGPACK_PP_BOOL_I ## par
 # endif
 #
+
 # define MSGPACK_PP_BOOL_I(x) MSGPACK_PP_BOOL_ ## x
 #
+
 # define MSGPACK_PP_BOOL_0 0
 # define MSGPACK_PP_BOOL_1 1
 # define MSGPACK_PP_BOOL_2 1
@@ -285,4 +299,5 @@
 # define MSGPACK_PP_BOOL_255 1
 # define MSGPACK_PP_BOOL_256 1
 #
+
 # endif

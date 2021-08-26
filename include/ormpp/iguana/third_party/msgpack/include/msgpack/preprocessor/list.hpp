@@ -6,14 +6,22 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_LIST_HPP
 # define MSGPACK_PREPROCESSOR_LIST_HPP
 #
+
+
 # include <msgpack/preprocessor/list/adt.hpp>
 # include <msgpack/preprocessor/list/append.hpp>
 # include <msgpack/preprocessor/list/at.hpp>
@@ -33,5 +41,7 @@
 # include <msgpack/preprocessor/list/to_seq.hpp>
 # include <msgpack/preprocessor/list/to_tuple.hpp>
 # include <msgpack/preprocessor/list/transform.hpp>
+
 #
+
 # endif

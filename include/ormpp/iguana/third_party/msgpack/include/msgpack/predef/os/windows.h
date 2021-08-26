@@ -29,11 +29,11 @@ http://www.boost.org/LICENSE_1_0.txt)
 
 #define MSGPACK_OS_WINDOWS MSGPACK_VERSION_NUMBER_NOT_AVAILABLE
 
-#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && ( \
+#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && (\
     defined(_WIN32) || defined(_WIN64) || \
     defined(__WIN32__) || defined(__TOS_WIN__) || \
     defined(__WINDOWS__) \
-    )
+)
 #   undef MSGPACK_OS_WINDOWS
 #   define MSGPACK_OS_WINDOWS MSGPACK_VERSION_NUMBER_AVAILABLE
 #endif
@@ -46,6 +46,8 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_OS_WINDOWS_NAME "Microsoft Windows"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_WINDOWS,MSGPACK_OS_WINDOWS_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_WINDOWS,
+MSGPACK_OS_WINDOWS_NAME)
 
 #endif

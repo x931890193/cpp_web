@@ -7,12 +7,18 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)                                *
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_ARRAY_HPP
 # define MSGPACK_PREPROCESSOR_ARRAY_HPP
 #
+
+
 # include <msgpack/preprocessor/array/data.hpp>
 # include <msgpack/preprocessor/array/elem.hpp>
 # include <msgpack/preprocessor/array/enum.hpp>
@@ -28,5 +34,7 @@
 # include <msgpack/preprocessor/array/to_list.hpp>
 # include <msgpack/preprocessor/array/to_seq.hpp>
 # include <msgpack/preprocessor/array/to_tuple.hpp>
+
 #
+
 # endif

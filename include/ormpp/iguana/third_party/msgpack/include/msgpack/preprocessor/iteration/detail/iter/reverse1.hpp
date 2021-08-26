@@ -6,9 +6,13 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # if MSGPACK_PP_ITERATION_FINISH_1 <= 256 && MSGPACK_PP_ITERATION_START_1 >= 256
 #    define MSGPACK_PP_ITERATION_1 256
 #    include MSGPACK_PP_FILENAME_1
@@ -1291,6 +1295,8 @@
 # endif
 # if MSGPACK_PP_ITERATION_FINISH_1 <= 0 && MSGPACK_PP_ITERATION_START_1 >= 0
 #    define MSGPACK_PP_ITERATION_1 0
+
 #    include MSGPACK_PP_FILENAME_1
+
 #    undef MSGPACK_PP_ITERATION_1
 # endif

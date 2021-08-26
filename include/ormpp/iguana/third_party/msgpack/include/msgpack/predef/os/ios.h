@@ -29,10 +29,10 @@ http://www.boost.org/LICENSE_1_0.txt)
 
 #define MSGPACK_OS_IOS MSGPACK_VERSION_NUMBER_NOT_AVAILABLE
 
-#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && ( \
+#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && (\
     defined(__APPLE__) && defined(__MACH__) && \
     defined(__ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__) \
-    )
+)
 #   undef MSGPACK_OS_IOS
 #   define MSGPACK_OS_IOS (__ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__*1000)
 #endif
@@ -45,7 +45,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_OS_IOS_NAME "iOS"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_IOS,MSGPACK_OS_IOS_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_IOS,
+MSGPACK_OS_IOS_NAME)
 
 
 #endif

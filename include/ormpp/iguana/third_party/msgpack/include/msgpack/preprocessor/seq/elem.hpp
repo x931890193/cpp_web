@@ -6,24 +6,35 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_SEQ_ELEM_HPP
 # define MSGPACK_PREPROCESSOR_SEQ_ELEM_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/facilities/empty.hpp>
+
 #
+
 # /* MSGPACK_PP_SEQ_ELEM */
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MWCC()
 #    define MSGPACK_PP_SEQ_ELEM(i, seq) MSGPACK_PP_SEQ_ELEM_I(i, seq)
 # else
 #    define MSGPACK_PP_SEQ_ELEM(i, seq) MSGPACK_PP_SEQ_ELEM_I((i, seq))
 # endif
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MSVC()
 #    define MSGPACK_PP_SEQ_ELEM_I(i, seq) MSGPACK_PP_SEQ_ELEM_II((MSGPACK_PP_SEQ_ELEM_ ## i seq))
 #    define MSGPACK_PP_SEQ_ELEM_II(res) MSGPACK_PP_SEQ_ELEM_IV(MSGPACK_PP_SEQ_ELEM_III res)
@@ -44,6 +55,7 @@
 #    define MSGPACK_PP_SEQ_ELEM_III(x, _) x
 # endif
 #
+
 # define MSGPACK_PP_SEQ_ELEM_0(x) x, MSGPACK_PP_NIL
 # define MSGPACK_PP_SEQ_ELEM_1(_) MSGPACK_PP_SEQ_ELEM_0
 # define MSGPACK_PP_SEQ_ELEM_2(_) MSGPACK_PP_SEQ_ELEM_1
@@ -301,4 +313,5 @@
 # define MSGPACK_PP_SEQ_ELEM_254(_) MSGPACK_PP_SEQ_ELEM_253
 # define MSGPACK_PP_SEQ_ELEM_255(_) MSGPACK_PP_SEQ_ELEM_254
 #
+
 # endif

@@ -15,7 +15,7 @@ extern "C" {
 #endif
 
 MSGPACK_DLLEXPORT
-const char* msgpack_version(void);
+const char *msgpack_version(void);
 MSGPACK_DLLEXPORT
 int msgpack_version_major(void);
 MSGPACK_DLLEXPORT

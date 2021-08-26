@@ -6,14 +6,24 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002)  */
+
 #
+
 # /* See http://www.boost.org/libs/preprocessor for documentation. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_HPP
 # define MSGPACK_PREPROCESSOR_HPP
 #
+
+
 # include <msgpack/preprocessor/library.hpp>
+
 #
+
 # endif

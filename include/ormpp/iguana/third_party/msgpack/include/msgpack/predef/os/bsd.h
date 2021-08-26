@@ -59,10 +59,10 @@ of BSD. If the above variants is detected the corresponding macro is also set.]
 #define MSGPACK_OS_BSD MSGPACK_VERSION_NUMBER_NOT_AVAILABLE
 #endif
 
-#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && ( \
+#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && (\
     defined(BSD) || \
     defined(_SYSTYPE_BSD) \
-    )
+)
 #   undef MSGPACK_OS_BSD
 #   include <sys/param.h>
 #   if !defined(MSGPACK_OS_BSD) && defined(BSD4_4)
@@ -90,6 +90,8 @@ of BSD. If the above variants is detected the corresponding macro is also set.]
 #define MSGPACK_OS_BSD_NAME "BSD"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_BSD,MSGPACK_OS_BSD_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_BSD,
+MSGPACK_OS_BSD_NAME)
 
 #endif

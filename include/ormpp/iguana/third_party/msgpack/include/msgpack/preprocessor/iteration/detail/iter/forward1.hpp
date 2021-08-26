@@ -6,9 +6,13 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # if defined(MSGPACK_PP_ITERATION_LIMITS)
 #    if !defined(MSGPACK_PP_FILENAME_1)
 #        error MSGPACK_PP_ERROR:  depth #1 filename is not defined
@@ -34,17 +38,22 @@
 #    error MSGPACK_PP_ERROR:  depth #1 iteration boundaries or filename not defined
 # endif
 #
+
 # undef MSGPACK_PP_ITERATION_DEPTH
 # define MSGPACK_PP_ITERATION_DEPTH() 1
 #
+
 # define MSGPACK_PP_IS_ITERATING 1
 #
+
 # if (MSGPACK_PP_ITERATION_START_1) > (MSGPACK_PP_ITERATION_FINISH_1)
 #    include <msgpack/preprocessor/iteration/detail/iter/reverse1.hpp>
 # else
 #    if MSGPACK_PP_ITERATION_START_1 <= 0 && MSGPACK_PP_ITERATION_FINISH_1 >= 0
 #        define MSGPACK_PP_ITERATION_1 0
+
 #        include MSGPACK_PP_FILENAME_1
+
 #        undef MSGPACK_PP_ITERATION_1
 #    endif
 #    if MSGPACK_PP_ITERATION_START_1 <= 1 && MSGPACK_PP_ITERATION_FINISH_1 >= 1
@@ -1329,14 +1338,18 @@
 #    endif
 # endif
 #
+
 # undef MSGPACK_PP_IS_ITERATING
 #
+
 # undef MSGPACK_PP_ITERATION_DEPTH
 # define MSGPACK_PP_ITERATION_DEPTH() 0
 #
+
 # undef MSGPACK_PP_ITERATION_START_1
 # undef MSGPACK_PP_ITERATION_FINISH_1
 # undef MSGPACK_PP_FILENAME_1
 #
+
 # undef MSGPACK_PP_ITERATION_FLAGS_1
 # undef MSGPACK_PP_ITERATION_PARAMS_1

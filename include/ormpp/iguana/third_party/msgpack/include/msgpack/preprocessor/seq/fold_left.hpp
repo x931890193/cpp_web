@@ -6,12 +6,18 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_SEQ_FOLD_LEFT_HPP
 # define MSGPACK_PREPROCESSOR_SEQ_FOLD_LEFT_HPP
 #
+
+
 # include <msgpack/preprocessor/arithmetic/dec.hpp>
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/control/if.hpp>
@@ -19,22 +25,30 @@
 # include <msgpack/preprocessor/detail/auto_rec.hpp>
 # include <msgpack/preprocessor/seq/seq.hpp>
 # include <msgpack/preprocessor/seq/size.hpp>
+
 #
+
 # /* MSGPACK_PP_SEQ_FOLD_LEFT */
+
 #
+
 # if 0
 #    define MSGPACK_PP_SEQ_FOLD_LEFT(op, state, seq) ...
 # endif
 #
+
 # define MSGPACK_PP_SEQ_FOLD_LEFT MSGPACK_PP_CAT(MSGPACK_PP_SEQ_FOLD_LEFT_, MSGPACK_PP_AUTO_REC(MSGPACK_PP_SEQ_FOLD_LEFT_P, 256))
 # define MSGPACK_PP_SEQ_FOLD_LEFT_P(n) MSGPACK_PP_CAT(MSGPACK_PP_SEQ_FOLD_LEFT_CHECK_, MSGPACK_PP_SEQ_FOLD_LEFT_I_ ## n(MSGPACK_PP_SEQ_FOLD_LEFT_O, MSGPACK_PP_NIL, (nil), 1))
 # define MSGPACK_PP_SEQ_FOLD_LEFT_O(s, st, _) st
 #
+
 # define MSGPACK_PP_SEQ_FOLD_LEFT_257(op, st, ss) MSGPACK_PP_ERROR(0x0005)
 # define MSGPACK_PP_SEQ_FOLD_LEFT_I_257(op, st, ss, sz) MSGPACK_PP_ERROR(0x0005)
 #
+
 # define MSGPACK_PP_SEQ_FOLD_LEFT_CHECK_MSGPACK_PP_NIL 1
 #
+
 # define MSGPACK_PP_SEQ_FOLD_LEFT_CHECK_MSGPACK_PP_SEQ_FOLD_LEFT_I_1(op, st, ss, sz) 0
 # define MSGPACK_PP_SEQ_FOLD_LEFT_CHECK_MSGPACK_PP_SEQ_FOLD_LEFT_I_2(op, st, ss, sz) 0
 # define MSGPACK_PP_SEQ_FOLD_LEFT_CHECK_MSGPACK_PP_SEQ_FOLD_LEFT_I_3(op, st, ss, sz) 0
@@ -292,8 +306,10 @@
 # define MSGPACK_PP_SEQ_FOLD_LEFT_CHECK_MSGPACK_PP_SEQ_FOLD_LEFT_I_255(op, st, ss, sz) 0
 # define MSGPACK_PP_SEQ_FOLD_LEFT_CHECK_MSGPACK_PP_SEQ_FOLD_LEFT_I_256(op, st, ss, sz) 0
 #
+
 # define MSGPACK_PP_SEQ_FOLD_LEFT_F(op, st, ss, sz) st
 #
+
 # define MSGPACK_PP_SEQ_FOLD_LEFT_1(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_1(op, st, ss, MSGPACK_PP_SEQ_SIZE(ss))
 # define MSGPACK_PP_SEQ_FOLD_LEFT_2(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_2(op, st, ss, MSGPACK_PP_SEQ_SIZE(ss))
 # define MSGPACK_PP_SEQ_FOLD_LEFT_3(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_3(op, st, ss, MSGPACK_PP_SEQ_SIZE(ss))
@@ -551,6 +567,7 @@
 # define MSGPACK_PP_SEQ_FOLD_LEFT_255(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_255(op, st, ss, MSGPACK_PP_SEQ_SIZE(ss))
 # define MSGPACK_PP_SEQ_FOLD_LEFT_256(op, st, ss) MSGPACK_PP_SEQ_FOLD_LEFT_I_256(op, st, ss, MSGPACK_PP_SEQ_SIZE(ss))
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_DMC()
 #    define MSGPACK_PP_SEQ_FOLD_LEFT_I_1(op, st, ss, sz) MSGPACK_PP_IF(MSGPACK_PP_DEC(sz), MSGPACK_PP_SEQ_FOLD_LEFT_I_2, MSGPACK_PP_SEQ_FOLD_LEFT_F)(op, op(2, st, MSGPACK_PP_SEQ_HEAD(ss)), MSGPACK_PP_SEQ_TAIL(ss), MSGPACK_PP_DEC(sz))
 #    define MSGPACK_PP_SEQ_FOLD_LEFT_I_2(op, st, ss, sz) MSGPACK_PP_IF(MSGPACK_PP_DEC(sz), MSGPACK_PP_SEQ_FOLD_LEFT_I_3, MSGPACK_PP_SEQ_FOLD_LEFT_F)(op, op(3, st, MSGPACK_PP_SEQ_HEAD(ss)), MSGPACK_PP_SEQ_TAIL(ss), MSGPACK_PP_DEC(sz))
@@ -1067,4 +1084,5 @@
 #    define MSGPACK_PP_SEQ_FOLD_LEFT_I_256(op, st, ss, sz) MSGPACK_PP_IF(MSGPACK_PP_DEC(sz), MSGPACK_PP_SEQ_FOLD_LEFT_I_257, MSGPACK_PP_SEQ_FOLD_LEFT_F)(op, op##(257, st, MSGPACK_PP_SEQ_HEAD(ss)), MSGPACK_PP_SEQ_TAIL(ss), MSGPACK_PP_DEC(sz))
 # endif
 #
+
 # endif

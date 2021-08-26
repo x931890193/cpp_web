@@ -46,7 +46,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_DMC_NAME "Digital Mars"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_DMC,MSGPACK_COMP_DMC_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_DMC,
+MSGPACK_COMP_DMC_NAME)
 
 #ifdef MSGPACK_COMP_DMC_EMULATED
 #include <msgpack/predef/detail/test.h>

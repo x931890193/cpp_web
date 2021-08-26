@@ -43,7 +43,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_ARCH_X86_64_NAME "Intel x86-64"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_X86_64,MSGPACK_ARCH_X86_64_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_X86_64,
+MSGPACK_ARCH_X86_64_NAME)
 
 #include <msgpack/predef/architecture/x86.h>
 

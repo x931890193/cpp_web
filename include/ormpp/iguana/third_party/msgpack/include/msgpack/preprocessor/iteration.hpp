@@ -6,14 +6,22 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_ITERATION_HPP
 # define MSGPACK_PREPROCESSOR_ITERATION_HPP
 #
+
+
 # include <msgpack/preprocessor/iteration/iterate.hpp>
 # include <msgpack/preprocessor/iteration/local.hpp>
 # include <msgpack/preprocessor/iteration/self.hpp>
+
 #
+
 # endif

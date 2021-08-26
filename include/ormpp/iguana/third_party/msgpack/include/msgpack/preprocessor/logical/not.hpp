@@ -6,20 +6,32 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_LOGICAL_NOT_HPP
 # define MSGPACK_PREPROCESSOR_LOGICAL_NOT_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/logical/bool.hpp>
 # include <msgpack/preprocessor/logical/compl.hpp>
+
 #
+
 # /* MSGPACK_PP_NOT */
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    define MSGPACK_PP_NOT(x) MSGPACK_PP_COMPL(MSGPACK_PP_BOOL(x))
 # else
@@ -27,4 +39,5 @@
 #    define MSGPACK_PP_NOT_I(x) MSGPACK_PP_COMPL(MSGPACK_PP_BOOL(x))
 # endif
 #
+
 # endif

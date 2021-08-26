@@ -6,13 +6,18 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PP_VALUE
 #    error MSGPACK_PP_ERROR:  MSGPACK_PP_VALUE is not defined
 # endif
 #
+
 # undef MSGPACK_PP_SLOT_TEMP_1
 # undef MSGPACK_PP_SLOT_TEMP_2
 # undef MSGPACK_PP_SLOT_TEMP_3
@@ -24,6 +29,7 @@
 # undef MSGPACK_PP_SLOT_TEMP_9
 # undef MSGPACK_PP_SLOT_TEMP_10
 #
+
 # if (MSGPACK_PP_VALUE) / 1000000000UL == 0
 #    define MSGPACK_PP_SLOT_TEMP_10 0
 # elif (MSGPACK_PP_VALUE) / 1000000000UL == 1
@@ -46,6 +52,7 @@
 #    define MSGPACK_PP_SLOT_TEMP_10 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_OFFSET_10(MSGPACK_PP_VALUE) / 100000000UL == 0
 #    define MSGPACK_PP_SLOT_TEMP_9 0
 # elif MSGPACK_PP_SLOT_OFFSET_10(MSGPACK_PP_VALUE) / 100000000UL == 1
@@ -68,6 +75,7 @@
 #    define MSGPACK_PP_SLOT_TEMP_9 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_OFFSET_9(MSGPACK_PP_VALUE) / 10000000UL == 0
 #    define MSGPACK_PP_SLOT_TEMP_8 0
 # elif MSGPACK_PP_SLOT_OFFSET_9(MSGPACK_PP_VALUE) / 10000000UL == 1
@@ -90,6 +98,7 @@
 #    define MSGPACK_PP_SLOT_TEMP_8 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_OFFSET_8(MSGPACK_PP_VALUE) / 1000000UL == 0
 #    define MSGPACK_PP_SLOT_TEMP_7 0
 # elif MSGPACK_PP_SLOT_OFFSET_8(MSGPACK_PP_VALUE) / 1000000UL == 1
@@ -112,6 +121,7 @@
 #    define MSGPACK_PP_SLOT_TEMP_7 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_OFFSET_7(MSGPACK_PP_VALUE) / 100000UL == 0
 #    define MSGPACK_PP_SLOT_TEMP_6 0
 # elif MSGPACK_PP_SLOT_OFFSET_7(MSGPACK_PP_VALUE) / 100000UL == 1
@@ -134,6 +144,7 @@
 #    define MSGPACK_PP_SLOT_TEMP_6 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_OFFSET_6(MSGPACK_PP_VALUE) / 10000UL == 0
 #    define MSGPACK_PP_SLOT_TEMP_5 0
 # elif MSGPACK_PP_SLOT_OFFSET_6(MSGPACK_PP_VALUE) / 10000UL == 1
@@ -156,6 +167,7 @@
 #    define MSGPACK_PP_SLOT_TEMP_5 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_OFFSET_5(MSGPACK_PP_VALUE) / 1000UL == 0
 #    define MSGPACK_PP_SLOT_TEMP_4 0
 # elif MSGPACK_PP_SLOT_OFFSET_5(MSGPACK_PP_VALUE) / 1000UL == 1
@@ -178,6 +190,7 @@
 #    define MSGPACK_PP_SLOT_TEMP_4 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_OFFSET_4(MSGPACK_PP_VALUE) / 100UL == 0
 #    define MSGPACK_PP_SLOT_TEMP_3 0
 # elif MSGPACK_PP_SLOT_OFFSET_4(MSGPACK_PP_VALUE) / 100UL == 1
@@ -200,6 +213,7 @@
 #    define MSGPACK_PP_SLOT_TEMP_3 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_OFFSET_3(MSGPACK_PP_VALUE) / 10UL == 0
 #    define MSGPACK_PP_SLOT_TEMP_2 0
 # elif MSGPACK_PP_SLOT_OFFSET_3(MSGPACK_PP_VALUE) / 10UL == 1
@@ -222,6 +236,7 @@
 #    define MSGPACK_PP_SLOT_TEMP_2 9
 # endif
 #
+
 # if MSGPACK_PP_SLOT_OFFSET_2(MSGPACK_PP_VALUE) == 0
 #    define MSGPACK_PP_SLOT_TEMP_1 0
 # elif MSGPACK_PP_SLOT_OFFSET_2(MSGPACK_PP_VALUE) == 1
@@ -244,4 +259,5 @@
 #    define MSGPACK_PP_SLOT_TEMP_1 9
 # endif
 #
+
 # undef MSGPACK_PP_VALUE

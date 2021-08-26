@@ -7,12 +7,18 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_ARRAY_PUSH_BACK_HPP
 # define MSGPACK_PREPROCESSOR_ARRAY_PUSH_BACK_HPP
 #
+
+
 # include <msgpack/preprocessor/arithmetic/inc.hpp>
 # include <msgpack/preprocessor/array/data.hpp>
 # include <msgpack/preprocessor/array/size.hpp>
@@ -20,9 +26,13 @@
 # include <msgpack/preprocessor/punctuation/comma_if.hpp>
 # include <msgpack/preprocessor/tuple/rem.hpp>
 # include <msgpack/preprocessor/array/detail/get_data.hpp>
+
 #
+
 # /* MSGPACK_PP_ARRAY_PUSH_BACK */
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    define MSGPACK_PP_ARRAY_PUSH_BACK(array, elem) MSGPACK_PP_ARRAY_PUSH_BACK_I(MSGPACK_PP_ARRAY_SIZE(array), MSGPACK_PP_ARRAY_DATA(array), elem)
 # else
@@ -30,6 +40,8 @@
 #    define MSGPACK_PP_ARRAY_PUSH_BACK_D(array, elem) MSGPACK_PP_ARRAY_PUSH_BACK_I(MSGPACK_PP_ARRAY_SIZE(array), MSGPACK_PP_ARRAY_DATA(array), elem)
 # endif
 #
+
 # define MSGPACK_PP_ARRAY_PUSH_BACK_I(size, data, elem) (MSGPACK_PP_INC(size), (MSGPACK_PP_ARRAY_DETAIL_GET_DATA(size,data) MSGPACK_PP_COMMA_IF(size) elem))
 #
+
 # endif

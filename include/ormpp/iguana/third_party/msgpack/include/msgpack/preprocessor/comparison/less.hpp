@@ -6,23 +6,35 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_COMPARISON_LESS_HPP
 # define MSGPACK_PREPROCESSOR_COMPARISON_LESS_HPP
 #
+
+
 # include <msgpack/preprocessor/comparison/less_equal.hpp>
 # include <msgpack/preprocessor/comparison/not_equal.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/control/iif.hpp>
 # include <msgpack/preprocessor/logical/bitand.hpp>
 # include <msgpack/preprocessor/tuple/eat.hpp>
+
 #
+
 # /* MSGPACK_PP_LESS */
+
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & (MSGPACK_PP_CONFIG_MWCC() | MSGPACK_PP_CONFIG_DMC())
 #    define MSGPACK_PP_LESS(x, y) MSGPACK_PP_BITAND(MSGPACK_PP_NOT_EQUAL(x, y), MSGPACK_PP_LESS_EQUAL(x, y))
 # elif ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
@@ -32,8 +44,11 @@
 #    define MSGPACK_PP_LESS_I(x, y) MSGPACK_PP_IIF(MSGPACK_PP_NOT_EQUAL(x, y), MSGPACK_PP_LESS_EQUAL, 0 MSGPACK_PP_TUPLE_EAT_2)(x, y)
 # endif
 #
+
 # /* MSGPACK_PP_LESS_D */
+
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & (MSGPACK_PP_CONFIG_MWCC() | MSGPACK_PP_CONFIG_DMC())
 #    define MSGPACK_PP_LESS_D(d, x, y) MSGPACK_PP_BITAND(MSGPACK_PP_NOT_EQUAL(x, y), MSGPACK_PP_LESS_EQUAL_D(d, x, y))
 # elif ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
@@ -43,4 +58,5 @@
 #    define MSGPACK_PP_LESS_D_I(d, x, y) MSGPACK_PP_IIF(MSGPACK_PP_NOT_EQUAL(x, y), MSGPACK_PP_LESS_EQUAL_D, 0 MSGPACK_PP_TUPLE_EAT_3)(d, x, y)
 # endif
 #
+
 # endif

@@ -6,18 +6,29 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_PUNCTUATION_PAREN_HPP
 # define MSGPACK_PREPROCESSOR_PUNCTUATION_PAREN_HPP
 #
+
 # /* MSGPACK_PP_LPAREN */
+
 #
+
 # define MSGPACK_PP_LPAREN() (
 #
+
 # /* MSGPACK_PP_RPAREN */
+
 #
+
 # define MSGPACK_PP_RPAREN() )
 #
+
 # endif

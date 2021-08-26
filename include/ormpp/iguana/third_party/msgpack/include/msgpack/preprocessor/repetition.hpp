@@ -6,12 +6,18 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_REPETITION_HPP
 # define MSGPACK_PREPROCESSOR_REPETITION_HPP
 #
+
+
 # include <msgpack/preprocessor/repetition/deduce_r.hpp>
 # include <msgpack/preprocessor/repetition/deduce_z.hpp>
 # include <msgpack/preprocessor/repetition/enum.hpp>
@@ -28,5 +34,7 @@
 # include <msgpack/preprocessor/repetition/for.hpp>
 # include <msgpack/preprocessor/repetition/repeat.hpp>
 # include <msgpack/preprocessor/repetition/repeat_from_to.hpp>
+
 #
+
 # endif

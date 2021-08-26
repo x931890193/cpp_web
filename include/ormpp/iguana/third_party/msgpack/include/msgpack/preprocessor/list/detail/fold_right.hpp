@@ -6,17 +6,27 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_LIST_DETAIL_FOLD_RIGHT_HPP
 # define MSGPACK_PREPROCESSOR_LIST_DETAIL_FOLD_RIGHT_HPP
 #
+
+
 # include <msgpack/preprocessor/list/fold_left.hpp>
 # include <msgpack/preprocessor/list/reverse.hpp>
+
 #
+
 # define MSGPACK_PP_LIST_FOLD_RIGHT_1(o, s, l) MSGPACK_PP_LIST_FOLD_LEFT_1(o, s, MSGPACK_PP_LIST_REVERSE_D(1, l))
 # define MSGPACK_PP_LIST_FOLD_RIGHT_2(o, s, l) MSGPACK_PP_LIST_FOLD_LEFT_2(o, s, MSGPACK_PP_LIST_REVERSE_D(2, l))
 # define MSGPACK_PP_LIST_FOLD_RIGHT_3(o, s, l) MSGPACK_PP_LIST_FOLD_LEFT_3(o, s, MSGPACK_PP_LIST_REVERSE_D(3, l))
@@ -274,4 +284,5 @@
 # define MSGPACK_PP_LIST_FOLD_RIGHT_255(o, s, l) MSGPACK_PP_LIST_FOLD_LEFT_255(o, s, MSGPACK_PP_LIST_REVERSE_D(255, l))
 # define MSGPACK_PP_LIST_FOLD_RIGHT_256(o, s, l) MSGPACK_PP_LIST_FOLD_LEFT_256(o, s, MSGPACK_PP_LIST_REVERSE_D(256, l))
 #
+
 # endif

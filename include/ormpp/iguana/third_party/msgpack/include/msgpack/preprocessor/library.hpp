@@ -7,12 +7,18 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)                                *
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_LIBRARY_HPP
 # define MSGPACK_PREPROCESSOR_LIBRARY_HPP
 #
+
+
 # include <msgpack/preprocessor/arithmetic.hpp>
 # include <msgpack/preprocessor/array.hpp>
 # include <msgpack/preprocessor/cat.hpp>
@@ -32,5 +38,7 @@
 # include <msgpack/preprocessor/stringize.hpp>
 # include <msgpack/preprocessor/tuple.hpp>
 # include <msgpack/preprocessor/variadic.hpp>
+
 #
+
 # endif

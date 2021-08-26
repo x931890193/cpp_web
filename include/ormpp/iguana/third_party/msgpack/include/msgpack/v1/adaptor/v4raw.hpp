@@ -17,87 +17,84 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
-namespace type {
+            namespace type {
 
-struct v4raw_ref {
-    v4raw_ref() : size(0), ptr(nullptr) {}
-    v4raw_ref(const char* p, uint32_t s) : size(s), ptr(p) {}
+                struct v4raw_ref {
+                    v4raw_ref() : size(0), ptr(nullptr) {}
 
-    uint32_t size;
-    const char* ptr;
+                    v4raw_ref(const char *p, uint32_t s) : size(s), ptr(p) {}
 
-    std::string str() const { return std::string(ptr, size); }
+                    uint32_t size;
+                    const char *ptr;
 
-    bool operator== (const v4raw_ref& x) const
-    {
-        return size == x.size && std::memcmp(ptr, x.ptr, size) == 0;
-    }
+                    std::string str() const { return std::string(ptr, size); }
 
-    bool operator!= (const v4raw_ref& x) const
-    {
-        return !(*this == x);
-    }
+                    bool operator==(const v4raw_ref &x) const {
+                        return size == x.size && std::memcmp(ptr, x.ptr, size) == 0;
+                    }
 
-    bool operator< (const v4raw_ref& x) const
-    {
-        if(size == x.size) { return std::memcmp(ptr, x.ptr, size) < 0; }
-        else { return size < x.size; }
-    }
+                    bool operator!=(const v4raw_ref &x) const {
+                        return !(*this == x);
+                    }
 
-    bool operator> (const v4raw_ref& x) const
-    {
-        if(size == x.size) { return std::memcmp(ptr, x.ptr, size) > 0; }
-        else { return size > x.size; }
-    }
-};
+                    bool operator<(const v4raw_ref &x) const {
+                        if (size == x.size) { return std::memcmp(ptr, x.ptr, size) < 0; }
+                        else { return size < x.size; }
+                    }
 
-} // namespace type
+                    bool operator>(const v4raw_ref &x) const {
+                        if (size == x.size) { return std::memcmp(ptr, x.ptr, size) > 0; }
+                        else { return size > x.size; }
+                    }
+                };
 
-namespace adaptor {
+            } // namespace type
 
-template <>
-struct convert<type::v4raw_ref> {
-    msgpack::object const& operator()(msgpack::object const& o, type::v4raw_ref& v) const {
-        if(o.type != msgpack::type::STR) { throw msgpack::type_error(); }
-        v.ptr  = o.via.str.ptr;
-        v.size = o.via.str.size;
-        return o;
-    }
-};
+            namespace adaptor {
 
-template <>
-struct pack<type::v4raw_ref> {
-    template <typename Stream>
-    msgpack::packer<Stream>& operator()(msgpack::packer<Stream>& o, const type::v4raw_ref& v) const {
-        o.pack_v4raw(v.size);
-        o.pack_v4raw_body(v.ptr, v.size);
-        return o;
-    }
-};
+                template<>
+                struct convert<type::v4raw_ref> {
+                    msgpack::object const &operator()(msgpack::object const &o, type::v4raw_ref &v) const {
+                        if (o.type != msgpack::type::STR) { throw msgpack::type_error(); }
+                        v.ptr = o.via.str.ptr;
+                        v.size = o.via.str.size;
+                        return o;
+                    }
+                };
 
-template <>
-struct object<type::v4raw_ref> {
-    void operator()(msgpack::object& o, const type::v4raw_ref& v) const {
-        o.type = msgpack::type::STR;
-        o.via.str.ptr = v.ptr;
-        o.via.str.size = v.size;
-    }
-};
+                template<>
+                struct pack<type::v4raw_ref> {
+                    template<typename Stream>
+                    msgpack::packer<Stream> &operator()(msgpack::packer<Stream> &o, const type::v4raw_ref &v) const {
+                        o.pack_v4raw(v.size);
+                        o.pack_v4raw_body(v.ptr, v.size);
+                        return o;
+                    }
+                };
 
-template <>
-struct object_with_zone<type::v4raw_ref> {
-    void operator()(msgpack::object::with_zone& o, const type::v4raw_ref& v) const {
-        static_cast<msgpack::object&>(o) << v;
-    }
-};
+                template<>
+                struct object<type::v4raw_ref> {
+                    void operator()(msgpack::object &o, const type::v4raw_ref &v) const {
+                        o.type = msgpack::type::STR;
+                        o.via.str.ptr = v.ptr;
+                        o.via.str.size = v.size;
+                    }
+                };
 
-} // namespace adaptor
+                template<>
+                struct object_with_zone<type::v4raw_ref> {
+                    void operator()(msgpack::object::with_zone &o, const type::v4raw_ref &v) const {
+                        static_cast<msgpack::object &>(o) << v;
+                    }
+                };
+
+            } // namespace adaptor
 
 /// @cond
-} // MSGPACK_API_VERSION_NAMESPACE(v1)
+    } // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 } // namespace msgpack

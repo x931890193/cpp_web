@@ -6,14 +6,22 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_FACILITIES_IS_EMPTY_VARIADIC_HPP
 # define MSGPACK_PREPROCESSOR_FACILITIES_IS_EMPTY_VARIADIC_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
+
 #
+
 # if MSGPACK_PP_VARIADICS
 #
 # include <msgpack/preprocessor/punctuation/is_begin_parens.hpp>

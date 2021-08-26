@@ -6,24 +6,39 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
+
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_DMC()
 #     include <msgpack/preprocessor/detail/dmc/auto_rec.hpp>
 # else
 #
+
 # ifndef MSGPACK_PREPROCESSOR_DETAIL_AUTO_REC_HPP
 # define MSGPACK_PREPROCESSOR_DETAIL_AUTO_REC_HPP
 #
+
+
 # include <msgpack/preprocessor/control/iif.hpp>
+
 #
+
 # /* MSGPACK_PP_AUTO_REC */
+
 #
+
 # define MSGPACK_PP_AUTO_REC(pred, n) MSGPACK_PP_NODE_ENTRY_ ## n(pred)
 #
+
 # define MSGPACK_PP_NODE_ENTRY_256(p) MSGPACK_PP_NODE_128(p)(p)(p)(p)(p)(p)(p)(p)
 # define MSGPACK_PP_NODE_ENTRY_128(p) MSGPACK_PP_NODE_64(p)(p)(p)(p)(p)(p)(p)
 # define MSGPACK_PP_NODE_ENTRY_64(p) MSGPACK_PP_NODE_32(p)(p)(p)(p)(p)(p)
@@ -33,6 +48,7 @@
 # define MSGPACK_PP_NODE_ENTRY_4(p) MSGPACK_PP_NODE_2(p)(p)
 # define MSGPACK_PP_NODE_ENTRY_2(p) MSGPACK_PP_NODE_1(p)
 #
+
 # define MSGPACK_PP_NODE_128(p) MSGPACK_PP_IIF(p(128), MSGPACK_PP_NODE_64, MSGPACK_PP_NODE_192)
 #    define MSGPACK_PP_NODE_64(p) MSGPACK_PP_IIF(p(64), MSGPACK_PP_NODE_32, MSGPACK_PP_NODE_96)
 #        define MSGPACK_PP_NODE_32(p) MSGPACK_PP_IIF(p(32), MSGPACK_PP_NODE_16, MSGPACK_PP_NODE_48)
@@ -289,5 +305,6 @@
 #                            define MSGPACK_PP_NODE_253(p) MSGPACK_PP_IIF(p(253), 253, 254)
 #                            define MSGPACK_PP_NODE_255(p) MSGPACK_PP_IIF(p(255), 255, 256)
 #
+
 # endif
 # endif

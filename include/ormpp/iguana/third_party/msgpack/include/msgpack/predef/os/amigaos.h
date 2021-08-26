@@ -26,9 +26,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 
 #define MSGPACK_OS_AMIGAOS MSGPACK_VERSION_NUMBER_NOT_AVAILABLE
 
-#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && ( \
+#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && (\
     defined(AMIGA) || defined(__amigaos__) \
-    )
+)
 #   undef MSGPACK_OS_AMIGAOS
 #   define MSGPACK_OS_AMIGAOS MSGPACK_VERSION_NUMBER_AVAILABLE
 #endif
@@ -41,7 +41,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_OS_AMIGAOS_NAME "AmigaOS"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_AMIGAOS,MSGPACK_OS_AMIGAOS_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_AMIGAOS,
+MSGPACK_OS_AMIGAOS_NAME)
 
 
 #endif

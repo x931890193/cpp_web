@@ -6,48 +6,67 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_REPETITION_REPEAT_HPP
 # define MSGPACK_PREPROCESSOR_REPETITION_REPEAT_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/debug/error.hpp>
 # include <msgpack/preprocessor/detail/auto_rec.hpp>
 # include <msgpack/preprocessor/tuple/eat.hpp>
+
 #
+
 # /* MSGPACK_PP_REPEAT */
+
 #
+
 # if 0
 #    define MSGPACK_PP_REPEAT(count, macro, data)
 # endif
 #
+
 # define MSGPACK_PP_REPEAT MSGPACK_PP_CAT(MSGPACK_PP_REPEAT_, MSGPACK_PP_AUTO_REC(MSGPACK_PP_REPEAT_P, 4))
 #
+
 # define MSGPACK_PP_REPEAT_P(n) MSGPACK_PP_CAT(MSGPACK_PP_REPEAT_CHECK_, MSGPACK_PP_REPEAT_ ## n(1, MSGPACK_PP_NIL MSGPACK_PP_TUPLE_EAT_3, MSGPACK_PP_NIL))
 #
+
 # define MSGPACK_PP_REPEAT_CHECK_MSGPACK_PP_NIL 1
 # define MSGPACK_PP_REPEAT_CHECK_MSGPACK_PP_REPEAT_1(c, m, d) 0
 # define MSGPACK_PP_REPEAT_CHECK_MSGPACK_PP_REPEAT_2(c, m, d) 0
 # define MSGPACK_PP_REPEAT_CHECK_MSGPACK_PP_REPEAT_3(c, m, d) 0
 #
+
 # define MSGPACK_PP_REPEAT_1(c, m, d) MSGPACK_PP_REPEAT_1_I(c, m, d)
 # define MSGPACK_PP_REPEAT_2(c, m, d) MSGPACK_PP_REPEAT_2_I(c, m, d)
 # define MSGPACK_PP_REPEAT_3(c, m, d) MSGPACK_PP_REPEAT_3_I(c, m, d)
 # define MSGPACK_PP_REPEAT_4(c, m, d) MSGPACK_PP_ERROR(0x0003)
 #
+
 # define MSGPACK_PP_REPEAT_1_I(c, m, d) MSGPACK_PP_REPEAT_1_ ## c(m, d)
 # define MSGPACK_PP_REPEAT_2_I(c, m, d) MSGPACK_PP_REPEAT_2_ ## c(m, d)
 # define MSGPACK_PP_REPEAT_3_I(c, m, d) MSGPACK_PP_REPEAT_3_ ## c(m, d)
 #
+
 # define MSGPACK_PP_REPEAT_1ST MSGPACK_PP_REPEAT_1
 # define MSGPACK_PP_REPEAT_2ND MSGPACK_PP_REPEAT_2
 # define MSGPACK_PP_REPEAT_3RD MSGPACK_PP_REPEAT_3
 #
+
 # define MSGPACK_PP_REPEAT_1_0(m, d)
 # define MSGPACK_PP_REPEAT_1_1(m, d) m(2, 0, d)
 # define MSGPACK_PP_REPEAT_1_2(m, d) MSGPACK_PP_REPEAT_1_1(m, d) m(2, 1, d)
@@ -306,6 +325,7 @@
 # define MSGPACK_PP_REPEAT_1_255(m, d) MSGPACK_PP_REPEAT_1_254(m, d) m(2, 254, d)
 # define MSGPACK_PP_REPEAT_1_256(m, d) MSGPACK_PP_REPEAT_1_255(m, d) m(2, 255, d)
 #
+
 # define MSGPACK_PP_REPEAT_2_0(m, d)
 # define MSGPACK_PP_REPEAT_2_1(m, d) m(3, 0, d)
 # define MSGPACK_PP_REPEAT_2_2(m, d) MSGPACK_PP_REPEAT_2_1(m, d) m(3, 1, d)
@@ -564,6 +584,7 @@
 # define MSGPACK_PP_REPEAT_2_255(m, d) MSGPACK_PP_REPEAT_2_254(m, d) m(3, 254, d)
 # define MSGPACK_PP_REPEAT_2_256(m, d) MSGPACK_PP_REPEAT_2_255(m, d) m(3, 255, d)
 #
+
 # define MSGPACK_PP_REPEAT_3_0(m, d)
 # define MSGPACK_PP_REPEAT_3_1(m, d) m(4, 0, d)
 # define MSGPACK_PP_REPEAT_3_2(m, d) MSGPACK_PP_REPEAT_3_1(m, d) m(4, 1, d)
@@ -822,4 +843,5 @@
 # define MSGPACK_PP_REPEAT_3_255(m, d) MSGPACK_PP_REPEAT_3_254(m, d) m(4, 254, d)
 # define MSGPACK_PP_REPEAT_3_256(m, d) MSGPACK_PP_REPEAT_3_255(m, d) m(4, 255, d)
 #
+
 # endif

@@ -46,7 +46,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_SYSC_NAME "Dignus Systems/C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_SYSC,MSGPACK_COMP_SYSC_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_SYSC,
+MSGPACK_COMP_SYSC_NAME)
 
 #ifdef MSGPACK_COMP_SYSC_EMULATED
 #include <msgpack/predef/detail/test.h>

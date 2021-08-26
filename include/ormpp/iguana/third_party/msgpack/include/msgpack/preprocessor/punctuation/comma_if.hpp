@@ -6,21 +6,33 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_PUNCTUATION_COMMA_IF_HPP
 # define MSGPACK_PREPROCESSOR_PUNCTUATION_COMMA_IF_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/control/if.hpp>
 # include <msgpack/preprocessor/facilities/empty.hpp>
 # include <msgpack/preprocessor/punctuation/comma.hpp>
+
 #
+
 # /* MSGPACK_PP_COMMA_IF */
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_EDG()
 #    define MSGPACK_PP_COMMA_IF(cond) MSGPACK_PP_IF(cond, MSGPACK_PP_COMMA, MSGPACK_PP_EMPTY)()
 # else
@@ -28,4 +40,5 @@
 #    define MSGPACK_PP_COMMA_IF_I(cond) MSGPACK_PP_IF(cond, MSGPACK_PP_COMMA, MSGPACK_PP_EMPTY)()
 # endif
 #
+
 # endif

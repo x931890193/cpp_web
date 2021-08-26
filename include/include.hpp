@@ -12,5 +12,7 @@
 dbng <mysql> Conn();
 
 auto index();
+
 auto getPerson();
+
 #endif //CPP_WEB_INCLUDE_HPP

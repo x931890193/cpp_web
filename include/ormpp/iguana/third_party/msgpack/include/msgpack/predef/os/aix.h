@@ -32,9 +32,9 @@ Version number available as major, minor, and patch.
 
 #define MSGPACK_OS_AIX MSGPACK_VERSION_NUMBER_NOT_AVAILABLE
 
-#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && ( \
+#if !defined(MSGPACK_PREDEF_DETAIL_OS_DETECTED) && (\
     defined(_AIX) || defined(__TOS_AIX__) \
-    )
+)
 #   undef MSGPACK_OS_AIX
 #   if !defined(MSGPACK_OS_AIX) && defined(_AIX43)
 #       define MSGPACK_OS_AIX MSGPACK_VERSION_NUMBER(4,3,0)
@@ -61,7 +61,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_OS_AIX_NAME "IBM AIX"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_AIX,MSGPACK_OS_AIX_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_OS_AIX,
+MSGPACK_OS_AIX_NAME)
 
 
 #endif

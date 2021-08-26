@@ -23,7 +23,7 @@ namespace person {
 
     }
 
-    std::vector<Person> PersonList(ormpp::dbng <ormpp::mysql> conn) {
+    std::vector<Person> PersonList(ormpp::dbng<ormpp::mysql> conn) {
         auto result = conn.query<Person>();
         return result;
     }

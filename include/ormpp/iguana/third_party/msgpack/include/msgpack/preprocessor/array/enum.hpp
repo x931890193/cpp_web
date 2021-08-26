@@ -7,18 +7,28 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)                                *
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_ARRAY_ENUM_HPP
 # define MSGPACK_PREPROCESSOR_ARRAY_ENUM_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/tuple/rem.hpp>
+
 #
+
 # /* MSGPACK_PP_ARRAY_ENUM */
+
 #
+
 # if MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MSVC()
 #    define MSGPACK_PP_ARRAY_ENUM(array) MSGPACK_PP_ARRAY_ENUM_I(MSGPACK_PP_TUPLE_REM_CTOR, array)
 #    define MSGPACK_PP_ARRAY_ENUM_I(m, args) MSGPACK_PP_ARRAY_ENUM_II(m, args)
@@ -30,4 +40,5 @@
 #    define MSGPACK_PP_ARRAY_ENUM(array) MSGPACK_PP_TUPLE_REM_CTOR array
 # endif
 #
+
 # endif

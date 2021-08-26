@@ -47,7 +47,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_PATH_NAME "EKOpath"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_PATH,MSGPACK_COMP_PATH_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_PATH,
+MSGPACK_COMP_PATH_NAME)
 
 #ifdef MSGPACK_COMP_PATH_EMULATED
 #include <msgpack/predef/detail/test.h>

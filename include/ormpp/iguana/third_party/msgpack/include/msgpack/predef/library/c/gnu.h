@@ -14,7 +14,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #include <msgpack/predef/library/c/_prefix.h>
 
 #if defined(__STDC__)
+
 #include <stddef.h>
+
 #elif defined(__cplusplus)
 #include <cstddef>
 #endif
@@ -56,7 +58,9 @@ Version number available as major, and minor.
 #define MSGPACK_LIB_C_GNU_NAME "GNU"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_C_GNU,MSGPACK_LIB_C_GNU_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_C_GNU,
+MSGPACK_LIB_C_GNU_NAME)
 
 
 #endif

@@ -17,7 +17,7 @@
 namespace msgpack {
 
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
 
 /// The class template that supports continuous packing.
@@ -25,8 +25,8 @@ MSGPACK_API_VERSION_NAMESPACE(v1) {
  * @tparam Stream  Any type that have a member function `Stream write(const char*, size_t s)`
  *
  */
-template <typename Stream>
-class packer;
+            template <typename Stream>
+            class packer;
 
 /// Pack the value as MessagePack format into the stream
 /**
@@ -38,8 +38,8 @@ class packer;
  * @param s The pointer to packing destination stream
  * @param v Packing value
  */
-template <typename Stream, typename T>
-void pack(Stream* s, const T& v);
+            template <typename Stream, typename T>
+            void pack(Stream* s, const T& v);
 
 /// Pack the value as MessagePack format into the stream
 /**
@@ -48,42 +48,42 @@ void pack(Stream* s, const T& v);
  * @param s Packing destination stream
  * @param v Packing value
  */
-template <typename Stream, typename T>
-void pack(Stream& s, const T& v);
+            template <typename Stream, typename T>
+            void pack(Stream& s, const T& v);
 
 #if MSGPACK_ENDIAN_LITTLE_BYTE
-template <typename T>
-char take8_8(T d);
+            template <typename T>
+            char take8_8(T d);
 
-template <typename T>
-char take8_16(T d);
+            template <typename T>
+            char take8_16(T d);
 
-template <typename T>
-char take8_32(T d);
+            template <typename T>
+            char take8_32(T d);
 
-template <typename T>
-char take8_64(T d);
+            template <typename T>
+            char take8_64(T d);
 
 #elif MSGPACK_ENDIAN_BIG_BYTE
 
-template <typename T>
-char take8_8(T d);
+            template <typename T>
+            char take8_8(T d);
 
-template <typename T>
-char take8_16(T d);
+            template <typename T>
+            char take8_16(T d);
 
-template <typename T>
-char take8_32(T d);
+            template <typename T>
+            char take8_32(T d);
 
-template <typename T>
-char take8_64(T d);
+            template <typename T>
+            char take8_64(T d);
 
 #else
 #error msgpack-c supports only big endian and little endian
 #endif
 
 /// @cond
-}  // MSGPACK_API_VERSION_NAMESPACE(v1)
+    }  // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 
 }  // namespace msgpack

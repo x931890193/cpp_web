@@ -7,23 +7,32 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)                                *
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_CONFIG_CONFIG_HPP
 # define MSGPACK_PREPROCESSOR_CONFIG_CONFIG_HPP
 #
+
 # /* MSGPACK_PP_CONFIG_FLAGS */
+
 #
+
 # define MSGPACK_PP_CONFIG_STRICT() 0x0001
 # define MSGPACK_PP_CONFIG_IDEAL() 0x0002
 #
+
 # define MSGPACK_PP_CONFIG_MSVC() 0x0004
 # define MSGPACK_PP_CONFIG_MWCC() 0x0008
 # define MSGPACK_PP_CONFIG_BCC() 0x0010
 # define MSGPACK_PP_CONFIG_EDG() 0x0020
 # define MSGPACK_PP_CONFIG_DMC() 0x0040
 #
+
 # ifndef MSGPACK_PP_CONFIG_FLAGS
 #    if defined(__GCCXML__)
 #        define MSGPACK_PP_CONFIG_FLAGS() (MSGPACK_PP_CONFIG_STRICT())
@@ -52,14 +61,20 @@
 #    endif
 # endif
 #
+
 # /* MSGPACK_PP_CONFIG_EXTENDED_LINE_INFO */
+
 #
+
 # ifndef MSGPACK_PP_CONFIG_EXTENDED_LINE_INFO
 #    define MSGPACK_PP_CONFIG_EXTENDED_LINE_INFO 0
 # endif
 #
+
 # /* MSGPACK_PP_CONFIG_ERRORS */
+
 #
+
 # ifndef MSGPACK_PP_CONFIG_ERRORS
 #    ifdef NDEBUG
 #        define MSGPACK_PP_CONFIG_ERRORS 0
@@ -68,10 +83,14 @@
 #    endif
 # endif
 #
+
 # /* MSGPACK_PP_VARIADICS */
+
 #
+
 # if !defined MSGPACK_PP_VARIADICS
 #    /* variadic support explicitly disabled for all untested compilers */
+
 #    if defined __GCCXML__ || defined __CUDACC__ || defined __PATHSCALE__ || defined __DMC__ || defined __CODEGEARC__ || defined __BORLANDC__ || defined __MWERKS__ || defined __SUNPRO_CC || defined __HP_aCC && !defined __EDG__ || defined __MRC__ || defined __SC__ || defined __IBMCPP__ || defined __PGI
 #        define MSGPACK_PP_VARIADICS 0
 #    /* VC++ (C/C++) */
@@ -82,6 +101,7 @@
 #    elif defined __WAVE__ && __WAVE_HAS_VARIADICS__ || defined __GNUC__ && __GXX_EXPERIMENTAL_CXX0X__
 #        define MSGPACK_PP_VARIADICS 1
 #    /* EDG-based (C/C++), GCC (C), and unknown (C/C++) */
+
 #    elif !defined __cplusplus && __STDC_VERSION__ >= 199901L || __cplusplus >= 201103L
 #        define MSGPACK_PP_VARIADICS 1
 #    else
@@ -98,4 +118,5 @@
 #    define MSGPACK_PP_VARIADICS 0
 # endif
 #
+
 # endif

@@ -6,18 +6,30 @@
 #  * accompanying file LICENSE_1_0.txt or copy at
 #  * http://www.boost.org/LICENSE_1_0.txt)
 #  */
+
 #
+
 # /* Revised by Paul Mensonides (2002) */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_ARITHMETIC_INC_HPP
 # define MSGPACK_PREPROCESSOR_ARITHMETIC_INC_HPP
 #
+
+
 # include <msgpack/preprocessor/config/config.hpp>
+
 #
+
 # /* MSGPACK_PP_INC */
+
 #
+
 # if ~MSGPACK_PP_CONFIG_FLAGS() & MSGPACK_PP_CONFIG_MWCC()
 #    define MSGPACK_PP_INC(x) MSGPACK_PP_INC_I(x)
 # else
@@ -25,8 +37,10 @@
 #    define MSGPACK_PP_INC_OO(par) MSGPACK_PP_INC_I ## par
 # endif
 #
+
 # define MSGPACK_PP_INC_I(x) MSGPACK_PP_INC_ ## x
 #
+
 # define MSGPACK_PP_INC_0 1
 # define MSGPACK_PP_INC_1 2
 # define MSGPACK_PP_INC_2 3
@@ -285,4 +299,5 @@
 # define MSGPACK_PP_INC_255 256
 # define MSGPACK_PP_INC_256 256
 #
+
 # endif

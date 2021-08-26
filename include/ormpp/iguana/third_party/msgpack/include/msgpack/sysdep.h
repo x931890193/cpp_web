@@ -14,20 +14,23 @@
 
 #include <stdlib.h>
 #include <stddef.h>
+
 #if defined(_MSC_VER) && _MSC_VER < 1600
-    typedef signed __int8 int8_t;
-    typedef unsigned __int8 uint8_t;
-    typedef signed __int16 int16_t;
-    typedef unsigned __int16 uint16_t;
-    typedef signed __int32 int32_t;
-    typedef unsigned __int32 uint32_t;
-    typedef signed __int64 int64_t;
-    typedef unsigned __int64 uint64_t;
+typedef signed __int8 int8_t;
+typedef unsigned __int8 uint8_t;
+typedef signed __int16 int16_t;
+typedef unsigned __int16 uint16_t;
+typedef signed __int32 int32_t;
+typedef unsigned __int32 uint32_t;
+typedef signed __int64 int64_t;
+typedef unsigned __int64 uint64_t;
 #elif defined(_MSC_VER)  // && _MSC_VER >= 1600
 #   include <stdint.h>
 #else
+
 #   include <stdint.h>
 #   include <stdbool.h>
+
 #endif
 
 #if !defined(MSGPACK_DLLEXPORT)
@@ -40,10 +43,10 @@
 
 #ifdef _WIN32
 #   define _msgpack_atomic_counter_header <windows.h>
-    typedef long _msgpack_atomic_counter_t;
+typedef long _msgpack_atomic_counter_t;
 #   define _msgpack_sync_decr_and_fetch(ptr) InterlockedDecrement(ptr)
 #   define _msgpack_sync_incr_and_fetch(ptr) InterlockedIncrement(ptr)
-#elif defined(__GNUC__) && ((__GNUC__*10 + __GNUC_MINOR__) < 41)
+#elif defined(__GNUC__) && ((__GNUC__ * 10 + __GNUC_MINOR__) < 41)
 
 #   if defined(__cplusplus)
 #       define _msgpack_atomic_counter_header "gcc_atomic.hpp"
@@ -52,7 +55,7 @@
 #   endif
 
 #else
-    typedef unsigned int _msgpack_atomic_counter_t;
+typedef unsigned int _msgpack_atomic_counter_t;
 #   define _msgpack_sync_decr_and_fetch(ptr) __sync_sub_and_fetch(ptr, 1)
 #   define _msgpack_sync_incr_and_fetch(ptr) __sync_add_and_fetch(ptr, 1)
 #endif
@@ -60,7 +63,7 @@
 #ifdef _WIN32
 
 #   ifdef __cplusplus
-    /* numeric_limits<T>::min,max */
+/* numeric_limits<T>::min,max */
 #       ifdef max
 #           undef max
 #       endif
@@ -72,6 +75,7 @@
 #else /* _*/
 
 #include <arpa/inet.h>  /* __BYTE_ORDER */
+
 #   if defined(linux)
 #       include <byteswap.h>
 #   endif
@@ -187,7 +191,9 @@
 #endif
 
 #ifdef __APPLE__
+
 #  include <TargetConditionals.h>
+
 #endif
 
 #endif /* msgpack/sysdep.h */

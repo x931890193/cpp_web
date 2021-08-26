@@ -6,20 +6,30 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_FACILITIES_IS_EMPTY_OR_1_HPP
 # define MSGPACK_PREPROCESSOR_FACILITIES_IS_EMPTY_OR_1_HPP
 #
+
+
 # include <msgpack/preprocessor/control/iif.hpp>
 # include <msgpack/preprocessor/facilities/empty.hpp>
 # include <msgpack/preprocessor/facilities/identity.hpp>
 # include <msgpack/preprocessor/facilities/is_1.hpp>
 # include <msgpack/preprocessor/facilities/is_empty.hpp>
+
 #
+
 # /* MSGPACK_PP_IS_EMPTY_OR_1 */
+
 #
+
 # define MSGPACK_PP_IS_EMPTY_OR_1(x) \
     MSGPACK_PP_IIF( \
         MSGPACK_PP_IS_EMPTY(x MSGPACK_PP_EMPTY()), \
@@ -28,4 +38,5 @@
     )(x) \
     /**/
 #
+
 # endif

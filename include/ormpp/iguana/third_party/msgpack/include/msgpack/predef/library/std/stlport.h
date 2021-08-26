@@ -54,7 +54,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_LIB_STD_STLPORT_NAME "STLport"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_STLPORT,MSGPACK_LIB_STD_STLPORT_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_STD_STLPORT,
+MSGPACK_LIB_STD_STLPORT_NAME)
 
 
 #endif

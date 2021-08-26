@@ -13,8 +13,8 @@ extern "C" {
 
 typedef int _msgpack_atomic_counter_t;
 
-int _msgpack_sync_decr_and_fetch(volatile _msgpack_atomic_counter_t* ptr);
-int _msgpack_sync_incr_and_fetch(volatile _msgpack_atomic_counter_t* ptr);
+int _msgpack_sync_decr_and_fetch(volatile _msgpack_atomic_counter_t *ptr);
+int _msgpack_sync_incr_and_fetch(volatile _msgpack_atomic_counter_t *ptr);
 
 
 #if defined(__cplusplus)

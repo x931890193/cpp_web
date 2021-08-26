@@ -33,6 +33,8 @@ a category to indicate that either `MSGPACK_ARCH_X86_32` or
 #define MSGPACK_ARCH_X86_NAME "Intel x86"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_X86,MSGPACK_ARCH_X86_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_X86,
+MSGPACK_ARCH_X86_NAME)
 
 #endif

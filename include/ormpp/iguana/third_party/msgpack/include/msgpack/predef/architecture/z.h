@@ -37,7 +37,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_ARCH_Z_NAME "z/Architecture"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_Z,MSGPACK_ARCH_Z_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_ARCH_Z,
+MSGPACK_ARCH_Z_NAME)
 
 
 #endif

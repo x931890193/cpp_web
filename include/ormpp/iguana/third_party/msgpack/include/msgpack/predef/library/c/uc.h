@@ -42,7 +42,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_LIB_C_UC_NAME "uClibc"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_C_UC,MSGPACK_LIB_C_UC_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_C_UC,
+MSGPACK_LIB_C_UC_NAME)
 
 
 #endif

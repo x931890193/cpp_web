@@ -51,7 +51,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_LIB_C_ZOS_NAME "z/OS"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_C_ZOS,MSGPACK_LIB_C_ZOS_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_LIB_C_ZOS,
+MSGPACK_LIB_C_ZOS_NAME)
 
 
 #endif

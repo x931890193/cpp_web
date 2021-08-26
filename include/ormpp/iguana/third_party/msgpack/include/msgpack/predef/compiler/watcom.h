@@ -46,7 +46,9 @@ Version number available as major, and minor.
 #define MSGPACK_COMP_WATCOM_NAME "Watcom C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_WATCOM,MSGPACK_COMP_WATCOM_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_WATCOM,
+MSGPACK_COMP_WATCOM_NAME)
 
 #ifdef MSGPACK_COMP_WATCOM_EMULATED
 #include <msgpack/predef/detail/test.h>

@@ -41,13 +41,17 @@ http://www.boost.org/LICENSE_1_0.txt)
 #       define MSGPACK_COMP_LLVM MSGPACK_COMP_LLVM_DETECTION
 #   endif
 #   define MSGPACK_COMP_LLVM_AVAILABLE
+
 #   include <msgpack/predef/detail/comp_detected.h>
+
 #endif
 
 #define MSGPACK_COMP_LLVM_NAME "LLVM"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_LLVM,MSGPACK_COMP_LLVM_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_LLVM,
+MSGPACK_COMP_LLVM_NAME)
 
 #ifdef MSGPACK_COMP_LLVM_EMULATED
 #include <msgpack/predef/detail/test.h>

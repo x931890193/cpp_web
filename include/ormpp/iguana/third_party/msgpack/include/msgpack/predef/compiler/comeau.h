@@ -51,7 +51,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_COMO_NAME "Comeau C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_COMO,MSGPACK_COMP_COMO_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_COMO,
+MSGPACK_COMP_COMO_NAME)
 
 #ifdef MSGPACK_COMP_COMO_EMULATED
 #include <msgpack/predef/detail/test.h>

@@ -15,24 +15,24 @@
 
 namespace msgpack {
 /// @cond
-MSGPACK_API_VERSION_NAMESPACE(v1) {
+    MSGPACK_API_VERSION_NAMESPACE(v1) {
 /// @endcond
-namespace type {
+            namespace type {
 
-template <typename Tuple, std::size_t N>
-struct define_array_imp;
+                template<typename Tuple, std::size_t N>
+                struct define_array_imp;
 
-template <typename... Args>
-struct define_array;
+                template<typename... Args>
+                struct define_array;
 
-define_array<> make_define_array();
+                define_array<> make_define_array();
 
-template <typename... Args>
-inline define_array<Args...> make_define_array(Args&... args);
+                template<typename... Args>
+                inline define_array<Args...> make_define_array(Args &... args);
 
-}  // namespace type
+            }  // namespace type
 /// @cond
-}  // MSGPACK_API_VERSION_NAMESPACE(v1)
+    }  // MSGPACK_API_VERSION_NAMESPACE(v1)
 /// @endcond
 }  // namespace msgpack
 

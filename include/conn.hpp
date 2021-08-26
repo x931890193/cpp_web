@@ -10,7 +10,6 @@
 #include "ormpp/entity.hpp"
 
 
-
 const char *ip = "127.0.0.1";
 const char *user = "root";
 const char *passsword = "";
@@ -18,6 +17,7 @@ const char *db = "cpp_db";
 
 namespace conn {
     using namespace ormpp;
+
     dbng<mysql> Conn() {
         dbng<mysql> conn;
         conn.connect(ip, user, passsword, db);

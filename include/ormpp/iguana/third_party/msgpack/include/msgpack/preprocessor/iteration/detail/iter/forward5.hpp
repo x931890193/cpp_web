@@ -6,9 +6,13 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # if defined(MSGPACK_PP_ITERATION_LIMITS)
 #    if !defined(MSGPACK_PP_FILENAME_5)
 #        error MSGPACK_PP_ERROR:  depth #5 filename is not defined
@@ -34,15 +38,19 @@
 #    error MSGPACK_PP_ERROR:  depth #5 iteration boundaries or filename not defined
 # endif
 #
+
 # undef MSGPACK_PP_ITERATION_DEPTH
 # define MSGPACK_PP_ITERATION_DEPTH() 5
 #
+
 # if (MSGPACK_PP_ITERATION_START_5) > (MSGPACK_PP_ITERATION_FINISH_5)
 #    include <msgpack/preprocessor/iteration/detail/iter/reverse5.hpp>
 # else
 #    if MSGPACK_PP_ITERATION_START_5 <= 0 && MSGPACK_PP_ITERATION_FINISH_5 >= 0
 #        define MSGPACK_PP_ITERATION_5 0
+
 #        include MSGPACK_PP_FILENAME_5
+
 #        undef MSGPACK_PP_ITERATION_5
 #    endif
 #    if MSGPACK_PP_ITERATION_START_5 <= 1 && MSGPACK_PP_ITERATION_FINISH_5 >= 1
@@ -1327,12 +1335,15 @@
 #    endif
 # endif
 #
+
 # undef MSGPACK_PP_ITERATION_DEPTH
 # define MSGPACK_PP_ITERATION_DEPTH() 4
 #
+
 # undef MSGPACK_PP_ITERATION_START_5
 # undef MSGPACK_PP_ITERATION_FINISH_5
 # undef MSGPACK_PP_FILENAME_5
 #
+
 # undef MSGPACK_PP_ITERATION_FLAGS_5
 # undef MSGPACK_PP_ITERATION_PARAMS_5

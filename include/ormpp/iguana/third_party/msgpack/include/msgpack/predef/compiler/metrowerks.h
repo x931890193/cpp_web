@@ -67,7 +67,9 @@ Version number available as major, minor, and patch.
 #define MSGPACK_COMP_MWERKS_NAME "Metrowerks CodeWarrior"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_MWERKS,MSGPACK_COMP_MWERKS_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_MWERKS,
+MSGPACK_COMP_MWERKS_NAME)
 
 #ifdef MSGPACK_COMP_MWERKS_EMULATED
 #include <msgpack/predef/detail/test.h>

@@ -2,6 +2,7 @@
 // Created by sato on 2021/8/21.
 //
 #define CROW_MAIN  //
+
 #include "ext/resp.hpp"
 #include "ext/json.hpp"
 
@@ -108,7 +109,7 @@ int main() {
                 return text;
             });
     CROW_ROUTE(app, "/set_cookies")
-            ([&](crow::response& res) {
+            ([&](crow::response &res) {
                 std::string text = "set_cookie\n";
 
                 res.set_header("Set-Cookie", "11111");

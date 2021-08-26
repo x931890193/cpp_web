@@ -78,7 +78,7 @@ Epoch date. If the month is not available, January 1st is used as the month and 
 If the day is not available, but the month is, the 1st of the month is used as the day.
 */
 /*` `MSGPACK_PREDEF_MAKE_DATE(Y,M,D)` */
-#define MSGPACK_PREDEF_MAKE_DATE(Y,M,D) MSGPACK_VERSION_NUMBER((Y)%10000-1970,(M)%100,(D)%100)
+#define MSGPACK_PREDEF_MAKE_DATE(Y, M, D) MSGPACK_VERSION_NUMBER((Y)%10000-1970,(M)%100,(D)%100)
 /*` `MSGPACK_PREDEF_MAKE_YYYYMMDD(V)` */
 #define MSGPACK_PREDEF_MAKE_YYYYMMDD(V) MSGPACK_PREDEF_MAKE_DATE(((V)/10000)%10000,((V)/100)%100,(V)%100)
 /*` `MSGPACK_PREDEF_MAKE_YYYY(V)` */

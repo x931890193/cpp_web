@@ -6,12 +6,20 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_ENUM_SHIFTED_PARAMS_HPP
 # define MSGPACK_PREPROCESSOR_ENUM_SHIFTED_PARAMS_HPP
 #
+
+
 # include <msgpack/preprocessor/repetition/enum_shifted_params.hpp>
+
 #
+
 # endif

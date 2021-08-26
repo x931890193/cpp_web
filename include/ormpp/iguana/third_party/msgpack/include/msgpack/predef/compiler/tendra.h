@@ -43,7 +43,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #define MSGPACK_COMP_TENDRA_NAME "TenDRA C/C++"
 
 #include <msgpack/predef/detail/test.h>
-MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_TENDRA,MSGPACK_COMP_TENDRA_NAME)
+
+MSGPACK_PREDEF_DECLARE_TEST(MSGPACK_COMP_TENDRA,
+MSGPACK_COMP_TENDRA_NAME)
 
 #ifdef MSGPACK_COMP_TENDRA_EMULATED
 #include <msgpack/predef/detail/test.h>

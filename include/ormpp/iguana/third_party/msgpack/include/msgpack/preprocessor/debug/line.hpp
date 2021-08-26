@@ -6,19 +6,29 @@
 #  *     http://www.boost.org/LICENSE_1_0.txt)
 #  *                                                                          *
 #  ************************************************************************** */
+
 #
+
 # /* See http://www.boost.org for most recent version. */
+
 #
+
 # ifndef MSGPACK_PREPROCESSOR_DEBUG_LINE_HPP
 # define MSGPACK_PREPROCESSOR_DEBUG_LINE_HPP
 #
+
+
 # include <msgpack/preprocessor/cat.hpp>
 # include <msgpack/preprocessor/config/config.hpp>
 # include <msgpack/preprocessor/iteration/iterate.hpp>
 # include <msgpack/preprocessor/stringize.hpp>
+
 #
+
 # /* MSGPACK_PP_LINE */
+
 #
+
 # if MSGPACK_PP_CONFIG_EXTENDED_LINE_INFO
 #    define MSGPACK_PP_LINE(line, file) line MSGPACK_PP_CAT(MSGPACK_PP_LINE_, MSGPACK_PP_IS_ITERATING)(file)
 #    define MSGPACK_PP_LINE_MSGPACK_PP_IS_ITERATING(file) #file
@@ -32,4 +42,5 @@
 #    define MSGPACK_PP_LINE(line, file) line __FILE__
 # endif
 #
+
 # endif
