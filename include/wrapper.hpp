@@ -10,17 +10,18 @@
 
 
 namespace person {
-    void DeletePerson(ormpp::dbng<ormpp::mysql> conn) {
-        conn.delete_records<Person>();
+    void DeletePersonById(ormpp::dbng<ormpp::mysql> conn, int id) {
+        std::ostringstream stream;
+        stream << "id = " << id;
+        std::string new_string = stream.str();
+        conn.delete_records<Person>(new_string);
 
     }
 
-    void UpdatePerson() {
-
+    void UpdatePerson(ormpp::dbng<ormpp::mysql> conn) {
     }
 
-    void InsertPerson() {
-
+    void InsertPerson(ormpp::dbng<ormpp::mysql> conn) {
     }
 
     std::vector<Person> PersonList(ormpp::dbng<ormpp::mysql> conn) {
