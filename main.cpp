@@ -66,6 +66,7 @@ int main() {
     CROW_ROUTE(app, "/add/<int>/<int>")
         ([](int a, int b) {
             std::ostringstream os;
+            std::cerr<< "this is error\n";
             os << a + b;
             return crow::response(os.str());
         });
@@ -133,9 +134,11 @@ int main() {
         });
     CROW_ROUTE(app, "/set_cookies")
         ([&](crow::response &res) {
+            crow::CookieParser::context context;
+            context.set_cookie("test", "1111");
+            context.set_cookie("test2", "333");
             std::string text = "set_cookie\n";
-
-            res.set_header("Set-Cookie", "11111");
+            res.set_header("Set-Cookie", "key=value;key2=rrrr");
             res.write(text);
             res.end();
 //                return text;
