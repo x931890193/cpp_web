@@ -11047,22 +11047,6 @@ namespace crow
 #include <thread>
 #include <condition_variable>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #ifdef CROW_ENABLE_COMPRESSION
 
 
