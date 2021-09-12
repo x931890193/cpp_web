@@ -11,6 +11,6 @@ auto index() {
 }
 
 auto getPerson() {
-    return "person list!";
-//    return person::PersonList(conn::Conn());
+//    return "person list!";
+    return person::PersonList(conn::Conn());
 }
