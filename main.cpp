@@ -21,10 +21,6 @@ int main() {
     CROW_LOG_INFO << "message";
     compare();
     // get domian url based on the request
-    auto get_domain = [&use_ssl](crow::request const &req) {
-        return (use_ssl ? "https://" : "http://")
-               + req.get_header_value("Host");
-    };
     CROW_ROUTE(app, "/")([]() {
         std::string msg = index();
         nlohmann::json data;
