@@ -19,8 +19,7 @@ int main() {
     conn::Conn();
     crow::SimpleApp app;
     CROW_LOG_INFO << "message";
-    compare();
-    // get domian url based on the request
+    // compare();
     CROW_ROUTE(app, "/")([]() {
         std::string msg = index();
         nlohmann::json data;
